@@ -1,0 +1,49 @@
+## Basic Configuration
+baseurl = "http://localhost:1313/"
+languageCode = "en"
+
+theme = "hyde-hyde"
+paginate = 7
+
+## Hugo Built-in Features
+disqusShortname = ""
+googleAnalytics = ""
+enableRobotsTXT = true
+
+## Site Settings
+[params]
+    author = "Author"
+    title = "Title"
+    # description = "..."
+    authorimage = "/img/hugo.png"
+    dateformat = "Jan 1, 2006"
+
+## Social Accounts
+[params.social]
+    github = "<username>"
+    instagram = "<username>"
+    xing = "<username>"
+    linkedin = "<username>"
+    twitter = "<username>"
+    facebook = "<username>"
+    stackoverflow = "<username>"
+    email = "your-email@example.com"
+
+## Extras
+[params.extra]
+    copyright = "© 2018. [Some Rights Reserved](http://creativecommons.org/licenses/by/3.0/)."
+    poweredby = true
+#    highlightjs = true
+#    highlightjsstyle = "github"
+
+## Main Menu
+[[menu.main]]
+    name = "Posts"
+    weight = 100
+    identifier = "posts"
+    url = "/posts/"
+[[menu.main]]
+    name = "About"
+    identifier = "about"
+    weight = 200
+    url = "/about/"

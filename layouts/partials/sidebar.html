@@ -1,19 +1,22 @@
 <div class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <a href="{{ .Site.BaseURL }}"><h1>{{ .Site.Title }}</h1></a>
+  <div class="container text-center sidebar-sticky">
+    <div class="sidebar-about" align="center">
+      <a href="{{ .Site.BaseURL }}"><h1 class="brand">{{ .Site.Title }}</h1></a>
+      {{ with .Site.Params.authorimage }} <img src="{{.}}" alt="Author Image" class="img-circle headshot"> {{ end }}      
       <p class="lead">
-      {{ with .Site.Params.description }} {{.}} {{ else }}An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.{{end}}
+      {{ with .Site.Params.description }} {{.}} {{ else }} Your site's description {{end}}
       </p>
     </div>
-
+    <div>
     <ul class="sidebar-nav">
-      <li><a href="{{ .Site.BaseURL }}">Home</a> </li>
       {{ range .Site.Menus.main -}}
-        <li><a href="{{.URL}}"> {{ .Name }} </a></li>
+        <li><a href="{{.URL}}"> {{ .Name | upper }} </a></li>
       {{- end }}
     </ul>
-
-    <p>{{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format "2006"}}. All rights reserved. {{end}}</p>
+    </div>
+    {{ partial "social.html" . }}
+    <p>{{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format "2006"}} {{.Site.Params.author}}. Some rights reserved. {{end}}</p>
+  </div>
+  <div>
   </div>
 </div>

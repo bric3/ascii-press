@@ -1,0 +1,31 @@
+body {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 300 !important;
+}
+
+code {
+  font-family: "Fira Code", "Source Code Pro", Consolas, monospace;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.headshot {
+  width: 115px;
+  height: 115px;
+}
+
+.brand {
+  font-size: 3.0em;
+  margin-bottom: 0;
+}
+
+span, p, code {
+  font-size: 1.33vw;
+}
+
+.text-center {
+  text-align:center;
+}
