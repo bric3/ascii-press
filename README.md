@@ -2,16 +2,9 @@
 
 __`hyde-hyde`__ is a [Hugo](https://gohugo.io)'s theme derived from @spf13's [Hyde](https://github.com/spf13/hyde.git) which is in turn ported from @mdo Jekyll's [Hyde](https://github.com/poole/hyde).
 
-![Hyde screenshot](https://f.cloud.github.com/assets/98681/1831228/42af6c6a-7384-11e3-98fb-e0b923ee0468.png)
+![hyde-hyde main screen](images/hyde-hyde-main.png)
 
-
-## Contents
-
-- [Installation](#installation)
-- [Author](#author)
-- [Ported by](#ported-by)
-- [License](#license)
-
+![hyde-hyde main screen](images/hyde-hyde-posts.png)
 
 ## Installation
 
