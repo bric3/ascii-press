@@ -2,9 +2,9 @@
 
 __`hyde-hyde`__ is a [Hugo](https://gohugo.io)'s theme derived from @spf13's [Hyde](https://github.com/spf13/hyde.git) which is in turn ported from @mdo Jekyll's [Hyde](https://github.com/poole/hyde).
 
-![hyde-hyde main screen](images/hyde-hyde-main.png)
+![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/blob/master/images/hyde-hyde-main.PNG)
 
-![hyde-hyde main screen](images/hyde-hyde-posts.png)
+![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/blob/master/images/hyde-hyde-posts.PNG)
 
 ## Installation
 
@@ -22,10 +22,13 @@ Then indicate `hyde-hyde` as the main theme
 
 * `config.toml` 
 
-    theme = "hyde-hyde"
+```tomp
+theme = "hyde-hyde"
+```
+    
 * `config.yaml`
 
-```
+```yaml
 theme : "hyde-hyde"
 ```
 
