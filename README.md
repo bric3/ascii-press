@@ -1,6 +1,8 @@
 # hyde-hyde
 
-__`hyde-hyde`__ is a [Hugo](https://gohugo.io)'s theme derived from @spf13's [Hyde](https://github.com/spf13/hyde.git) which is in turn ported from @mdo Jekyll's [Hyde](https://github.com/poole/hyde).
+__`hyde-hyde`__ is a [Hugo](https://gohugo.io)'s theme derived from @spf13's [Hyde](https://github.com/spf13/hyde.git) which is in turn ported from @mdo Jekyll's [Hyde](https://github.com/poole/hyde). 
+
+You can see a real site in action [here](https://htr3n.github.io).
 
 ![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/blob/master/images/hyde-hyde-main.PNG)
 
@@ -8,7 +10,7 @@ __`hyde-hyde`__ is a [Hugo](https://gohugo.io)'s theme derived from @spf13's [Hy
 
 ## Installation
 
-`hyde-hyde` can be easily installed as other themes:
+`hyde-hyde` can be easily installed as many other Hugo's themes:
 
 ```sh
 $ cd HUGO_SITE
@@ -25,7 +27,7 @@ Then indicate `hyde-hyde` as the main theme
 ```tomp
 theme = "hyde-hyde"
 ```
-    
+
 * `config.yaml`
 
 ```yaml
@@ -34,7 +36,7 @@ theme : "hyde-hyde"
 
 ## Options
 
-* `hyde-hyde` essentially inherits all options from [Hyde](https://github.com/spf13/hyde).
+* `hyde-hyde` essentially inherits [all options](https://github.com/spf13/hyde#options) from Hyde.
 
 ## Author(s)
 ### Original Developed by Mark Otto

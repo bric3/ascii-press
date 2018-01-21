@@ -5,7 +5,8 @@ body {
 }
 
 code {
-  font-family: "Fira Code", "Source Code Pro", Consolas, monospace;
+  font-family: monospace;
+  font-size: .9rem;
 }
 
 .img-circle {
@@ -28,4 +29,9 @@ span, p, code {
 
 .text-center {
   text-align:center;
+}
+
+.meta {
+    font-size: .9rem !important;
+    font-weight: 300;
 }
