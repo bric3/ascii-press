@@ -1,10 +1,19 @@
-{{ define "main" -}}
-<h1 class="title">Blog Posts</h1>
+{{ define "main" }}
+<h1 class="title">{{ .Title }}</h1>
 <ul class="posts">
-{{ range .Data.Pages -}}
-  <li>
-    <span><a href="{{ .Permalink }}">{{ .Title }}</a> <time class="pull-right post-list">{{ .Date.Format "Jan 2, 2006" }}</time></span>
-  </li>
-{{- end }}
+  {{ range .Data.Pages -}}
+    <li>
+      <span><a href="{{ .Permalink }}">{{ .Title }}</a> <time class="pull-right post-list">{{ .Date.Format "Jan 2, 2006" }}</time></span>
+    </li>
+  {{- end }}
 </ul>
+{{- end }}
+
+{{ define "footer" }}
+<!-- Footer -->
+<div>
+  {{ if .Site.GoogleAnalytics -}}
+    {{ template "_internal/google_analytics_async.html" . }}
+  {{- end}}  
+</div>
 {{- end }}

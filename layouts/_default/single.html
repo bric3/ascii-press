@@ -33,9 +33,25 @@
   {{ end }}
   {{ .Content }}
 </div>
-
-{{ if .Site.DisqusShortname -}}
-<h2>Comments</h2>
-{{ template "_internal/disqus.html" . }}
 {{- end }}
+
+{{ define "footer" -}}
+  {{ if .Site.Params.highlightjs }}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    {{ range .Site.Params.highlightjslanguages }}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/{{.}}.min.js"></script>
+    {{ end }}
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+  {{ end }}
+  <!-- Google Analytics -->
+  {{ if .Site.GoogleAnalytics }}
+    {{ template "_internal/google_analytics_async.html" . }}
+  {{ end }}
+  <!-- Disqus-->
+  {{ if .Site.DisqusShortname }}
+    <h2>Comments</h2>
+    {{ template "_internal/disqus.html" . }}
+  {{ end }}
 {{- end }}

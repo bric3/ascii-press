@@ -1,12 +1,8 @@
-body {
+html, body {
   font-family: "Fira Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 300 !important;
-}
-
-code {
-  font-family: monospace;
-  font-size: .9rem;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.5;
 }
 
 .img-circle {
@@ -19,12 +15,8 @@ code {
 }
 
 .brand {
-  font-size: 3.0em;
+  font-size: 2.6em;
   margin-bottom: 0;
-}
-
-span, p, code {
-  font-size: 1.33vw;
 }
 
 .text-center {
@@ -32,6 +24,15 @@ span, p, code {
 }
 
 .meta {
-    font-size: .9rem !important;
+    font-size: .8rem !important;
     font-weight: 300;
+}
+
+pre {
+  padding: 2px;
+  tab-size: 2;
+}
+
+pre > code {
+  font-family: monospace;
 }

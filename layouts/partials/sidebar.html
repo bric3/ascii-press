@@ -10,7 +10,7 @@
     <div>
     <ul class="sidebar-nav">
       {{ range .Site.Menus.main -}}
-        <li><a href="{{.URL}}"> {{ .Name | upper }} </a></li>
+        <li><a href="{{.URL}}"> {{ .Name | title }} </a></li>
       {{- end }}
     </ul>
     </div>

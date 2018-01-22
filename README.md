@@ -4,9 +4,9 @@ __`hyde-hyde`__ is a [Hugo](https://gohugo.io)'s theme derived from @spf13's [Hy
 
 You can see a real site in action [here](https://htr3n.github.io).
 
-![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/blob/master/images/hyde-hyde-main.PNG)
+![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/blob/master/images/main.png)
 
-![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/blob/master/images/hyde-hyde-posts.PNG)
+![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/blob/master/images/posts.png)
 
 ## Installation
 
