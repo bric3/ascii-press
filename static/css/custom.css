@@ -29,10 +29,10 @@ html, body {
 }
 
 pre {
-  padding: 2px;
+  padding: 1px;
   tab-size: 2;
 }
 
-pre > code {
+pre, code {
   font-family: monospace;
 }

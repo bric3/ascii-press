@@ -10,10 +10,9 @@
 {{- end }}
 
 {{ define "footer" }}
-<!-- Footer -->
-<div>
+  <!-- Footer -->
   {{ if .Site.GoogleAnalytics -}}
     {{ template "_internal/google_analytics_async.html" . }}
   {{- end}}  
-</div>
+  <script src="{{ .Site.BaseURL }}js/main.js"></script>
 {{- end }}
