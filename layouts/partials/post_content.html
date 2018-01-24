@@ -1,0 +1,35 @@
+<div class="post">
+  <h1>{{ .Title }}</h1>
+  {{ if ne .Params.showpagemeta false }}
+  <div class="col-sm-12 col-md-12">
+    <span class="text-left post-date meta">
+      <!-- published date -->      
+      {{ if not .Date.IsZero }} {{ .Date.Format .Site.Params.dateformat }} {{end}}
+      <!-- categories -->
+      {{ if isset .Params "categories" }}
+        {{ $total := len .Params.categories }}
+        {{ if gt $total 0 }}
+            in
+            {{ $total := sub $total 1 }}
+            {{ range $i, $cat := sort $.Params.categories }}
+                <a class="meta" href="{{ "/categories/" | relURL }}{{ $cat | urlize }}">{{ $cat | upper }}</a>
+                {{ if lt $i $total }},{{ end }}
+            {{ end }}
+        {{ end }}
+      {{ end }}
+      <!-- tags -->
+      {{ if isset .Params "tags" }}
+        {{ $total := len .Params.tags }}
+        {{ if gt $total 0 }}
+            <br/>
+            {{ $subtotal := sub $total 1 }}        
+            {{ range $i, $tag := sort $.Params.tags }}
+            <a class="meta" href="{{ "/tags/" | relURL }}{{ $tag | urlize }}">#{{ $tag | lower }}</a>{{ if lt $i $subtotal }} {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ end }}
+      </span>  
+  </div>    
+  {{ end }}
+  {{ .Content }}
+</div>

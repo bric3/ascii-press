@@ -1,0 +1,16 @@
+{{ if .Site.Params.highlightjs -}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+{{ range .Site.Params.highlightjslanguages }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/{{.}}.min.js"></script>
+{{ end }}
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+{{- end }}
+<!-- Disqus-->
+{{ if .Site.DisqusShortname -}}
+    {{ if ne .Params.showcomments false }}
+        <h2>Comments</h2>
+        {{ partial "post_disqus.html" . }}
+    {{ end }}  
+{{- end }}

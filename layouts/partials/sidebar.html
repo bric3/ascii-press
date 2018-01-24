@@ -1,22 +1,22 @@
 <div class="sidebar">
-  <div class="container text-center sidebar-sticky">
-    <div class="sidebar-about" align="center">
-      <a href="{{ .Site.BaseURL }}"><h1 class="brand">{{ .Site.Title }}</h1></a>
-      {{ with .Site.Params.authorimage }} <img src="{{.}}" alt="Author Image" class="img-circle headshot"> {{ end }}      
-      <p class="lead">
-      {{ with .Site.Params.description }} {{.}} {{ else }} Your site's description {{end}}
-      </p>
-    </div>
-    <div>
-    <ul class="sidebar-nav">
-      {{ range .Site.Menus.main -}}
-        <li><a href="{{.URL}}"> {{ .Name | title }} </a></li>
-      {{- end }}
-    </ul>
-    </div>
-    {{ partial "social.html" . }}
-    <p>{{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format "2006"}} {{.Site.Params.author}}. <a href="http://creativecommons.org/licenses/by/3.0">Some Rights Reserved</a>. {{end}}</p>
-  </div>
-  <div>
-  </div>
+	<div class="container text-center sidebar-sticky">
+		<div class="sidebar-about text-center">
+			<a href="{{ .Site.BaseURL }}"><h1 class="brand">{{ .Site.Title }}</h1></a>
+			{{ with .Site.Params.authorimage }} <img src="{{.}}" alt="Author Image" class="img-circle headshot center"> {{ end }}
+			<p class="lead">
+				{{ with .Site.Params.description }} {{.}} {{ else }} Your site's description {{end}}
+			</p>
+		</div>
+		{{ partial "sidebar_menu.html" . }}
+        <p>
+		{{ partial "sidebar_social.html" . }}
+        </p>
+		<p>{{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format "2006"}} {{.Site.Params.author}}. <br/>
+        <a href="http://creativecommons.org/licenses/by/3.0">Some Rights Reserved</a>. {{end}}
+        <br/>
+		<span class="poweredby">Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.</span>
+        </p>
+	</div>
+	<div>
+	</div>
 </div>

@@ -1,18 +1,10 @@
-{{ define "main" }}
-<h1 class="title">{{ .Title }}</h1>
-<ul class="posts">
-  {{ range .Data.Pages -}}
-    <li>
-      <span><a href="{{ .Permalink }}">{{ .Title }}</a> <time class="pull-right post-list">{{ .Date.Format "Jan 2, 2006" }}</time></span>
-    </li>
-  {{- end }}
-</ul>
-{{- end }}
+{{ define "header" -}}
+    {{ partial "header.html" . }}
+{{- end -}}
 
-{{ define "footer" }}
-  <!-- Footer -->
-  {{ if .Site.GoogleAnalytics -}}
-    {{ template "_internal/google_analytics_async.html" . }}
-  {{- end}}  
-  <script src="{{ .Site.BaseURL }}js/main.js"></script>
+{{ define "content" -}}
+    {{ partial "list_content.html" . }}
+{{- end -}}
+
+{{ define "footer" -}}
 {{- end }}
