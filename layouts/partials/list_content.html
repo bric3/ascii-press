@@ -1,6 +1,6 @@
 <h1 class="title">{{ .Title }}</h1>
 <ul class="posts">
-    {{ range where .Data.Pages "Section" "post" -}}
+    {{ range .Data.Pages -}}
     <li>
         <span>
             <a href="{{ .Permalink }}">{{ .Title }}</a>
