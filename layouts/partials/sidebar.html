@@ -11,10 +11,10 @@
         <p>
 		{{ partial "sidebar_social.html" . }}
         </p>
-		<p>{{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format "2006"}} {{.Site.Params.author}}. <br/>
-        <a href="http://creativecommons.org/licenses/by/3.0">Some Rights Reserved</a>. {{end}}
+		<p class="copyright">{{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format "2006"}} {{.Site.Params.author}}. <br/>
+        <a href="https://creativecommons.org/licenses/by/4.0">Some Rights Reserved</a>. {{end}}
         <br/>
-		<span class="poweredby">Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.</span>
+		<p class="poweredby">Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.</p>
         </p>
 	</div>
 	<div>
