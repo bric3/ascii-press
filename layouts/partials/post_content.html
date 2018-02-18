@@ -4,7 +4,7 @@
   <div class="col-sm-12 col-md-12">
     <span class="text-left post-date meta">
       <!-- published date -->      
-      {{ if not .Date.IsZero }} {{ .Date.Format .Site.Params.dateformat }} {{end}}
+      {{ if not .Date.IsZero }} <i class="fa fa-calendar" aria-hidden="true"></i> {{ .Date.Format .Site.Params.dateformat }} {{end}}
       <!-- categories -->
       {{ if isset .Params "categories" }}
         {{ $total := len .Params.categories }}
@@ -22,9 +22,9 @@
         {{ $total := len .Params.tags }}
         {{ if gt $total 0 }}
             <br/>
-            {{ $subtotal := sub $total 1 }}        
+            {{ $subtotal := sub $total 1 }} <i class="fa fa-tags" aria-hidden="true"></i>
             {{ range $i, $tag := sort $.Params.tags }}
-            <a class="meta" href="{{ "/tags/" | relURL }}{{ $tag | urlize }}">#{{ $tag | lower }}</a>{{ if lt $i $subtotal }} {{ end }}
+            <a class="meta" href="{{ "/tags/" | relURL }}{{ $tag | urlize }}">{{ $tag | lower }}</a>{{ if lt $i $subtotal }} {{ end }}
         {{ end }}
       {{ end }}
       {{ end }}
