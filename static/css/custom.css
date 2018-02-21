@@ -43,11 +43,30 @@ pre
     tab-size: 2;
 }
 
+
+.hljs {
+    white-space: pre;
+    
+    overflow-x: auto; /* no line wrapping */
+}
+
 pre,
 code
 {
     font-family: monospace;
+    border-radius: 4px;
+    width: 100%;
+    font-size: .85em;
 }
+
+code {
+	padding:.15em .3em;
+	background: #272932!important;
+	color: #ececec!important;
+	box-sizing: border-box;
+	margin: 0 .25em;
+}
+
 
 .copyright, 
 .poweredby
