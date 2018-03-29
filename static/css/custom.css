@@ -56,11 +56,11 @@ code
     font-family: monospace;
     border-radius: 4px;
     width: 100%;
-    font-size: .85em;
+    font-size: .9em;
 }
 
 code {
-	padding:.15em .3em;
+	padding:.20em .2em .10em;
 	background: #272932!important;
 	color: #ececec!important;
 	box-sizing: border-box;
@@ -81,4 +81,8 @@ img.center
 
     margin-right: auto;
     margin-left: auto;
+}
+/* Changing from font-awesome 4 to 5, the class pull-right was removed */
+.pull-right {
+    float: right;
 }

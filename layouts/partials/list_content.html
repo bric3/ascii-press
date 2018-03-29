@@ -4,7 +4,15 @@
     <li>
         <span>
             <a href="{{ .Permalink }}">{{ .Title }}</a>
-            <time class="pull-right post-list"> {{ .Date.Format "Jan 2, 2006" }}</time>
+            {{ if not .Date.IsZero }}
+            <time class="pull-right post-list">
+                {{- if isset .Site.Params "dateformat" -}}
+                    {{ .Date.Format .Site.Params.dateformat }}
+                {{- else -}}
+                    {{ .Date.Format "Jan 02 2006" }}
+                {{- end -}}
+            </time>    
+            {{end}}
         </span>
     </li>
     {{- end }}

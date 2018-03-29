@@ -15,7 +15,7 @@ theme = "hyde-hyde"
     title = "Title"
     # description = "..."
     authorimage = "/img/hugo.png"
-    dateformat = "Jan 1, 2006"
+    dateformat = "Jan 2, 2006"
     highlightjs = true
     # highlightjsstyle = "github"
 
