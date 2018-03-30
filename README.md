@@ -8,6 +8,11 @@ You can see a real site in action [here](https://htr3n.github.io).
 
 ![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/blob/master/images/posts.png)
 
+## Notable Changes
+* Migrated to [Font-Awesome 5](https://fontawesome.com)
+* The color tone is inspired by [Nate Finch's blog](https://npf.io)
+* Main font [Fira-Sans](https://fonts.google.com/specimen/Fira+Sans)
+
 ## Installation
 
 `hyde-hyde` can be easily installed as many other Hugo's themes:
@@ -20,7 +25,7 @@ $ git clone https://github.com/htr3n/hyde-hyde.git themes/hyde-hyde
 $ git submodule add https://github.com/htr3n/hyde-hyde.git themes/hyde-hyde
 ```
 
-Then indicate `hyde-hyde` as the main theme 
+Then indicate `hyde-hyde` as the main theme
 
 * `config.toml` 
 
