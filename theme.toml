@@ -2,8 +2,8 @@ name = "hyde-hyde"
 license = "MIT"
 licenselink = "https://github.com/htr3n/hyde-hyde/blob/master/LICENSE.md"
 description = "A forked/derived version of Hyde"
-tags = ["Blog", "Theme", "Hyde", "Highlight.js"]
-features = ["blog", "theme", "highlight.js"]
+tags = ["blog", "theme", "hyde", "highlight.js", "font-awesome", "google analytics", "disqus", "personal", "syntax highlighting", "responsive"]
+features = ["blog", "theme", "highlight.js", "font-awesome"]
 min_version = "0.33"
 
 [author]
