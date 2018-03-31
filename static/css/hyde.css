@@ -32,8 +32,8 @@
  */
 
 html {
-  font-family: "Fira Sans", sans-serif;
-    font-weight:300;
+  font-family: 'Fira Sans', 'Helvetica Neue', 'Arial', sans-serif;
+  font-weight:300;
 
 }
 @media (min-width: 48em) {
