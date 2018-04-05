@@ -9,9 +9,10 @@ You can see a real site in action [here](https://htr3n.github.io).
 ![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/blob/master/images/posts.png)
 
 ## Notable Changes
-* Migrated to [Font-Awesome 5](https://fontawesome.com)
-* The color tone is inspired by [Nate Finch's blog](https://npf.io)
-* Main font [Fira-Sans](https://fonts.google.com/specimen/Fira+Sans)
+* Using [highlight.js](https://highlightjs.org) for highlighting code
+* Using [Font-Awesome 5](https://fontawesome.com) for icons
+* Color tones are inspired by [Nate Finch's blog](https://npf.io)
+* Main font [Fira-Sans](https://fonts.google.com/specimen/Fira+Sans) + fixed width font [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
 
 ## Installation
 

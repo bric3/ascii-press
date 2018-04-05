@@ -14,9 +14,7 @@
         <h2>Comments</h2>
         {{ partial "post_disqus.html" . }}
     {{ end }}  
-{{- end }}
-
-{{ if .Site.Params.GraphCommentId -}}
+{{ else if .Site.Params.GraphCommentId -}}
 <div id="graphcomment"></div>
 <script type="text/javascript">
   window.graphcomment_id = '{{ .Site.Params.GraphCommentId }}';

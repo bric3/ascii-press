@@ -5,8 +5,8 @@ languageCode = "en"
 theme = "hyde-hyde"
 
 ## Hugo Built-in Features
-# disqusShortname = ""
-# googleAnalytics = ""
+# disqusShortname = "your-disqus-shortname"
+# googleAnalytics = "your-google-analytics-id"
 # enableRobotsTXT = true
 
 ## Site Settings
@@ -18,6 +18,8 @@ theme = "hyde-hyde"
     dateformat = "Jan 2, 2006"
     highlightjs = true
     # highlightjsstyle = "github"
+    # please choose either GraphComment or Disqus
+    # GraphCommentId = "your-graph-comment-id" 
 
 ## Social Accounts
 [params.social]

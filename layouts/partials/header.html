@@ -1,10 +1,10 @@
 <link href="http://gmpg.org/xfn/11" rel="profile">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {{ "<!-- Enable responsiveness on mobile devices -->" | safeHTML }} 
+    {{ "<!-- Enable responsiveness on mobile devices -->" | safeHTML }}
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     {{ with .Site.Params.meta.description -}}<meta name="description" content="{{ . }}">{{- end }}
-    {{ with .Site.Params.meta.keywords -}}<meta name="keywords" content="{{.}}">{{- end }}	
+    {{ with .Site.Params.meta.keywords -}}<meta name="keywords" content="{{.}}">{{- end }}
     {{ .Hugo.Generator }}
     {{ if .IsHome -}}
     <title>{{ .Site.Title }}</title>
@@ -12,20 +12,20 @@
     <title>{{ .Title }} &middot; {{ .Site.Title }}</title>
     {{- end }}
     <meta content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Title }}{{ if eq $isHomePage false }} - {{ .Site.Title }}{{ end }}" property="og:title">
-    <meta content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Site.Params.meta.description }}{{ if eq $isHomePage false }} - {{ .Description }}{{ end }}" property="og:description">    
-    {{ "<!-- CSS -->" | safeHTML }} 
+    <meta content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Site.Params.meta.description }}{{ if eq $isHomePage false }} - {{ .Description }}{{ end }}" property="og:description">
+    {{ "<!-- CSS -->" | safeHTML }}
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i|Roboto+Mono:300,300i,400,400i" rel="stylesheet">
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/print.css" media="print">
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/poole.css">
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/hyde.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
+    {{ "<!-- Font-Awesome -->" | safeHTML }}
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     {{ if .Site.Params.highlightjs -}}
-    {{ "<!-- highlight.js-->" | safeHTML }} 
+    {{ "<!-- highlight.js-->" | safeHTML }}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/{{ .Site.Params.highlightjsstyle | default "default" }}.min.css">
     {{- end }}
     {{ if .Site.Params.PygmentsUseClasses -}}
-    {{ "<!-- Pygments Syntax -->" | safeHTML }} 
+    {{ "<!-- Pygments Syntax -->" | safeHTML }}
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css">
     {{- end }}
     {{- "<!-- Customised CSS -->" | safeHTML }}
@@ -39,7 +39,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
     <link rel="shortcut icon" href="/favicon.png">
     {{ if .RSSLink -}}
-    {{ "<!-- RSS -->" | safeHTML }} 
+    {{ "<!-- RSS -->" | safeHTML }}
     <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
     <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
     {{- end }}
