@@ -13,6 +13,7 @@ You can see a real site in action [here](https://htr3n.github.io).
 * Using [Font-Awesome 5](https://fontawesome.com) for icons
 * Color tones are inspired by [Nate Finch's blog](https://npf.io)
 * Main font [Fira-Sans](https://fonts.google.com/specimen/Fira+Sans) + fixed width font [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
+* Adding [GraphComment](https://graphcomment.com) for replacing Disqus
 
 ## Installation
 
