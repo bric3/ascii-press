@@ -10,7 +10,7 @@ __`hyde-hyde`__ is a [Hugo](https://gohugo.io)'s theme derived from @spf13's [Hy
 * Using main font [Fira-Sans](https://fonts.google.com/specimen/Fira+Sans) + fixed width font [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
 * Adding [GraphComment](https://graphcomment.com) for replacing the built-in [Disqus](https://disqus.com)
 
-A real site in action [here](https://htr3n.github.io).
+A real site in action can be found [here](https://htr3n.github.io).
 
 ![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/blob/master/images/main.png)
 
@@ -48,8 +48,8 @@ theme : "hyde-hyde"
 
 ## Customisations
 
-* Most of the newly added customisations are in the file `hyde-hyde/static/css/custom.css`
-* The layouts for a single post or a list/table of content in `hyde-hyde/layouts` are modularised and easily to changed
+* Most of the newly added customisations are in the file `hyde-hyde/static/css/custom.css`.
+* The layouts for a single post or a list/table of content in `hyde-hyde/layouts` are modularised and easily to change.
 
 ## Author(s)
 ### Original Developed by Mark Otto
