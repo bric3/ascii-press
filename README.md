@@ -49,7 +49,7 @@ theme : "hyde-hyde"
 ## Customisations
 
 * Most of the newly added customisations are in the file `hyde-hyde/static/css/custom.css`.
-* The layouts for a single post or a list/table of content in `hyde-hyde/layouts` are modularised and easily to change.
+* The layouts for a single post or a list/table of content in `hyde-hyde/layouts` are modularised and can be changed easily.
 
 ## Author(s)
 ### Original Developed by Mark Otto
