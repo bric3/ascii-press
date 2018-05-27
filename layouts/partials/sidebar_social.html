@@ -26,6 +26,9 @@
 	{{ with .Site.Params.social.xing }}
 	&nbsp;<a href="https://www.xing.com/profile/{{.}}"><i class="fab fa-xing fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
+	{{ with .Site.Params.social.keybase }}
+	&nbsp;<a href="https://keybase.io/{{.}}"><i class="fab fa-keybase fa-lg"></i></a>
+	{{ end }}
 	{{ with .Site.Params.social.email }}
 	&nbsp;<a href="mailto:{{.}}"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
