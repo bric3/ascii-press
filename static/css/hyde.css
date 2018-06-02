@@ -121,7 +121,7 @@ a.sidebar-nav-item:focus {
   .sidebar-sticky {
     position: absolute;
     right:  1rem;
-    top: 1rem;
+    bottom: 1rem;
     left:   1rem;
   }
 }
@@ -167,7 +167,7 @@ a.sidebar-nav-item:focus {
   display:inline;
   vertical-align: bottom;
 }
- 
+
 .badges {
   float: right;
 }

@@ -21,6 +21,7 @@ theme = "hyde-hyde"
     # please choose either GraphComment or Disqus
     # GraphCommentId = "your-graph-comment-id"
     # layoutReverse = true
+    # sidebarSticky = true
 
 ## Social Accounts
 [params.social]
