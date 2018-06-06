@@ -19,7 +19,9 @@ theme = "hyde-hyde"
     highlightjs = true
     # highlightjsstyle = "github"
     # please choose either GraphComment or Disqus
-    # GraphCommentId = "your-graph-comment-id" 
+    # GraphCommentId = "your-graph-comment-id"
+    # layoutReverse = true
+    # sidebarSticky = true
 
 ## Social Accounts
 [params.social]
