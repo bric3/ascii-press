@@ -14,7 +14,7 @@
     <meta content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Title }}{{ if eq $isHomePage false }} - {{ .Site.Title }}{{ end }}" property="og:title">
     <meta content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Site.Params.meta.description }}{{ if eq $isHomePage false }} - {{ .Description }}{{ end }}" property="og:description">
     {{ "<!-- CSS -->" | safeHTML }}
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i|Roboto+Mono:300,300i,400,400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif:300,300i,400,400i,700,700i|Source+Code+Pro:300,300i,400,400i" rel="stylesheet">
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/print.css" media="print">
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/poole.css">
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/hyde.css">
