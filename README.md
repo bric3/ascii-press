@@ -14,7 +14,7 @@ A real site in action can be found [here](https://htr3n.github.io).
 
 ![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/blob/master/images/main.png)
 
-![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/blob/master/images/posts.png)
+![A post in hyde-hyde](https://github.com/htr3n/hyde-hyde/blob/master/images/post.png)
 
 ## Installation
 
