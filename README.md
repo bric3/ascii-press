@@ -12,6 +12,8 @@ __`hyde-hyde`__ is a [Hugo](https://gohugo.io)'s theme derived from @spf13's [Hy
 
 A real site in action can be found [here](https://htr3n.github.io).
 
+Some screenshots:
+
 ![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/blob/master/images/main.png)
 
 ![A post in hyde-hyde](https://github.com/htr3n/hyde-hyde/blob/master/images/post.png)
@@ -28,7 +30,7 @@ $ git clone https://github.com/htr3n/hyde-hyde.git themes/hyde-hyde
 $ git submodule add https://github.com/htr3n/hyde-hyde.git themes/hyde-hyde
 ```
 
-Then indicate `hyde-hyde` as the main theme
+Then choose `hyde-hyde` as the main theme
 
 * `config.toml` 
 
@@ -42,13 +44,15 @@ theme = "hyde-hyde"
 theme : "hyde-hyde"
 ```
 
+That's all. You can render your site using `hugo` and see the template in action.
+
 ## Options
 
 * `hyde-hyde` essentially inherits [all options](https://github.com/spf13/hyde#options) from Hyde.
 
 ## Customisations
 
-* Most of the newly added customisations are in the file `hyde-hyde/static/css/custom.css`.
+* Most of the newly added customisations are in the file `hyde-hyde/static/css/hyde-hyde.css`.
 * The layouts for a single post or a list/table of content in `hyde-hyde/layouts` are modularised and can be changed easily.
 
 ## Author(s)
