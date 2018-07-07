@@ -3,7 +3,7 @@
 __`hyde-hyde`__ is a [Hugo](https://gohugo.io)'s theme derived from @spf13's [Hyde](https://github.com/spf13/hyde.git) which is in turn ported from @mdo Jekyll's [Hyde](https://github.com/poole/hyde). 
 
 ## Notable Changes
-* Restructuring/Modularising the layouts (`baseof.html`, `single.html`, `list.html` and the partials)
+* Restructuring/modularising the layouts (see [`layouts/_default/baseof.html`](https://github.com/htr3n/hyde-hyde/blob/master/layouts/_default/baseof.html), [`layouts/_default/single.html`](https://github.com/htr3n/hyde-hyde/blob/master/layouts/_default/single.html), [`layouts/_default/list.html`](https://github.com/htr3n/hyde-hyde/blob/master/layouts/_default/list.html) and [`layouts/partials`](https://github.com/htr3n/hyde-hyde/blob/master/layouts/partials/))
 * Using [highlight.js](https://highlightjs.org) for highlighting code
 * Using [Font-Awesome 5](https://fontawesome.com) for icons
 * Using color tones inspired by [Nate Finch's blog](https://npf.io)
@@ -52,10 +52,11 @@ That's all. You can render your site using `hugo` and see the template in action
 
 ## Customisations
 
-* Most of the newly added customisations are in the file `hyde-hyde/static/css/hyde-hyde.css`.
-* The layouts for a single post or a list/table of content in `hyde-hyde/layouts` are modularised and can be changed easily.
+* Most of the newly added customisations are in the file [`hyde-hyde/static/css/hyde-hyde.css`](https://github.com/htr3n/hyde-hyde/blob/master/static/css/hyde-hyde.css).
+* The layouts for a single post or a list/table of content in [`hyde-hyde/layouts`](https://github.com/htr3n/hyde-hyde/blob/master/layouts) are modularised and can be changed easily.
 
 ## Author(s)
+
 ### Original Developed by Mark Otto
 
 - <https://github.com/mdo>
