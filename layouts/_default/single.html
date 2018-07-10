@@ -7,6 +7,8 @@
 {{- end -}}
 
 {{ define "footer" -}}
-    {{ partial "highlight.html" . }}
-    {{ partial "commenting.html" . }}
+    <div class="footer content">
+        {{- partial "highlight.html" . -}}
+        {{- partial "commenting.html" . -}}
+    </div>
 {{- end -}}

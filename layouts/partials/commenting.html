@@ -1,14 +1,11 @@
-<!-- Disqus-->
-{{ if .Site.DisqusShortname -}}
-    {{ if ne .Params.showcomments false }}
+{{- if and (not .Site.BuildDrafts) (ne .Params.showcomments false) -}}
+    {{ if .Site.DisqusShortname -}}
         <hr>
         <h2>Comments</h2>
-        {{ partial "commenting_disqus.html" . }}
-    {{ end }}  
-{{ else if .Site.Params.GraphCommentId -}}
-    {{ if ne .Params.showcomments false }}
+        {{- partial "commenting/disqus.html" . -}}
+    {{- else if .Site.Params.GraphCommentId -}}
         <hr>
         <h2>Comments</h2>
-        {{ partial "commenting_graph.html" . }}
-    {{ end }}     
+        {{- partial "commenting/graphcomment.html" . -}}
+    {{- end -}}
 {{- end }}

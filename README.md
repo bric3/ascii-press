@@ -3,14 +3,14 @@
 __`hyde-hyde`__ is a [Hugo](https://gohugo.io)'s theme derived from @spf13's [Hyde](https://github.com/spf13/hyde.git) which is in turn ported from @mdo Jekyll's [Hyde](https://github.com/poole/hyde). 
 
 ## Notable Changes
+* Color tones and layouts are inspired by [Nate Finch's blog](https://npf.io)
 * Restructuring/modularising the layouts (see [`layouts/_default/baseof.html`](https://github.com/htr3n/hyde-hyde/blob/master/layouts/_default/baseof.html), [`layouts/_default/single.html`](https://github.com/htr3n/hyde-hyde/blob/master/layouts/_default/single.html), [`layouts/_default/list.html`](https://github.com/htr3n/hyde-hyde/blob/master/layouts/_default/list.html) and [`layouts/partials`](https://github.com/htr3n/hyde-hyde/blob/master/layouts/partials/))
-* Using [highlight.js](https://highlightjs.org) for highlighting code
-* Using [Font-Awesome 5](https://fontawesome.com) for icons
-* Using color tones inspired by [Nate Finch's blog](https://npf.io)
+* Using [highlight.js](https://highlightjs.org) for code highlighting
+* Using [Font-Awesome 5](https://fontawesome.com)'s icons
 * Using main font [Fira-Sans](https://fonts.google.com/specimen/Fira+Sans) + fixed width font [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
 * Adding [GraphComment](https://graphcomment.com) for replacing the built-in [Disqus](https://disqus.com)
 
-A real site in action can be found [here](https://htr3n.github.io).
+A real site in action can be found [here](https://htr3n.github.io) with its [WIP source](https://github.com/htr3n/htr3n-blog) for reference.
 
 Some screenshots:
 
