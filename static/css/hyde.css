@@ -32,9 +32,7 @@
  */
 
 html {
-  font-family: 'Fira Sans', 'Helvetica Neue', 'Arial', sans-serif;
-  font-weight:300;
-
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
 }
 @media (min-width: 48em) {
   html {
@@ -47,9 +45,6 @@ html {
   }
 }
 
-pre {
-  tab-size:4;
-}
 
 /*
  * Sidebar
@@ -62,7 +57,7 @@ pre {
   text-align: center;
   padding: 2rem 1rem;
   color: rgba(255,255,255,.5);
-  background-color: #300030;
+  background-color: #202020;
 }
 @media (min-width: 48em) {
   .sidebar {
@@ -84,24 +79,17 @@ pre {
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-weight:300;
+  font-family: "Abril Fatface", serif;
+  font-size: 3.25rem;
 }
 
 /* Sidebar nav */
 .sidebar-nav {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  padding-left: 0;
-  list-style: none;
+  margin-bottom: 1rem;
 }
-
-.subnav {
- list-style: none;
-  padding-left: 0;
-}
-
 .sidebar-nav-item {
   display: block;
+  line-height: 1.75;
 }
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
@@ -134,8 +122,8 @@ a.sidebar-nav-item:focus {
  */
 
 .content {
-  padding-top:    2rem;
-  padding-bottom: 2rem;
+  padding-top:    4rem;
+  padding-bottom: 4rem;
 }
 
 @media (min-width: 48em) {
@@ -148,34 +136,11 @@ a.sidebar-nav-item:focus {
 
 @media (min-width: 64em) {
   .content {
-    max-width: 44rem;
-    margin-left: 20rem;
-    margin-right: 2rem;
+    margin-left: 22rem;
+    margin-right: 4rem;
   }
 }
 
-.footnote {
-  font-size: 0.7em;
-  margin-top: 0.5rem;
-}
-
-.go {
-  color: #444444;
-}
-
-.badge {
-  display:inline;
-  vertical-align: bottom;
-}
-
-.badges {
-  float: right;
-}
-
-.brand {
-  font-size: 4.0em;
-  margin-bottom: 0;
-}
 
 /*
  * Reverse layout

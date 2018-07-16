@@ -1,84 +1,427 @@
-html,
-body
-{
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 17px;
+/*
+ * Based on 'hyde' designed, built, and released under MIT license by @mdo
+ * https://github.com/poole/hyde
+ *
+ */
+
+/*
+ * Contents
+ *
+ * Global resets
+ * Sidebar
+ * Container
+ * Reverse layout
+ * Themes
+ */
+
+/*
+ * Global resets
+ *
+ * Update the foundational and global aspects of the page.
+ */
+
+html {
+  font-family: "IBM Plex Sans", 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.66em;
+}
+
+@media (min-width: 48em) {
+  html {
+    font-size: 16px;
     font-weight: 300;
-    line-height: 1.66em;
+  }
 }
 
-.img-circle
-{
-    border-radius: 50%;
+@media (min-width: 58em) {
+  html {
+    font-size: 18px;
+    font-weight: 400;
+  }
 }
 
-.headshot
-{
-    width: 115px;
-    height: 115px;
+/*
+   * Sidebar
+   *
+   * Flexible banner for housing site name, intro, and "footer" content. Starts
+   * out above content in mobile and later moves to the side with wider viewports.
+   */
+
+.sidebar {
+  background-color: #300030;
+  /* fallback of rgba() */
+  color: rgb(255, 255, 255);
+  /* CSS3 */
+  color: rgba(255, 255, 255, .5);
+  padding: 2rem 1rem;
+  text-align: center;
 }
 
-.brand
-{
-    font-size: 2.6em;
-
-    margin-bottom: 0;
+@media (min-width: 48em) {
+  .sidebar {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    text-align: left;
+    top: 0;
+    width: 18rem;
+  }
 }
 
-.text-center
-{
-    text-align: center;
+/* Sidebar links */
+
+.sidebar a {
+  color: #fff;
 }
 
-.meta
-{
-    font-size: .8rem;
-    font-weight: 300;
+/* About section */
+
+.sidebar-about h1 {
+  color: #fff;
+  margin-top: 0;
 }
 
-pre
-{
-    padding: 1px;
+/* Sidebar nav */
 
-    tab-size: 2;
+.sidebar-nav {
+  list-style: none;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  padding-left: 0;
 }
 
+.sidebar-nav-item {
+  display: block;
+  line-height: 1.75;
+}
+
+a.sidebar-nav-item:hover,
+a.sidebar-nav-item:focus {
+  text-decoration: underline;
+}
+
+.sidebar-nav-item .active {
+  font-weight: bold;
+}
+
+/* Sticky sidebar
+   *
+   * Add the `sidebar-sticky` class to the sidebar's container to affix it the
+   * contents to the bottom of the sidebar in tablets and up.
+   */
+
+@media (min-width: 48em) {
+  .sidebar-sticky {
+    left: 1rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+}
+
+/* Container
+   *
+   * Align the contents of the site above the proper threshold with some margin-fu
+   * with a 25%-wide `.sidebar`.
+   */
+
+.content {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+@media (min-width: 48em) {
+  .content {
+    margin-left: 20rem;
+    margin-right: 2rem;
+    max-width: 38rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .content {
+    margin-left: 20rem;
+    margin-right: 2rem;
+    max-width: 44rem;
+  }
+}
+
+/*
+   * Reverse layout
+   *
+   * Flip the orientation of the page by placing the `.sidebar` on the right.
+   */
+
+@media (min-width: 48em) {
+  .layout-reverse .sidebar {
+    left: auto;
+    right: 0;
+  }
+  .layout-reverse .content {
+    margin-left: 2rem;
+    margin-right: 20rem;
+  }
+}
+
+@media (min-width: 64em) {
+  .layout-reverse .content {
+    margin-left: 4rem;
+    margin-right: 22rem;
+  }
+}
+
+/*
+   * Themes
+   *
+   * As of v1.1, Hyde includes optional themes to color the sidebar and links
+   * within blog posts. To use, add the class of your choosing to the `body`.
+   */
+
+/* Base16 (http://chriskempson.github.io/base16/#default) */
+
+/* Red */
+
+.theme-base-08 .sidebar {
+  background-color: #ac4142;
+}
+
+.theme-base-08 .content a,
+.theme-base-08 .related-posts li a:hover {
+  color: #ac4142;
+}
+
+/* Orange */
+
+.theme-base-09 .sidebar {
+  background-color: #d28445;
+}
+
+.theme-base-09 .content a,
+.theme-base-09 .related-posts li a:hover {
+  color: #d28445;
+}
+
+/* Yellow */
+
+.theme-base-0a .sidebar {
+  background-color: #f4bf75;
+}
+
+.theme-base-0a .content a,
+.theme-base-0a .related-posts li a:hover {
+  color: #f4bf75;
+}
+
+/* Green */
+
+.theme-base-0b .sidebar {
+  background-color: #90a959;
+}
+
+.theme-base-0b .content a,
+.theme-base-0b .related-posts li a:hover {
+  color: #90a959;
+}
+
+/* Cyan */
+
+.theme-base-0c .sidebar {
+  background-color: #75b5aa;
+}
+
+.theme-base-0c .content a,
+.theme-base-0c .related-posts li a:hover {
+  color: #75b5aa;
+}
+
+/* Blue */
+
+.theme-base-0d .sidebar {
+  background-color: #6a9fb5;
+}
+
+.theme-base-0d .content a,
+.theme-base-0d .related-posts li a:hover {
+  color: #6a9fb5;
+}
+
+/* Magenta */
+
+.theme-base-0e .sidebar {
+  background-color: #aa759f;
+}
+
+.theme-base-0e .content a,
+.theme-base-0e .related-posts li a:hover {
+  color: #aa759f;
+}
+
+/* Brown */
+
+.theme-base-0f .sidebar {
+  background-color: #8f5536;
+}
+
+.theme-base-0f .content a,
+.theme-base-0f .related-posts li a:hover {
+  color: #8f5536;
+}
+
+/******************************************************************************
+ Extra styling parts
+ ******************************************************************************/
+
+h1 {
+  font-size: 2.15rem;
+}
+
+h2 {
+  font-size: 1.85rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.headshot {
+  height: 115px;
+  width: 115px;
+}
+
+.brand {
+  font-size: 2.6em;
+  margin-bottom: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+pre {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 1px;
+  tab-size: 2;
+}
 
 .hljs {
-    white-space: pre;
-    
-    overflow-x: auto; /* no line wrapping */
+  overflow-x: auto;
+  white-space: pre;
 }
 
-pre code, li code, td code, code
-{
-    border-radius: 4px;
-    white-space: pre-wrap;
-    padding:1px 4px;
-	background: #eee;
-	/* color: #444; */
-	border: 1px solid #d9d9d9;
+pre code,
+li code,
+td code,
+code {
+  background-color: #f9f2f4;
+  border-radius: 4px;
+  padding: 2px 4px;
+  white-space: pre-wrap;
 }
 
 code {
-    font-family: 'Source Code Pro', monospace;
-    font-size: 82%;
-}
-.copyright, 
-.poweredby
-{
-    font-size: 13px;
-    font-weight: 300;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 84%;
 }
 
-.center
-{
-    display: block;
-
-    margin-right: auto;
-    margin-left: auto;
+.copyright,
+.poweredby {
+  font-size: .8rem;
 }
-/* Changing from font-awesome 4 to 5, the class pull-right was removed */
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  border-width: 2px;
+  text-decoration: none;
+  word-wrap: break-word;
+}
+
+a:focus,
+a:hover {
+  border-bottom-style: solid;
+  border-width: 2px;
+  text-decoration: none;
+  background: transparent;
+  background-color: transparent;
+  word-wrap: break-word;
+}
+
+a.tag,
+a:focus.tag,
+a:hover.tag {
+  border-bottom-style: none;
+  text-decoration: none;
+}
+
+.meta {
+  font-size: .8rem;
+  font-weight: 300;
+}
+
+.tag {
+  background: #d6d9e0;
+  border-radius: 2px;
+  color: #606570;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px 2px;
+}
+
+.post__subtitle {
+  display: block;
+  font-size: 1.5rem;
+  font-style: italic;
+  padding: 0 0 1rem 0;
+}
+
+.list__title--big {
+  display: block;
+  font-size: 1.785rem;
+  line-height: 1.25;
+}
+
+.list__title--small {
+  font-size: 1rem;
+}
+
+.list__date {
+  color: #9a9a9a;
+}
+
+.title__date {
+  color: #9a9a9a;
+  display: block;
+  margin-bottom: .2rem;
+  margin-top: .2rem;
+}
+.page__nav {
+  margin-top: -2rem;
+}
+/* Small devices (tablets, 768px and up) */
+
+@media (max-width: 768px) {
+  .hidden-tablet {
+    display: none;
+  }
+}
+
 .pull-right {
-    float: right;
+  float: right;
+}
+
+.social a {
+  border: none;
+  text-decoration: none;
 }
