@@ -1,0 +1,32 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="public" />
+<!-- Enable responsiveness on mobile devices -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+{{ .Hugo.Generator }}
+{{- if .IsHome }}
+    {{ $.Scratch.Set "theTitle" .Site.Title -}}
+{{else}}
+    {{ $.Scratch.Add "theTitle" .Title}}
+    {{ $.Scratch.Add "theTitle" "·"}}
+    {{ $.Scratch.Add "theTitle" .Site.Title}}
+{{- end -}}
+<title>{{ $.Scratch.Get "theTitle" }}</title>
+{{ with .Site.Params.meta.description -}}<meta name="description" content="{{ . }}">{{- end }}
+{{ with .Site.Params.meta.keywords -}}<meta name="keywords" content="{{.}}">{{- end }}
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="{{.Site.Params.social.twitter}}">
+<meta name="twitter:title" content="{{$.Scratch.Get "theTitle"}}">
+<meta name="twitter:description" content="{{.Site.Params.meta.description}}">
+<meta property="twitter:image" content="{{.Site.Params.authorimage}}">
+<meta name="twitter:creator" content="{{.Site.Params.author}}">
+<!-- OpenGraph -->
+<meta property="og:locale" content="{{.Site.LanguageCode}}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{.Permalink}}">
+<meta property="og:image" content="{{.Site.Params.authorimage}}">
+<meta property="og:site_name" content="{{.Site.Title}}">
+<meta property="og:title" content="{{$.Scratch.Get "theTitle"}}">
+<meta property="og:description" content="{{.Site.Params.meta.description}}">
+{{ $.Scratch.Delete "theTitle" -}}

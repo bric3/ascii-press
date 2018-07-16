@@ -1,0 +1,7 @@
+{{- if .Site.Params.highlightjs -}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/{{ .Site.Params.highlightjsstyle | default "default" }}.min.css">
+{{- end -}}
+{{ if .Site.Params.PygmentsUseClasses -}}
+<!-- Pygments Syntax -->
+<link rel="stylesheet" href="{{ .Site.BaseURL }}/css/syntax.min.css">
+{{- end }}

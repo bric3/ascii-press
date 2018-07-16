@@ -1,0 +1,4 @@
+{{ if and (not .Site.BuildDrafts) (.Site.GoogleAnalytics) -}}
+{{ "<!-- Google Analytics -->" | safeHTML }}
+{{ template "_internal/google_analytics_async.html" . }}
+{{- end }}

@@ -3,12 +3,13 @@
 {{- end -}}
 
 {{ define "content" -}}
-    {{ partial "content_single.html" . }}
+    {{ partial "page_single.html" . }}
 {{- end -}}
 
 {{ define "footer" -}}
     <div class="footer content">
-        {{- partial "highlight.html" . -}}
+        {{- partial "highlight-js.html" . -}}
         {{- partial "commenting.html" . -}}
     </div>
+    {{ partial "footer.html" . }}
 {{- end -}}

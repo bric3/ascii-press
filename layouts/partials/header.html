@@ -1,35 +1,14 @@
 <head>
     <link href="http://gmpg.org/xfn/11" rel="profile">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {{ "<!-- Enable responsiveness on mobile devices -->" | safeHTML }}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    {{ with .Site.Params.meta.description -}}<meta name="description" content="{{ . }}">{{- end }}
-    {{ with .Site.Params.meta.keywords -}}<meta name="keywords" content="{{.}}">{{- end }}
-    {{ .Hugo.Generator }}
-    {{ if .IsHome -}}
-    <title>{{ .Site.Title }}</title>
-    {{- else }}
-    <title>{{ .Title }} &middot; {{ .Site.Title }}</title>
-    {{- end }}
-    <meta content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Title }}{{ if eq $isHomePage false }} - {{ .Site.Title }}{{ end }}" property="og:title">
-    <meta content="{{ $isHomePage := eq .Title .Site.Title }}{{ .Site.Params.meta.description }}{{ if eq $isHomePage false }} - {{ .Description }}{{ end }}" property="og:description">
-    {{ "<!-- CSS -->" | safeHTML }}
-    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i|Source+Code+Pro:300,300i,400,400i" rel="stylesheet">
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/print.css" media="print">
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/poole.css">
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/hyde.css">
+    {{ partial "header/meta.html" . }}
+    {{ "<!-- Web fonts -->" | safeHTML }}
+    {{ partial "header/fonts.html" . }}
     {{ "<!-- Font-Awesome -->" | safeHTML }}
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
-    {{ if .Site.Params.highlightjs -}}
-    {{ "<!-- highlight.js-->" | safeHTML }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/{{ .Site.Params.highlightjsstyle | default "default" }}.min.css">
-    {{- end }}
-    {{ if .Site.Params.PygmentsUseClasses -}}
-    {{ "<!-- Pygments Syntax -->" | safeHTML }}
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/syntax.css">
-    {{- end }}
-    {{- "<!-- Customised CSS -->" | safeHTML }}
+    {{ partial "header/font-awesome.html" . }}
+    {{ "<!-- highlighting -->" | safeHTML }}
+    {{ partial "header/highlight-css.html" . }}
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/poole.css">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/print.min.css" media="print">
     <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/hyde-hyde.css">
     {{ `<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -39,9 +18,7 @@
     {{ "<!-- Icons -->" | safeHTML }}
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
     <link rel="shortcut icon" href="/favicon.png">
-    {{ if .RSSLink -}}
-    {{ "<!-- RSS -->" | safeHTML }}
-    <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-    <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
-    {{- end }}
+    {{- if .RSSLink -}}
+        {{ partial "header/feeds.html" . }}
+    {{- end -}}
 </head>

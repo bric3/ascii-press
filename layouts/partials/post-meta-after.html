@@ -1,0 +1,13 @@
+<div class="page__nav">
+    <hr>
+    <span class="pull-right">
+        {{ with .Prev -}}
+        <span>Next: <a href="{{ .RelPermalink }}">{{ .Title }}</a></span>
+        {{- end }}
+    </span>
+    <span>
+        {{ with .Next -}}
+        <span>Previous: <a href="{{ .RelPermalink }}">{{ .Title }}</a></span>
+        {{- end }}
+    </span>
+</div>

@@ -1,0 +1,54 @@
+<div class="portfolio-content portfolio-container">
+   <h1 class="title">{{ .Title }}</h1>    
+    {{ range where .Data.Pages "Params.featured" "==" "true" }}
+        <section class="latest section">
+            <div class="section-inner">
+                <div class="portfolio_content">
+                    <div class="item featured text-center">
+                        <h3 class="title">
+                            <a href="{{ .Params.Link }}" target="_blank">{{ .Title }}</a>
+                        </h3>
+                        <p class="summary">{{ .Params.description }}</p>
+                        <div class="featured-image">
+                            <img src="{{ .Params.screenshot }}"  alt="{{ .Title }}">
+                            <div class="ribbon">
+                                <div class="text">New</div>
+                            </div>
+                        </div>
+
+                        <div class="desc text-left">
+                                {{ .Content }}
+                        </div>
+                        <!--//desc-->
+                    </div>
+                </div>
+            </div> <!-- inner  -->
+        </section>
+    {{ end }}
+    <section>
+        <div class="section-inner">
+            <div class="portfolio_content">
+                <hr class="divider">
+                {{ range (where .Data.Pages "Params.featured" "<>" "true").ByDate.Reverse }}
+                <!-- item -->                
+                <div class="item row">
+                    <a class="col-md-4 col-sm-4 col-xs-12" href="{{ .Params.link }}" 
+                        target="_blank">
+                        <img class="img-responsive project-image" src="{{ .Params.screenshot }}" alt="{{ .Title }}">
+                    </a>
+                    <div class="desc col-md-8 col-sm-8 col-xs-12">
+                        <h3 class="title">
+                            <a href="{{ .Params.link }}" target="_blank">{{ .Title }}</a>
+                        </h3>
+                        <p class="summary">{{ .Params.description }}</p>
+                        <p>{{ .Content }}</p>
+                    </div>
+                </div>
+                <!--// item -->
+                {{ end }}
+            </div>
+            <!--//content-->
+        </div>
+        <!--//section-inner-->
+    </section>
+</div>

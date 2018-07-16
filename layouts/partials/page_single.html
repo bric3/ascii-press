@@ -1,0 +1,16 @@
+<article>
+  <header>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.subtitle }}
+    <span class="post__subtitle">
+      {{.}}
+    </span>
+    {{ end }} 
+    {{ partial "post-meta-before.html" . }}
+  </header>
+  <div class="post">
+    {{ .Content }}
+  </div>
+  {{ partial "post-meta-after.html" . }}
+  {{ partial "post-related.html" . }}
+</article>
