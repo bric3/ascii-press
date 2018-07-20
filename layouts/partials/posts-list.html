@@ -3,7 +3,7 @@
   <span class="list__title--small">
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
       {{if not .Date.IsZero}}
-      <time class="list__date pull-right hidden-tablet">{{.Date.Format ("Jan 02 '06")}}</time>
+      <time class="pull-right hidden-tablet">{{.Date.Format ("Jan 02 '06")}}</time>
       {{end}}
   </span>
 </li>

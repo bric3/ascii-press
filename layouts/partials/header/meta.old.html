@@ -8,7 +8,7 @@
     {{ $.Scratch.Set "theTitle" .Site.Title -}}
 {{else}}
     {{ $.Scratch.Add "theTitle" .Title}}
-    {{ $.Scratch.Add "theTitle" "·"}}
+    {{ $.Scratch.Add "theTitle" " • "}}
     {{ $.Scratch.Add "theTitle" .Site.Title}}
 {{- end -}}
 <title>{{ $.Scratch.Get "theTitle" }}</title>

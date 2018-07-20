@@ -1,11 +1,7 @@
-{{- if and (not .Site.BuildDrafts) (ne .Params.showcomments false) -}}
+{{- if ne .Params.showcomments false -}}
     {{ if .Site.DisqusShortname -}}
-        <hr>
-        <h2>Comments</h2>
         {{- partial "commenting/disqus.html" . -}}
     {{- else if .Site.Params.GraphCommentId -}}
-        <hr>
-        <h2>Comments</h2>
         {{- partial "commenting/graphcomment.html" . -}}
     {{- end -}}
 {{- end }}

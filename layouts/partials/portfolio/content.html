@@ -1,5 +1,5 @@
 <div class="portfolio-content portfolio-container">
-   <h1 class="title">{{ .Title }}</h1>    
+   <span class="section__title">{{ .Title }}</span>    
     {{ range where .Data.Pages "Params.featured" "==" "true" }}
         <section class="latest section">
             <div class="section-inner">
