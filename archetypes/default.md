@@ -2,11 +2,8 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 lastmod: {{ .Date }}
-tags : 
-- dev
-- hyde-hyde
-categories : 
-- dev
+tags : [ "dev", "hugo", "hyde-hyde"]
+categories : [ "dev" ]
 layout: post
 draft: true
 ---
