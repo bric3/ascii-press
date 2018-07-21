@@ -21,6 +21,8 @@ Some screenshots:
 
 ![A post in hyde-hyde](https://github.com/htr3n/hyde-hyde/blob/master/images/post.png)
 
+![Portfolio hyde-hyde](https://github.com/htr3n/hyde-hyde/blob/master/images/portfolio.png)
+
 ## Installation
 
 __`Hyde-hyde`__ can be easily installed as many other Hugo themes:
