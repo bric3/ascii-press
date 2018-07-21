@@ -14,5 +14,5 @@
 <title>{{ $.Scratch.Get "theTitle" }}</title>
 {{ with .Site.Params.meta.description -}}<meta name="description" content="{{ . }}">{{- end }}
 {{ with .Site.Params.meta.keywords -}}<meta name="keywords" content="{{.}}">{{- end }}
-{{ partial "header/twitter_cards.html" . }}
-{{ partial "header/opengraph.html" . }}
+{{ template "_internal/twitter_cards.html" . }}
+{{ template "_internal/opengraph.html" . }}

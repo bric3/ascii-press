@@ -5,15 +5,15 @@
             <a href="{{ .RelPermalink }}">                
                 <span class="next__heading">NEXT</span>
                 <span>{{ .Title }}</span>
-                <i class="fas fa-chevron-right"></i>
             </a>
+            <i class="fas fa-chevron-right"></i>
             {{- end }}
         </li>
         <li class="post__nav--previous">
             {{ with .PrevInSection -}}            
+            <i class="fas fa-chevron-left"></i>
             <a href="{{ .RelPermalink }}">                
                 <span class="previous__heading">PREVIOUS</span>
-                <i class="fas fa-chevron-left"></i>
                 <span class="previous__title">{{ .Title }}</span>
             </a>
             {{- end }}

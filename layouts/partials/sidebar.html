@@ -6,8 +6,10 @@
         <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
       </div>
       {{ with .Site.Params.authorimage }}
+      {{ $strippedSlash := ($.Site.Params.authorimage | replaceRE "^(/)+(.*)" "$2") }}
+      {{ $authorImage := (printf "%s%s" $.Site.BaseURL $strippedSlash) }}
       <p>
-        <img src="/{{.}}" alt="Author Image" class="img--circle img--headshot element--center"> 
+        <img src="{{$authorImage}}" alt="Author Image" class="img--circle img--headshot element--center"> 
       </p>
       {{ end }}
       <p class="site__description">
@@ -18,11 +20,12 @@
     <p>
       {{ partial "sidebar/social.html" . }}
     </p>
-    <p class="copyright">{{ with .Site.Params.copyright }}{{.|safeHTML}}{{ else }}&copy; {{ now.Format "2006"}} {{.Site.Params.author}}.
+    <p class="copyright">
+      {{ with .Site.Params.copyright }}{{.|safeHTML}}{{ else }}&copy; {{ now.Format "2006"}} {{.Site.Params.author}}.
       <a href="https://creativecommons.org/licenses/by-sa/4.0">Some Rights Reserved</a>.
       <br/>Built with
-      <a href="https://gohugo.io">Hugo</a> ❤️
-      <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.{{end}}
+      <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
+      {{end}}
     </p>
   </div>
   <div>
