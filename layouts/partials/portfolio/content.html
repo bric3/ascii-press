@@ -1,54 +1,57 @@
-<div class="portfolio-content portfolio-container">
-   <span class="section__title">{{ .Title }}</span>    
-    {{ range where .Data.Pages "Params.featured" "==" "true" }}
-        <section class="latest section">
+<span class="section__title">{{ .Title }}</span>    
+<div class="portfolio__content">
+    {{ range first 1 (where .Data.Pages "Params.featured" "==" "true") }}
+        <section class="portfolio__featured-project">
             <div class="section-inner">
                 <div class="portfolio_content">
                     <div class="item featured text-center">
-                        <h3 class="title">
+                        <span class="project__title">
                             <a href="{{ .Params.Link }}" target="_blank">{{ .Title }}</a>
-                        </h3>
-                        <p class="summary">{{ .Params.description }}</p>
-                        <div class="featured-image">
+                        </span>
+                        <p class="project__subtitle-big">
+                            <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                            {{ .Params.description }}
+                            <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                        </p>
+                        <div class="project__featured-image">
                             <img src="{{ .Params.screenshot }}"  alt="{{ .Title }}">
                             <div class="ribbon">
                                 <div class="text">New</div>
                             </div>
                         </div>
-
-                        <div class="desc text-left">
+                        <div class="project__summary">
                                 {{ .Content }}
                         </div>
-                        <!--//desc-->
                     </div>
                 </div>
-            </div> <!-- inner  -->
+            </div>
         </section>
     {{ end }}
     <section>
-        <div class="section-inner">
-            <div class="portfolio_content">
-                <hr class="divider">
-                {{ range (where .Data.Pages "Params.featured" "<>" "true").ByDate.Reverse }}
-                <!-- item -->                
-                <div class="item row">
-                    <a class="col-md-4 col-sm-4 col-xs-12" href="{{ .Params.link }}" 
-                        target="_blank">
-                        <img class="img-responsive project-image" src="{{ .Params.screenshot }}" alt="{{ .Title }}">
-                    </a>
-                    <div class="desc col-md-8 col-sm-8 col-xs-12">
-                        <h3 class="title">
-                            <a href="{{ .Params.link }}" target="_blank">{{ .Title }}</a>
-                        </h3>
-                        <p class="summary">{{ .Params.description }}</p>
-                        <p>{{ .Content }}</p>
-                    </div>
+        <div class="portfolio_content">
+            <hr class="divider">
+            {{ range (where .Data.Pages "Params.featured" "!=" "true").ByDate.Reverse }}
+            <div class="row">
+                <a class="col-md-4 col-sm-4 col-xs-12" href="{{ .Params.link }}" 
+                    target="_blank">
+                    <img class="img-responsive project-image" src="{{ .Params.screenshot }}" alt="{{ .Title }}">
+                </a>
+                <div class="desc col-md-8 col-sm-8 col-xs-12">
+                    <span class="project__title">
+                        <a href="{{ .Params.link }}" target="_blank">{{ .Title }}</a>
+                    </span>
+                    <span class="project__subtitle-small">
+                        <sup><i class="fa fa-quote-left" aria-hidden="true"></i></sup>
+                        {{ .Params.description }}
+                        <sup><i class="fa fa-quote-right" aria-hidden="true"></i></sup>
+                    </span>
+                    <span class="project__summary">
+                        {{ .Content }}
+                    </span>
                 </div>
-                <!--// item -->
-                {{ end }}
             </div>
-            <!--//content-->
+            <div class="row-space">&nbsp;</div>
+            {{ end }}
         </div>
-        <!--//section-inner-->
     </section>
 </div>

@@ -1,16 +1,19 @@
 # hyde-hyde
 
-__`hyde-hyde`__ is a [Hugo](https://gohugo.io)'s theme derived from @spf13's [Hyde](https://github.com/spf13/hyde.git) which is in turn ported from @mdo Jekyll's [Hyde](https://github.com/poole/hyde). 
+__`Hyde-hyde`__ is a [Hugo](https://gohugo.io)'s theme inspired and derived from @spf13's [Hyde](https://github.com/spf13/hyde.git) and its variant [Nate Finch's blog](https://npf.io). 
 
-## Notable Changes
-* Color tones and layouts are inspired by [Nate Finch's blog](https://npf.io)
-* Restructuring/modularising the layouts (see [`layouts/_default/baseof.html`](https://github.com/htr3n/hyde-hyde/blob/master/layouts/_default/baseof.html), [`layouts/_default/single.html`](https://github.com/htr3n/hyde-hyde/blob/master/layouts/_default/single.html), [`layouts/_default/list.html`](https://github.com/htr3n/hyde-hyde/blob/master/layouts/_default/list.html) and [`layouts/partials`](https://github.com/htr3n/hyde-hyde/blob/master/layouts/partials/))
-* Using [highlight.js](https://highlightjs.org) for code highlighting
-* Using [Font-Awesome 5](https://fontawesome.com)'s icons
-* Using main font [Fira-Sans](https://fonts.google.com/specimen/Fira+Sans) + fixed width font [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
-* Adding [GraphComment](https://graphcomment.com) for replacing the built-in [Disqus](https://disqus.com)
+## Breaking Changes
 
-A real site in action can be found [here](https://htr3n.github.io) with its [WIP source](https://github.com/htr3n/htr3n-blog) for reference.
+Since version 2.0, __`hyde-hyde`__ has been overhauled and, therefore, might cause some disruptions.
+
+* The main styles are refactored and redeveloped using SCSS (see [_static-src/scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss)),  `poole.css` and `hyde.css` are no longer needed because `hyde-hyde.scss` already incorporates relevant elements (I still keep them there for compatibility)
+* The layouts have been heavily restructured and modularised further (see [_layouts_](https://github.com/htr3n/hyde-hyde/blob/master/layouts))
+* Adding '[_Portfolio_](https://github.com/htr3n/hyde-hyde/blob/master/layouts/portfolio)' page inspired by Xiaoying Riley (@3rdwave_themes) [Developer-Theme](https://github.com/xriley/developer-theme)
+* Switching to use system fonts instead of Web fonts (e.g. privacy issues)
+
+For more details, please refer to [CHANGELOG](CHANGELOG.md). 
+
+A real site in action can be found [here](https://htr3n.github.io) and its [WIP source](https://github.com/htr3n/htr3n-blog) for reference.
 
 Some screenshots:
 
@@ -20,21 +23,23 @@ Some screenshots:
 
 ## Installation
 
-`hyde-hyde` can be easily installed as many other Hugo's themes:
+__`Hyde-hyde`__ can be easily installed as many other Hugo themes:
 
 ```sh
-$ cd HUGO_SITE
-# then clone hyde-hyde
+$ cd HUGO_PROJECT
+
+# then either clone hyde-hyde
 $ git clone https://github.com/htr3n/hyde-hyde.git themes/hyde-hyde
-# or add hyde-hyde as a submodule
+
+# or just add hyde-hyde as a submodule
 $ git submodule add https://github.com/htr3n/hyde-hyde.git themes/hyde-hyde
 ```
 
-Then choose `hyde-hyde` as the main theme
+After that, choose `hyde-hyde` as the main theme.
 
 * `config.toml` 
 
-```tomp
+```toml
 theme = "hyde-hyde"
 ```
 
@@ -48,11 +53,11 @@ That's all. You can render your site using `hugo` and see the template in action
 
 ## Options
 
-* `hyde-hyde` essentially inherits [all options](https://github.com/spf13/hyde#options) from Hyde.
+* __`Hyde-hyde`__ essentially inherits most of Hyde's [options](https://github.com/spf13/hyde#options).
 
 ## Customisations
 
-* Most of the newly added customisations are in the file [`hyde-hyde/static/css/hyde-hyde.css`](https://github.com/htr3n/hyde-hyde/blob/master/static/css/hyde-hyde.css).
+* Most of the newly added customisations are in the files [_static-src/scss/hyde-hyde/\_customised.scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/hyde-hyde/_customised.scss) and [_static-src/scss/hyde-hyde/\_variables.scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/hyde-hyde/_variables.scss) 
 * The layouts for a single post or a list/table of content in [`hyde-hyde/layouts`](https://github.com/htr3n/hyde-hyde/blob/master/layouts) are modularised and can be changed easily.
 
 ## Author(s)
@@ -65,10 +70,6 @@ That's all. You can render your site using `hugo` and see the template in action
 ### Hugo's Hyde Ported by Steve Francia
 - <https://github.com/spf13>
 - <https://twitter.com/spf13>
-
-### Color Theme Inspired By
-
-* [Nate Finch's blog](https://npf.io)
 
 ## License
 
