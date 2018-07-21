@@ -1,0 +1,160 @@
+.portfolio__content {
+  section {
+    margin-bottom: 1.765rem;
+  }
+}
+
+.portfolio__featured-project {
+  margin: 0 0 1.765rem;
+  img {
+    margin: 0 0 1rem;
+    box-shadow: 1px 1px $gray-2;
+  }
+}
+
+.project__title {
+  margin-top: 1.765rem;
+  font-size: $project__title-font-size;
+}
+
+%subtitle {
+  font-style: $project__subtitle-font-style;
+  color: $project__subtitle-color;
+  display: block;
+  margin-top: 0.5rem;
+  margin: 0 0 1rem;
+}
+
+.project__subtitle-big {
+  @extend %subtitle;
+  font-size: $project__subtitle-font-size-big;
+}
+
+.project__subtitle-small {
+  @extend %subtitle;
+  font-size: $project__subtitle-font-size-small;
+}
+
+.project__featured-image {
+  position: relative;
+  .ribbon {
+    position: absolute;
+    top: -9px;
+    right: -8px;
+    width: 110px;
+    height: 110px;
+    overflow: hidden;
+    .text {
+      position: relative;
+      left: -8px;
+      top: 18px;
+      width: 158px;
+      padding: 10px;
+      letter-spacing: 2px;
+      font-size: 1.133rem;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      color: $white;
+      background-color: $ribbon-background-color;
+      transform: rotate(45deg) translate3d(0, 0, 0);
+      &:before {
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid $ribbon-color;
+        bottom: -5px;
+        content: "";
+        position: absolute;
+        left: 0;
+      }
+      &:after {
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid $ribbon-color;
+        bottom: -5px;
+        content: "";
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+}
+
+.project-image {
+  &:hover {
+      opacity: 0.8; 
+  }
+}
+
+@media (max-width: 767px) {
+  .project-image {
+    margin-bottom: 0.882rem;
+  }
+}
+
+.project__summary {
+  margin-bottom: 1.765rem;
+  text-align: left;
+}
+
+.divider {
+  margin-bottom: 3.5rem;
+}
+.row-space {
+  margin-bottom: 1rem;
+}
+
+// only needs some pieces from Bootstrap
+%col_extend {
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+}
+
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.col-xs-12 {
+  width: 100%;
+  @extend %col_extend;
+}
+.col-sm-4 {
+  @extend %col_extend;
+}
+.col-md-4 {
+  @extend %col_extend;
+}
+.col-sm-8 {
+  @extend %col_extend;
+}
+.col-md-8 {
+  @extend %col_extend;
+}
+@media (min-width: 992px) {
+  .col-md-4 {
+    float: left;
+    width: 33.33333333%;
+  }
+  .col-md-8 {
+    float: left;
+    width: 66.66666667%;
+  }
+  .portfolio-container {
+    width: 1360px;
+  }
+}
+@media (min-width: 768px) {
+  .col-sm-8 {
+    width: 66.66666667%;
+  }
+  .project__title {
+    margin-top: .2rem;
+  }
+}
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
