@@ -5,6 +5,7 @@ lastmod: {{ .Date }}
 tags : [ "dev", "hugo", "hyde-hyde"]
 categories : [ "dev" ]
 layout: post
+type: posts
 draft: true
 ---
 
