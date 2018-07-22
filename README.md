@@ -6,9 +6,9 @@ __`Hyde-hyde`__ is a [Hugo](https://gohugo.io)'s theme inspired and derived from
 
 Since version 2.0, __`hyde-hyde`__ has been overhauled and, therefore, might cause some disruptions.
 
-* The main styles are refactored and redeveloped using SCSS (see [_static-src/scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss)),  `poole.css` and `hyde.css` are no longer needed because `hyde-hyde.scss` already incorporates relevant elements (I still keep them there for compatibility)
-* The layouts have been heavily restructured and modularised further (see [_layouts_](https://github.com/htr3n/hyde-hyde/blob/master/layouts))
-* Adding '[_Portfolio_](https://github.com/htr3n/hyde-hyde/blob/master/layouts/portfolio)' page inspired by Xiaoying Riley (@3rdwave_themes) [Developer-Theme](https://github.com/xriley/developer-theme)
+* The main styles are refactored and redeveloped using SCSS (see [_static-src/scss_](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/static-src/scss)),  `poole.css` and `hyde.css` are no longer needed because `hyde-hyde.scss` already incorporates relevant elements (I still keep them there for compatibility)
+* The layouts have been heavily restructured and modularised further (see [_layouts_](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts))
+* Adding '[_Portfolio_](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts/portfolio)' page inspired by Xiaoying Riley (@3rdwave_themes) [Developer-Theme](https://github.com/xriley/developer-theme)
 * Switching to use system fonts instead of Web fonts (e.g. privacy issues)
 
 For more details, please refer to [CHANGELOG](CHANGELOG.md). 
@@ -17,11 +17,11 @@ A real site in action can be found [here](https://htr3n.github.io) and its [WIP 
 
 Some screenshots:
 
-![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/blob/master/images/main.png)
+![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/images/main.png)
 
-![A post in hyde-hyde](https://github.com/htr3n/hyde-hyde/blob/master/images/post.png)
+![A post in hyde-hyde](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/images/post.png)
 
-![Portfolio hyde-hyde](https://github.com/htr3n/hyde-hyde/blob/master/images/portfolio.png)
+![Portfolio hyde-hyde](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/images/portfolio.png)
 
 ## Installation
 
@@ -59,8 +59,8 @@ That's all. You can render your site using `hugo` and see the template in action
 
 ## Customisations
 
-* Most of the newly added customisations are in the files [_static-src/scss/hyde-hyde/\_customised.scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/hyde-hyde/_customised.scss) and [_static-src/scss/hyde-hyde/\_variables.scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/hyde-hyde/_variables.scss) 
-* The layouts for a single post or a list/table of content in [`hyde-hyde/layouts`](https://github.com/htr3n/hyde-hyde/blob/master/layouts) are modularised and can be changed easily.
+* Most of the newly added customisations are in the files [_static-src/scss/hyde-hyde/\_customised.scss_](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/static-src/scss/hyde-hyde/_customised.scss) and [_static-src/scss/hyde-hyde/\_variables.scss_](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/static-src/scss/hyde-hyde/_variables.scss) 
+* The layouts for a single post or a list/table of content in [`hyde-hyde/layouts`](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts) are modularised and can be changed easily.
 
 ## Author(s)
 
