@@ -43,6 +43,19 @@
 	}
 }
 
+%link-hover {
+	color: $link-hover-color;
+	border-bottom: 1px dotted $gray-4;
+	text-decoration: none;
+	background: transparent;
+	background-color: transparent;
+	word-wrap: break-word;
+}
+%link-no-decoration {
+	border-style: none;
+	text-decoration: none;
+}
+
 .sidebar {
 	background-color: $sidebar-color;
 	color: rgb(255, 255, 255);
@@ -53,12 +66,10 @@
 		color: $gray-1;
 		border: none;
 		&:hover {
-			text-decoration: none;
-			border: none;
+			@extend %link-no-decoration;
 		}
 		&:focus {
-			text-decoration: none;
-			border: none;
+			@extend %link-no-decoration;
 		}
 	}
 }
@@ -85,39 +96,26 @@ a {
 	word-wrap: break-word;
 	&.sidebar-nav-item {
 		&:hover {
-			text-decoration: none;
+			@extend %link-no-decoration;
 		}
 		&:focus {
-			text-decoration: none;
+			@extend %link-no-decoration;
 		}
 	}
 	&:focus {
-		color: $link-hover-color;
-		border-bottom: 1px dotted $gray-4;
-		text-decoration: none;
-		background: transparent;
-		background-color: transparent;
-		word-wrap: break-word;
+		@extend %link-hover;
 		&.tag {
-			border-bottom-style: none;
-			text-decoration: none;
+			@extend %link-no-decoration;
 		}
 	}
 	&:hover {
-		color: $link-hover-color;
-		border-bottom: 1px dotted $gray-4;
-		text-decoration: none;
-		background: transparent;
-		background-color: transparent;
-		word-wrap: break-word;
+		@extend %link-hover;
 		&.tag {
-			border-bottom-style: none;
-			text-decoration: none;
+			@extend %link-no-decoration;
 		}
 	}
 	&.tag {
-		border-bottom-style: none;
-		text-decoration: none;
+		@extend %link-no-decoration;
 	}
 }
 
@@ -170,28 +168,37 @@ h4 {
 	font-size: $h4-font-size;
 }
 
-blockquote {
+%quotebox {
 	padding: .8889rem;
-	color: #7a7a7a;
-	background-color: #fafafa;
-	border-left: 6px solid #e6e6e6;
-	border-right: 6px solid transparent;
-	border-radius: 6px;
 	margin-top: 1.4em;
 	margin-left: 0px;
 	margin-right: 0px;
+	border-radius: 6px;
+	border-left-width: 6px;
+	border-left-style: solid;
+	border-right: 6px solid transparent;
+	border-right-width: 6px;
+	border-right-style: solid;
+	border-right-color: rgba(0, 0, 0, 0) transparent;
+	color: #7a7a7a;
+}
+
+blockquote {
+	background-color: #fafafa;
+	border-left-color: #e6e6e6;
+	@extend %quotebox;
+}
+
+.important {
+	background-color: #fbf8e8;
+	border-left-color: #fee450;
+	@extend %quotebox;
 }
 
 .warning {
-	padding: .8889rem;
-	color: #7a7a7a;
 	background-color: #f2dbdc;
-	border-left: 6px solid #e6e6e6;
-	border-right: 6px solid transparent;
-	border-radius: 6px;
-	margin-top: 1.4em;
-	margin-left: 0px;
-	margin-right: 0px;
+	border-left-color: #ae272f;
+	@extend %quotebox;
 }
 
 .img--circle {
@@ -243,15 +250,19 @@ pre {
 	}
 }
 
-code {
-	font-family: $code-font-family;
+%code-in-box {
 	border-radius: 3px;
 	padding: 2px 4px;
+	color: $code-color;
+	background-color: $code-background-color;
+}
+
+code {
+	font-family: $code-font-family;
 	white-space: pre-wrap;
 	font-size: $code-font-size;
 	line-height: $code-line-height;
-	color: $code-color;
-	background-color: $code-background-color;
+	@extend %code-in-box;
 }
 
 li code {
@@ -392,7 +403,6 @@ kbd {
 	border: 1px solid $gray-2;
 	font-size: 0.8em;
 	line-height: 1.4;
-	font-family: $root-font-family;
 	background-color: #fafbfc;
 	color: $gray-9;
 	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px $white inset;
@@ -406,7 +416,6 @@ kbd {
 // highlight.js
 .hljs {
 	white-space: pre;
-	font-size: $code-fence-font-size;
 }
 
 #references~ol {

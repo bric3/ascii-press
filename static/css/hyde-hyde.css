@@ -331,6 +331,18 @@ footer {
     font-weight: 400;
     line-height: 1.611em; } }
 
+a:focus, a:hover {
+  color: #515151;
+  border-bottom: 1px dotted #ccc;
+  text-decoration: none;
+  background: transparent;
+  background-color: transparent;
+  word-wrap: break-word; }
+
+.sidebar a:hover, .sidebar a:focus, a.sidebar-nav-item:hover, a.sidebar-nav-item:focus, a.tag:focus, a.tag:hover, a.tag {
+  border-style: none;
+  text-decoration: none; }
+
 .sidebar {
   background-color: #300030;
   color: white;
@@ -340,12 +352,6 @@ footer {
   .sidebar a {
     color: #f9f9f9;
     border: none; }
-    .sidebar a:hover {
-      text-decoration: none;
-      border: none; }
-    .sidebar a:focus {
-      text-decoration: none;
-      border: none; }
 
 .sidebar-nav {
   list-style: none;
@@ -363,33 +369,6 @@ a {
   color: #268bd2;
   text-decoration: none;
   word-wrap: break-word; }
-  a.sidebar-nav-item:hover {
-    text-decoration: none; }
-  a.sidebar-nav-item:focus {
-    text-decoration: none; }
-  a:focus {
-    color: #515151;
-    border-bottom: 1px dotted #ccc;
-    text-decoration: none;
-    background: transparent;
-    background-color: transparent;
-    word-wrap: break-word; }
-    a:focus.tag {
-      border-bottom-style: none;
-      text-decoration: none; }
-  a:hover {
-    color: #515151;
-    border-bottom: 1px dotted #ccc;
-    text-decoration: none;
-    background: transparent;
-    background-color: transparent;
-    word-wrap: break-word; }
-    a:hover.tag {
-      border-bottom-style: none;
-      text-decoration: none; }
-  a.tag {
-    border-bottom-style: none;
-    text-decoration: none; }
 
 .content {
   padding-bottom: 2rem;
@@ -429,27 +408,31 @@ h3 {
 h4 {
   font-size: 1.3rem; }
 
-blockquote {
+blockquote, .important, .warning {
   padding: .8889rem;
-  color: #7a7a7a;
-  background-color: #fafafa;
-  border-left: 6px solid #e6e6e6;
-  border-right: 6px solid transparent;
-  border-radius: 6px;
   margin-top: 1.4em;
   margin-left: 0px;
-  margin-right: 0px; }
+  margin-right: 0px;
+  border-radius: 6px;
+  border-left-width: 6px;
+  border-left-style: solid;
+  border-right: 6px solid transparent;
+  border-right-width: 6px;
+  border-right-style: solid;
+  border-right-color: rgba(0, 0, 0, 0) transparent;
+  color: #7a7a7a; }
+
+blockquote {
+  background-color: #fafafa;
+  border-left-color: #e6e6e6; }
+
+.important {
+  background-color: #fbf8e8;
+  border-left-color: #fee450; }
 
 .warning {
-  padding: .8889rem;
-  color: #7a7a7a;
   background-color: #f2dbdc;
-  border-left: 6px solid #e6e6e6;
-  border-right: 6px solid transparent;
-  border-radius: 6px;
-  margin-top: 1.4em;
-  margin-left: 0px;
-  margin-right: 0px; }
+  border-left-color: #ae272f; }
 
 .img--circle {
   border-radius: 50%; }
@@ -489,14 +472,16 @@ pre {
     white-space: pre-wrap; }
 
 code {
-  font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Roboto Mono", "Ubuntu Mono", "Courier New", Courier, monospace;
   border-radius: 3px;
   padding: 2px 4px;
-  white-space: pre-wrap;
-  font-size: 0.84rem;
-  line-height: 1.4;
   color: #bf616a;
   background-color: #f9f2f4; }
+
+code {
+  font-family: "SF-Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Roboto Mono", "Ubuntu Mono", "Courier New", Courier, monospace;
+  white-space: pre-wrap;
+  font-size: 0.9rem;
+  line-height: 1.4; }
 
 li code {
   border-radius: 4px;
@@ -610,7 +595,6 @@ kbd {
   border: 1px solid #eee;
   font-size: 0.8em;
   line-height: 1.4;
-  font-family: system, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background-color: #fafbfc;
   color: #313131;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
@@ -621,8 +605,7 @@ kbd {
   white-space: nowrap; }
 
 .hljs {
-  white-space: pre;
-  font-size: 0.8rem; }
+  white-space: pre; }
 
 #references ~ ol {
   font-size: .9rem; }
