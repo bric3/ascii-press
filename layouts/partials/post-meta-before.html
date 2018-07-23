@@ -12,7 +12,7 @@
           {{- $total := sub $total 1 -}}
           {{- range $i, $cat := sort . }}
               <a class="post__category" href="{{ "/categories/" | relURL }}{{ $cat | urlize }}">{{ $cat | upper }}</a>
-              {{ if lt $i $total }},{{ end }}
+              {{ if lt $i $total }}•{{ end }}
           {{- end -}}
       {{- end -}}
     {{- end -}}
