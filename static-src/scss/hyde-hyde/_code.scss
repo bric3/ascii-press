@@ -26,11 +26,11 @@ pre {
 	background-color: $gray-1;
 }
 
--code {
-	white-space: pre-wrap;
-	@extend %code-font;
-	@extend %code-in-rounded-box;
-}
+//-code {
+//	white-space: pre-wrap;
+//	@extend %code-font;
+//	@extend %code-in-rounded-box;
+//}
 
 code {
 	@extend %code-font;

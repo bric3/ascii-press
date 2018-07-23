@@ -415,32 +415,21 @@ pre {
   pre code {
     white-space: pre-wrap; }
 
--code, code {
+code {
   font-family: "SF-Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Roboto Mono", "Ubuntu Mono", "Courier New", Courier, monospace;
   font-size: 0.9rem;
   line-height: 1.4; }
-
--code {
-  border-radius: 3px;
-  padding: 2px 4px;
-  color: #bf616a;
-  background-color: #f9f2f4; }
 
 code {
   padding: 2px 4px;
   border: 1px dashed #adb5db;
   background-color: #f9f9f9; }
 
--code {
-  white-space: pre-wrap; }
-
 .hljs {
   white-space: pre;
   border: none; }
 
 /*
-// https://codersblock.com/blog/customizing-github-gists
-//
 body .gist {
 	.gist-file {
 		margin-bottom: 0;
