@@ -15,13 +15,19 @@ For more details, please refer to [CHANGELOG](CHANGELOG.md).
 
 A real site in action can be found [here](https://htr3n.github.io) and its [WIP source](https://github.com/htr3n/htr3n-blog) for reference.
 
-Some screenshots:
+## Some Screenshots
 
-![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/images/main.png)
+### Main page
 
-![A post in hyde-hyde](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/images/post.png)
+![hyde-hyde main screen](images/main.png)
 
-![Portfolio hyde-hyde](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/images/portfolio.png)
+### Post
+
+![A post in hyde-hyde](images/post.png)
+
+### Portfolio
+
+![Portfolio hyde-hyde](images/portfolio.png)
 
 ## Installation
 
