@@ -1,9 +1,10 @@
 {{ define "header" -}}
+    {{ partial "page-variables-init.html" . }}
     {{ partial "header.html" . }}
 {{- end -}}
 
 {{ define "content" -}}
-    {{ partial "page_single.html" . }}
+    {{ partial "page-single.html" . }}
 {{- end -}}
 
 {{ define "footer" -}}
@@ -12,4 +13,5 @@
         {{- partial "commenting.html" . -}}
     </div>
     {{ partial "footer.html" . }}
+    {{ partial "page-variables-deinit.html" . }}
 {{- end -}}
