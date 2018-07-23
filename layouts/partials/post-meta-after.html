@@ -1,22 +1,14 @@
-<div>
-    <ul class="post__nav">
-        <li class="post__nav--next">
-            {{ with .NextInSection -}}
-            <a href="{{ .RelPermalink }}">
-                <span class="next__heading">NEXT</span>
-                <span>{{ .Title }}</span>
-            </a>
-            <i class="fas fa-chevron-right"></i>
-            {{- end }}
-        </li>
-        <li class="post__nav--previous">
-            {{ with .PrevInSection -}}            
-            <span class="previous__heading">PREVIOUS</span>
-            <i class="fas fa-chevron-left"></i>
-            <a href="{{ .RelPermalink }}">
-                <span class="previous__title">{{ .Title }}</span>
-            </a>
-            {{- end }}
-        </li>
-    </ul>
+<div class="post--navigation post--navigation-single">
+    {{ with .PrevInSection -}}
+    <a href="{{ .RelPermalink }}" class="post--navigation-prev">
+      <i aria-hidden="true" class="fa fa-chevron-left"></i>
+      <span>{{ .Title }}</span>
+    </a>
+    {{- end }}
+    {{ with .NextInSection -}}
+    <a href="{{ .RelPermalink }}" class="post--navigation-next">
+      <span>{{ .Title }}</span>
+      <i aria-hidden="true" class="fa fa-chevron-right"></i>
+    </a>
+    {{- end }}
 </div>

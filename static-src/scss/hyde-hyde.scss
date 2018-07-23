@@ -4,6 +4,12 @@
 @import "poole/layout";
 @import "poole/posts";
 // hyde-hyde
-@import 'hyde-hyde/themes';
-@import 'hyde-hyde/projects';
+@import 'hyde-hyde/mixins';
+@import 'hyde-hyde/base';
+@import 'hyde-hyde/theme';
+@import 'hyde-hyde/sidebar';
+@import 'hyde-hyde/post';
+@import 'hyde-hyde/code';
+@import 'hyde-hyde/gist';
+@import 'hyde-hyde/project';
 @import 'hyde-hyde/customised';

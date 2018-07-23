@@ -1,0 +1,44 @@
+pre {
+	border: 1px solid $gray-1;
+	border-radius: 2px;
+	tab-size: 2;
+	code {
+		white-space: pre-wrap;
+	}
+}
+
+%code-font {
+	font-family: $code-font-family;
+	font-size: $code-font-size;
+	line-height: $code-line-height;
+}
+
+%code-in-rounded-box {
+	border-radius: 3px;
+	padding: 2px 4px;
+	color: $code-color;
+	background-color: $code-background-color;
+}
+
+%code-style-codersblock {
+	padding: 2px 4px;
+	border: 1px dashed #adb5db;
+	background-color: $gray-1;
+}
+
+-code {
+	white-space: pre-wrap;
+	@extend %code-font;
+	@extend %code-in-rounded-box;
+}
+
+code {
+	@extend %code-font;
+	@extend %code-style-codersblock;
+}
+
+// highlight.js
+.hljs {
+	white-space: pre;
+	border:none;
+}

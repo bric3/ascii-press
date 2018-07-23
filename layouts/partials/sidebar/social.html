@@ -1,4 +1,4 @@
-<section class="social text-center">
+<section class="social">
 	{{ with .Site.Params.social.twitter -}}
 	<a href="https://twitter.com/{{.}}"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	{{- end }}
@@ -24,7 +24,7 @@
 	&nbsp;<a href="https://stackoverflow.com/users/{{.}}"><i class="fab fa-stack-overflow fa-lg" aria-hidden="true"></i></a>
 	{{- end }}
 	{{ with .Site.Params.social.medium}}
-	&nbsp;<a href="https://medium.com/{{.}}"><i class="fab fa-medium fa-lg" aria-hidden="true"></i></a>
+	&nbsp;<a href="https://medium.com/@{{.}}"><i class="fab fa-medium fa-lg" aria-hidden="true"></i></a>
 	{{- end }}
 	{{ with .Site.Params.social.xing -}}
 	&nbsp;<a href="https://www.xing.com/profile/{{.}}"><i class="fab fa-xing fa-lg" aria-hidden="true"></i></a>
