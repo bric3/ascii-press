@@ -59,16 +59,15 @@ blockquote {
 
 kbd {
 	font-family: $root-font-family;
-	padding: .1em .6em;
-	border: 1px solid $gray-2;
+	padding: 2px 7px;
+	border: 1px solid $gray-4;
 	font-size: 0.8em;
 	line-height: 1.4;
-	background-color: #fafbfc;
+	background-color: #f3f3f3;
 	color: $gray-9;
-	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px $white inset;
+	box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 2px $white inset;
 	border-radius: 3px;
 	display: inline-block;
-	margin: 0 .1em;
 	text-shadow: 0 1px 0 $white;
 	white-space: nowrap;
 }

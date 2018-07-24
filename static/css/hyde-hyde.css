@@ -1,4 +1,6 @@
 * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 html,
@@ -155,16 +157,15 @@ blockquote {
 
 kbd {
   font-family: system, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  padding: .1em .6em;
-  border: 1px solid #eee;
+  padding: 2px 7px;
+  border: 1px solid #ccc;
   font-size: 0.8em;
   line-height: 1.4;
-  background-color: #fafbfc;
+  background-color: #f3f3f3;
   color: #313131;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 2px #fff inset;
   border-radius: 3px;
   display: inline-block;
-  margin: 0 .1em;
   text-shadow: 0 1px 0 #fff;
   white-space: nowrap; }
 
@@ -290,11 +291,9 @@ a {
     color: #f9f9f9;
     border: none; }
     .sidebar a:hover {
-      border-style: none;
-      text-decoration: none; }
+      color: #268bd2; }
     .sidebar a:focus {
-      border-style: none;
-      text-decoration: none; }
+      color: #268bd2; }
   .sidebar .sidebar-about {
     text-align: center; }
 
@@ -411,15 +410,13 @@ a {
 pre {
   border: 1px solid #f9f9f9;
   border-radius: 2px;
-  -moz-tab-size: 2;
-    -o-tab-size: 2;
-       tab-size: 2; }
+  tab-size: 2; }
   pre code {
     white-space: pre-wrap; }
 
 code {
   font-family: "SF-Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Roboto Mono", "Ubuntu Mono", "Courier New", Courier, monospace;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   line-height: 1.4; }
 
 code {
@@ -532,8 +529,7 @@ body .gist td {
       text-transform: uppercase;
       color: #fff;
       background-color: #479fc8;
-      -webkit-transform: rotate(45deg) translate3d(0, 0, 0);
-              transform: rotate(45deg) translate3d(0, 0, 0); }
+      transform: rotate(45deg) translate3d(0, 0, 0); }
       .project__featured-image .ribbon .text:before {
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
@@ -634,10 +630,7 @@ body .gist td {
 @media (min-width: 58em) {
   html,
   body {
-    -webkit-text-size-adjust: none;
-       -moz-text-size-adjust: none;
-        -ms-text-size-adjust: none;
-            text-size-adjust: none;
+    text-size-adjust: none;
     font-size: 17px;
     font-weight: 400;
     line-height: 1.611em; } }
@@ -687,5 +680,11 @@ body .gist td {
 
 #references li {
   font-size: .9rem; }
+
+.menu {
+  background-color: #f3f3f3;
+  color: #333;
+  border-radius: 2px;
+  padding: 1px 5px; }
 
 /*# sourceMappingURL=hyde-hyde.css.map */

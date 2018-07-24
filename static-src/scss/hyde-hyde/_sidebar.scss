@@ -8,10 +8,10 @@
     color: $gray-1;
     border: none;
     &:hover {
-      @include link-no-decoration();
+      color: $link-color;
     }
     &:focus {
-      @include link-no-decoration();
+      color: $link-color;
     }
   }
   .sidebar-about {
