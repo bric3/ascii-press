@@ -65,8 +65,7 @@ That's all. You can render your site using `hugo` and see the template in action
 
 ## Customisations
 
-* Most of the newly added customisations are in the files [_static-src/scss/hyde-hyde/\_customised.scss_](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/static-src/scss/hyde-hyde/_customised.scss) and [_static-src/scss/hyde-hyde/\_variables.scss_](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/static-src/scss/hyde-hyde/_variables.scss) 
-* The layouts for a single post or a list/table of content in [`hyde-hyde/layouts`](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts) are modularised and can be changed easily.
+* Most of the customisable SCSS styles in [_static-src/scss/hyde-hyde_](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/static-src/scss/hyde-hyde) and layouts in [_hyde-hyde/layouts_](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts) are modularised and can be altered/adapted easily.
 
 ## Author(s)
 
