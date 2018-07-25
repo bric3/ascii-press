@@ -1,8 +1,9 @@
 $gray-0: #fafafa;
 $gray-1: #f9f9f9;
 $gray-2: #eee;
+$gray-3: #ddd;
 $gray-4: #ccc;
-$gray-5: #ddd;
+$gray-4: #bbb;
 $gray-6: #878787;
 $gray-7: #767676;
 $gray-8: #515151;
@@ -32,8 +33,8 @@ $large-font-size: 20px;
 
 // https://www.client9.com/css-system-font-stack-monospace-v2
 $code-font-family: "SF-Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Roboto Mono", "Ubuntu Mono", "Courier New", Courier, monospace;
-$code-font-size: .85rem;
-$code-fence-font-size: .7rem;
+$code-font-size: .9rem;
+$code-fence-font-size: .9rem;
 $code-color: #bf616a;
 $code-background-color: #f9f2f4;
 $code-line-height: 1.4;
@@ -65,6 +66,7 @@ $h1-line-height: 1.25;
 $h2-font-size: 1.85rem;
 $h3-font-size: 1.5rem;
 $h4-font-size:1.3rem;
+$h5-font-size:1rem;
 
 $sidebar-color: #300030;
 
@@ -78,7 +80,7 @@ $post--navigation-color: #c2255c;
 // portfolio
 $project__title-font-size: $h2-font-size;
 $project__subtitle-font-size-big: $h3-font-size;
-$project__subtitle-font-size-small: ($h3-font-size - 0.5rem);
+$project__subtitle-font-size-small: $h4-font-size;
 $project__subtitle-font-style: italic;
 $project__subtitle-color: #778492;
 $ribbon-color: #276582;
