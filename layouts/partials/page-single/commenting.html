@@ -1,7 +1,7 @@
 {{- if ne .Params.showcomments false -}}
     {{ if .Site.DisqusShortname -}}
-        {{- partial "commenting/disqus.html" . -}}
+        {{- partial "page-single/commenting/disqus.html" . -}}
     {{- else if .Site.Params.GraphCommentId -}}
-        {{- partial "commenting/graphcomment.html" . -}}
+        {{- partial "page-single/commenting/graphcomment.html" . -}}
     {{- end -}}
 {{- end }}

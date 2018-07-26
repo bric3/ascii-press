@@ -6,11 +6,11 @@
       {{.}}
     </span>
     {{ end }} 
-    {{ partial "post-meta-top.html" . }}
+    {{ partial "page-single/post-meta-top.html" . }}
   </header>
   <div class="post">
     {{ .Content }}
   </div>
-  {{ partial "post-meta-bottom.html" . }}
-  {{ partial "post-related.html" . }}
+  {{ partial "page-single/post-meta-bottom.html" . }}
+  {{ partial "page-single/post-related.html" . }}
 </article>

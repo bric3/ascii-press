@@ -1,17 +1,17 @@
 {{ define "header" -}}
-    {{ partial "page-variables-init.html" . }}
+    {{ partial "page-single/variables-init.html" . }}
     {{ partial "header.html" . }}
 {{- end -}}
 
 {{ define "content" -}}
-    {{ partial "page-single.html" . }}
+    {{ partial "page-single/content.html" . }}
 {{- end -}}
 
 {{ define "footer" -}}
     <div class="container content">
-        {{- partial "highlight-js.html" . -}}
-        {{- partial "commenting.html" . -}}
+        {{- partial "page-single/commenting.html" . -}}
     </div>
+    {{- partial "highlight-js.html" . -}}
     {{ partial "footer.html" . }}
-    {{ partial "page-variables-deinit.html" . }}
+    {{ partial "page-single/variables-deinit.html" . }}
 {{- end -}}
