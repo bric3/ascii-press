@@ -2,13 +2,13 @@
 <div class="sidebar">
   <div class="container {{ with .Site.Params.sidebarSticky -}}sidebar-sticky{{- end }}">
     <div class="sidebar-about">
-      <div class="site__title">
+      <span class="site__title">
         <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
-      </div>
+      </span>
       {{ with .Site.Params.authorimage }}
       {{ $strippedSlash := ($.Site.Params.authorimage | replaceRE "^(/)+(.*)" "$2") }}
       {{ $authorImage := (printf "%s%s" $.Site.BaseURL $strippedSlash) }}
-      <div>
+      <div class="author-image">
         <img src="{{$authorImage}}" alt="Author Image" class="img--circle img--headshot element--center"> 
       </div>
       {{ end }}

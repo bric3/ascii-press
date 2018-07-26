@@ -1,4 +1,6 @@
 * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 html,
@@ -295,6 +297,9 @@ a {
       color: #268bd2; }
   .sidebar .sidebar-about {
     text-align: center; }
+  .sidebar .author-image {
+    display: block;
+    margin-top: 4px; }
 
 .sidebar-nav {
   text-align: center;
@@ -422,9 +427,7 @@ a {
   font-size: 0.9rem; }
 
 pre {
-  -moz-tab-size: 2;
-    -o-tab-size: 2;
-       tab-size: 2; }
+  tab-size: 2; }
   pre code {
     white-space: pre-wrap; }
 
@@ -559,6 +562,10 @@ body .gist td {
   max-width: 100%;
   height: auto; }
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .sidebar {
+    padding-top: .5rem; } }
+
 @media (min-width: 768px) {
   html,
   body {
@@ -604,10 +611,7 @@ body .gist td {
 @media (min-width: 992px) {
   html,
   body {
-    -webkit-text-size-adjust: none;
-       -moz-text-size-adjust: none;
-        -ms-text-size-adjust: none;
-            text-size-adjust: none;
+    text-size-adjust: none;
     font-size: 17px;
     font-weight: 400;
     line-height: 1.611em; }
