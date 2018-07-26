@@ -1,7 +1,6 @@
 <head>
     <link href="http://gmpg.org/xfn/11" rel="profile">
     {{ partial "header/meta.html" . }}
-    {{ "<!-- highlighting -->" | safeHTML }}
     {{ partial "header/highlight-css.html" . }}
     <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/print.min.css" media="print">
     <link rel="stylesheet" href="{{ .Site.BaseURL }}/css/hyde-hyde.css">
@@ -13,7 +12,5 @@
     {{ "<!-- Icons -->" | safeHTML }}
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
     <link rel="shortcut icon" href="/favicon.png">
-    {{- if .RSSLink -}}
-        {{ partial "header/feeds.html" . }}
-    {{- end -}}
+    {{ partial "header/feeds.html" . }}
 </head>
