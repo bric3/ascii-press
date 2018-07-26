@@ -1,4 +1,5 @@
-{{ if and (not .Site.BuildDrafts) (.Site.GoogleAnalytics) -}}
-{{ "<!-- Google Analytics -->" | safeHTML }}
-{{ template "_internal/google_analytics_async.html" . }}
+{{ partial "footer/font-awesome-js.html" . }}
+{{ if (.Site.GoogleAnalytics) -}}
+  {{ "<!-- Google Analytics -->" | safeHTML }}
+  {{ template "_internal/google_analytics_async.html" . }}
 {{- end }}
