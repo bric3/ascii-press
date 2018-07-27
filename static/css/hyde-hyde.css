@@ -106,6 +106,13 @@ footer {
     .related-posts li a:hover small {
       color: inherit; }
 
+html,
+body {
+  -webkit-text-size-adjust: 100%;
+  box-direction: normal;
+  font-weight: 400;
+  line-height: 1.611em; }
+
 h1,
 h2,
 h3,
@@ -131,7 +138,9 @@ h5 {
   font-size: 1rem; }
 
 figure {
-  width: 100%; }
+  width: 100%;
+  margin: 0;
+  padding: 0; }
 
 blockquote, .important, .warning {
   padding: .8889rem;
@@ -565,16 +574,18 @@ body .gist td {
   max-width: 100%;
   height: auto; }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  .sidebar {
-    padding-top: .5rem; } }
+@media (min-width: 320px) and (max-width: 767px) {
+  .sidebar li {
+    padding: .1rem 0; }
+  .hidden-tablet {
+    display: none; } }
 
 @media (min-width: 768px) {
   html,
   body {
-    -webkit-text-size-adjust: 100%;
-    font-size: 16px;
-    box-direction: normal; }
+    font-size: 16px; }
+  .hidden-tablet {
+    display: none; }
   .sidebar {
     bottom: 0;
     left: 0;
@@ -601,8 +612,6 @@ body .gist td {
     width: 66.66666667%; }
   .project__title {
     margin-top: 0.2rem; }
-  .hidden-tablet {
-    display: none; }
   .post--navigation {
     display: flex;
     justify-content: space-between; }
@@ -614,13 +623,7 @@ body .gist td {
 @media (min-width: 992px) {
   html,
   body {
-    -webkit-text-size-adjust: none;
-       -moz-text-size-adjust: none;
-        -ms-text-size-adjust: none;
-            text-size-adjust: none;
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 1.611em; }
+    font-size: 18px; }
   .content {
     margin-left: 20rem;
     margin-right: 2rem;
