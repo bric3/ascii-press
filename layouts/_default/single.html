@@ -8,10 +8,6 @@
 {{- end -}}
 
 {{ define "footer" -}}
-    <div class="container content">
-        {{- partial "page-single/commenting.html" . -}}
-    </div>
-    {{- partial "highlight-js.html" . -}}
-    {{ partial "footer.html" . }}
+    {{ partial "page-single/footer.html" . }}
     {{ partial "page-single/variables-deinit.html" . }}
 {{- end -}}
