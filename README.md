@@ -6,7 +6,7 @@ __`Hyde-hyde`__ is a [Hugo](https://gohugo.io)'s theme inspired and derived from
 
 Since version 2.0, __`hyde-hyde`__ has been overhauled and, therefore, might cause some disruptions.
 
-* The main styles are refactored and redeveloped using SCSS (see [_static-src/scss_](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/static-src/scss)),  `poole.css` and `hyde.css` are no longer needed because `hyde-hyde.scss` already incorporates relevant elements (I still keep them there for compatibility)
+* The main styles are refactored and redeveloped using SCSS (see [_static-src/scss_](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/static-src/scss)),  `poole.css` and `hyde.css` are no longer needed because `hyde-hyde.scss` already incorporates relevant elements (I still keep them there for reference purpose)
 * The layouts have been heavily restructured and modularised further (see [_layouts_](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts))
 * Adding '[_Portfolio_](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts/portfolio)' page inspired by Xiaoying Riley (@3rdwave_themes) [Developer-Theme](https://github.com/xriley/developer-theme)
 * Switching to use system fonts instead of Web fonts (e.g. privacy issues)
@@ -19,15 +19,15 @@ A real site in action can be found [here](https://htr3n.github.io) and its [WIP 
 
 ### Main page
 
-![hyde-hyde main screen](images/main.png)
+![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/raw/master/images/main.png)
 
 ### Post
 
-![A post in hyde-hyde](images/post.png)
+![A post in hyde-hyde](https://github.com/htr3n/hyde-hyde/raw/master/images/post.png)
 
 ### Portfolio
 
-![Portfolio hyde-hyde](images/portfolio.png)
+![Portfolio hyde-hyde](https://github.com/htr3n/hyde-hyde/raw/master/images/portfolio.png)
 
 ## Installation
 
