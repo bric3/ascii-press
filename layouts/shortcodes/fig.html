@@ -4,16 +4,40 @@
 {{ else if .Get "alt" }}
   {{ $fig.Set "caption" (.Get "alt") }}
 {{ end }}
+<!-- resolve absolute image path -->
+{{ $permalink := $.Page.Permalink }}
+{{ $image := .Get "src" }}
+{{ $image_link_absolute := (findRE "^/" $image) }}
 <figure {{ with .Get "class" }}class="{{.}}"{{ end }}>
-  {{ with .Get "link"}}<a href="{{.}}">{{ end }}
-    <img src="{{ .Get "src" }}" 
-        {{ with $.Scratch.Get "caption" }}alt="{{ . }}"{{ end }}
+  {{ if .Get "link"}}
+    <a href="{{ .Get "link" }}"
+    {{ with .Get "target" }} target="{{ . }}"{{ end }}
+    {{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
+  {{ end }}
+  <img
+      {{ if $image_link_absolute }}
+        src="{{ $image | absURL }}"
+      {{ else }}
+        src="{{ (printf "%s%s" $permalink $image) }}"
+      {{ end }}
+        {{ if .Get "alt" }}alt="{{ .Get "alt" | markdownify | plainify }}"
+        {{- else if .Get "caption" }}alt="{{ .Get "caption" | markdownify | plainify }}"
+        {{- end }}
         {{ with .Get "align" }}align="{{ . }}"{{ end }}
-        {{ with .Get "width" }}width="{{ . }}"{{ end }} />
-  {{ with .Get "link"}}</a>{{ end }}
-  {{ with ($fig.Get "caption") }}
+        width="{{ .Get "width" | default "100%"}}"
+        {{ with .Get "height" }}width="{{ . }}"{{ end }} />
+  {{ if .Get "link"}}</a>{{ end }}
+  <!-- caption and attr-->
+  {{ if ($fig.Get "caption") }}
     <figcaption>
-      <span class="img--caption">Figure {{ $.Page.Scratch.Get "fig" }}. {{ . }}</span>
+      <span class="img--caption">
+        Figure {{ $.Page.Scratch.Get "fig" }}. {{ $fig.Get "caption" | markdownify | plainify }}
+        {{ if .Get "attr" }}
+          [{{- with .Get "attrlink"}}<a href="{{ . | markdownify }}">{{ end -}}
+                {{ .Get "attr" | markdownify }}
+          {{- if .Get "attrlink"}}</a>{{- end }}]
+        {{ end }}
+      </span>
     </figcaption>
   {{ end }}
 </figure>
