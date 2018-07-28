@@ -1,13 +1,13 @@
 # Changelog
 
 __2018-07__
-* Revises the shortcode ['fig.html'](layouts/shortcodes/fig.html)
-* Renames `header/font-awesome.html` to `header/font-awesome-css.html` and adds [_footer/font-awesome-js.html_](layouts/partials/footer/font-awesome-js.html), uses Font-Awesome 5 deferred JavaScript loading to reduce CSS rendering blocking
+* Revises the shortcode ['fig.html'](https://github.com/htr3n/hyde-hyde/blob/master/layouts/shortcodes/fig.html)
+* Renames `header/font-awesome.html` to `header/font-awesome-css.html` and adds [_footer/font-awesome-js.html_](https://github.com/htr3n/hyde-hyde/blob/master/layouts/partials/footer/font-awesome-js.html), uses Font-Awesome 5 deferred JavaScript loading to reduce CSS rendering blocking
 * Refactors and consolidates all responsive breakpoints and creates a new style  [_\_responsive.scss_](static-src/scss/hyde-hyde/_responsive.scss)
-* Refactors portfolio's projects into [_\_project.scss_](static-src/scss/hyde-hyde/_project.scss)
-* Refactors styles for a list of posts into [_\_list.scss_](static-src/scss/hyde-hyde/_list.scss)
-* Refactors misc. styles into [_\_misc.scss_](static-src/scss/hyde-hyde/_misc.scss)
-* Removes  [_\_customised.scss_](static-src/scss/hyde-hyde/_customised.scss)
+* Refactors portfolio's projects into [_\_project.scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/hyde-hyde/_project.scss)
+* Refactors styles for a list of posts into [_\_list.scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/hyde-hyde/_list.scss)
+* Refactors misc. styles into [_\_misc.scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/hyde-hyde/_misc.scss)
+* Removes  [_\_customised.scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/hyde-hyde/_customised.scss)
 
 __Version 2.0__
 
@@ -37,6 +37,5 @@ __Version 1.0__
 * Using main font [Fira-Sans](https://fonts.google.com/specimen/Fira+Sans) + fixed width font [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
 * Adding [GraphComment](https://graphcomment.com) for replacing the built-in [Disqus](https://disqus.com)
 * Fork from [Hyde](https://github.com/spf13/hyde) 
-* Adapt to [Nate Finch's blog](https://npf.io)'s colors and fonts.
 * Refactor `basedof.html` and corresponding pages `index.html`, `single.html`, `list.html`
     - define blocks `content` and `footer` that will be fulfilled by each different type of layout.
