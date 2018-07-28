@@ -1,19 +1,12 @@
 # Changelog
 
 __2018-07__
-
-* Renames `header/font-awesome.html` to `header/font-awesome-css.html` and 
-
-	adds [_footer/font-awesome-js.html_](layouts/partials/footer/font-awesome-js.html), uses Font-Awesome 5 deferred JavaScript loading to reduce rendering blocking by CSSs
-
+* Revises the shortcode ['fig.html'](layouts/shortcodes/fig.html)
+* Renames `header/font-awesome.html` to `header/font-awesome-css.html` and adds [_footer/font-awesome-js.html_](layouts/partials/footer/font-awesome-js.html), uses Font-Awesome 5 deferred JavaScript loading to reduce CSS rendering blocking
 * Refactors and consolidates all responsive breakpoints and creates a new style  [_\_responsive.scss_](static-src/scss/hyde-hyde/_responsive.scss)
-
 * Refactors portfolio's projects into [_\_project.scss_](static-src/scss/hyde-hyde/_project.scss)
-
 * Refactors styles for a list of posts into [_\_list.scss_](static-src/scss/hyde-hyde/_list.scss)
-
 * Refactors misc. styles into [_\_misc.scss_](static-src/scss/hyde-hyde/_misc.scss)
-
 * Removes  [_\_customised.scss_](static-src/scss/hyde-hyde/_customised.scss)
 
 __Version 2.0__
