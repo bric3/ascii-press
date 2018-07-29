@@ -87,6 +87,7 @@ As I design the section _portfolio_ to be rendered as _list_,  `_index.md` can b
 title: 'Projects'
 ---
 ```
+The remaining of `_index.md` will be ignored.
 
 For each project, just create a Markdown file with the following parameters in the front matter:
 
