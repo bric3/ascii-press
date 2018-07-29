@@ -1,21 +1,21 @@
 {{ if ne .Params.showpagemeta false }}
 <div class="post__meta">
     <!-- published date -->
-    {{ if not .Date.IsZero -}}
-      <i class="fas fa-calendar-alt"></i> {{ .Date.Format (.Site.Params.dateformat | default "Jan 02, 2006") -}}
-    {{- end }}
+    {{ if not .Date.IsZero }}
+      <i class="fas fa-calendar-alt"></i> {{ .Date.Format (.Site.Params.dateformat | default "Jan 02, 2006") }}
+    {{ end }}
     <!-- categories -->
-    {{- with .Params.categories -}}
-      {{- $total := len . -}}
-      {{ if gt $total 0 -}}
+    {{ with .Params.categories }}
+      {{ $total := len . }}
+      {{ if gt $total 0 }}
           in
-          {{- $total := sub $total 1 -}}
-          {{- range $i, $cat := sort . }}
+          {{ $total := sub $total 1 }}
+          {{ range $i, $cat := sort . }}
               <a class="post__category" href="{{ "/categories/" | relURL }}{{ $cat | urlize }}">{{ $cat | upper }}</a>
               {{ if lt $i $total }}•{{ end }}
-          {{- end -}}
-      {{- end -}}
-    {{- end -}}
+          {{ end }}
+      {{ end }}
+    {{ end }}
     <!-- tags -->
     {{ with .Params.tags }}
       {{ $total := len . }}

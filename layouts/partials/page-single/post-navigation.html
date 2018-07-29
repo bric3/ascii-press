@@ -1,14 +1,17 @@
+{{ $enabledPostNavigation := .Site.Params.postNavigation | default true }}
+{{ if $enabledPostNavigation }}
 <div class="post--navigation post--navigation-single">
     {{ with .PrevInSection -}}
     <a href="{{ .RelPermalink }}" class="post--navigation-prev">
       <i aria-hidden="true" class="fa fa-chevron-left"></i>
-      <span>{{ .Title }}</span>
+      <span class="navigation-tittle">{{ .Title }}</span>
     </a>
     {{- end }}
     {{ with .NextInSection -}}
     <a href="{{ .RelPermalink }}" class="post--navigation-next">
-      <span>{{ .Title }}</span>
+      <span class="navigation-tittle">{{ .Title }}</span>
       <i aria-hidden="true" class="fa fa-chevron-right"></i>
     </a>
     {{- end }}
 </div>
+{{ end }}
