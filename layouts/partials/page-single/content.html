@@ -6,12 +6,12 @@
       {{.}}
     </span>
     {{ end }} 
-    {{ partial "page-single/post-meta-top.html" . }}
+    {{ partial "page-single/post-meta.html" . }}
   </header>
   <div class="post">
     {{ .Content }}
   </div>
-  {{ partial "page-single/post-meta-bottom.html" . }}
+  {{ partial "page-single/post-navigation.html" . }}
   {{ partial "page-single/post-related.html" . }}
-  {{- partial "page-single/post-comment.html" . -}}
+  {{ partial "page-single/post-comment.html" . }}
 </article>

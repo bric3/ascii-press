@@ -1,27 +1,27 @@
 <div>
 	<ul class="sidebar-nav">
 		{{ $currentPage := . }} 
-		{{- range .Site.Menus.main -}} 
-			{{ if .HasChildren -}}
+		{{ range .Site.Menus.main }} 
+			{{ if .HasChildren }}
 			<li {{ if $currentPage.HasMenuCurrent "main" . }}class="active"{{ end }}>
 				<a href="#">{{ .Pre }}
 					<span>{{ .Name }}</span>
 				</a>
 				<ul class="sidebar-nav">
-					{{- range .Children -}}
+					{{ range .Children }}
 					<li {{ if $currentPage.IsMenuCurrent "main" . }}class="active"{{ end }}>
 						<a href="{{ .URL }}">{{ .Name | title }}</a>
 					</li>
-					{{- end -}}
+					{{ end }}
 				</ul>
-			{{- else -}} <!-- No children -->
+			{{ else }} <!-- No children -->
 				<li>
 					<a href="{{.URL}}">{{ .Pre }}
 						<span>{{ .Name | title }}</span>
 					</a>
 				</li>
-			{{- end -}} 
-		{{- end }}
+			{{ end }} 
+		{{ end }}
 		</li>
 	</ul>
 </div>

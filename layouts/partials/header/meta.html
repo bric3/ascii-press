@@ -4,15 +4,15 @@
 {{ "<!-- Enable responsiveness on mobile devices -->" | safeHTML }}
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 {{ .Hugo.Generator }}
-{{- if .IsHome }}
-    {{ $.Scratch.Set "theTitle" .Site.Title -}}
+{{ if .IsHome }}
+    {{ $.Scratch.Set "theTitle" .Site.Title }}
 {{else}}
     {{ $.Scratch.Add "theTitle" .Title}}
     {{ $.Scratch.Add "theTitle" " • "}}
     {{ $.Scratch.Add "theTitle" .Site.Title}}
-{{- end -}}
+{{ end }}
 <title>{{ $.Scratch.Get "theTitle" }}</title>
-{{ with .Site.Params.meta.description -}}<meta name="description" content="{{ . }}">{{- end }}
-{{ with .Site.Params.meta.keywords -}}<meta name="keywords" content="{{.}}">{{- end }}
+{{ with .Site.Params.meta.description }}<meta name="description" content="{{ . }}">{{ end }}
+{{ with .Site.Params.meta.keywords }}<meta name="keywords" content="{{.}}">{{ end }}
 {{ template "_internal/twitter_cards.html" . }}
 {{ template "_internal/opengraph.html" . }}

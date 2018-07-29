@@ -1,4 +1,4 @@
-{{ if .Site.Params.highlightjs -}}
+{{ if .Site.Params.highlightjs }}
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 {{ with .Site.Params.highlightjslanguages }}
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/{{.}}.min.js"></script>
@@ -7,4 +7,4 @@
     hljs.configure({languages: []});
     hljs.initHighlightingOnLoad();
 </script>
-{{- end }}
+{{ end }}

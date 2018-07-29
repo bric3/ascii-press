@@ -1,10 +1,10 @@
-{{ define "header" -}}
+{{ define "header" }}
   {{ partial "header.html" . }}
-{{- end }}
+{{ end }}
 
-{{ define "content" -}}
+{{ define "content" }}
   <div class="post-list">
-    {{ range (where .Data.Pages "Type" "not in" (slice "about" "portfolio")).GroupBy "Section" -}}
+    {{ range (where .Data.Pages "Type" "not in" (slice "about" "portfolio")).GroupBy "Section" }}
     {{ range .Pages }}
       <div class="post-list__item">
         <span class="item__title--big">
@@ -14,21 +14,21 @@
           {{ .Date.Format (.Site.Params.dateformat | default "Jan 02, 2006") }}
         </span>
         {{ .Summary }}
-        {{ if .Truncated -}}
+        {{ if .Truncated }}
         <div class="read-more-link">
             <a href="{{ .RelPermalink }}">Read More…</a>
         </div>
-        {{- end }}
+        {{ end }}
         </div>
-        {{- end -}}
-     {{- end }}
+        {{ end }}
+     {{ end }}
   </div>
-{{- end }}
+{{ end }}
 
-{{ define "footer" -}}
-{{ if .Site.GoogleAnalytics -}}
+{{ define "footer" }}
+{{ if .Site.GoogleAnalytics }}
   <!-- Google Analytics -->
-  {{- template "_internal/google_analytics_async.html" . -}}
-{{- end }}
+  {{ template "_internal/google_analytics_async.html" . }}
+{{ end }}
 {{ partial "footer/font-awesome-js.html" . }}
-{{- end }}
+{{ end }}

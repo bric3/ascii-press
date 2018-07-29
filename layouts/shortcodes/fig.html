@@ -21,8 +21,8 @@
         src="{{ (printf "%s%s" $permalink $image) }}"
       {{ end }}
         {{ if .Get "alt" }}alt="{{ .Get "alt" | markdownify | plainify }}"
-        {{- else if .Get "caption" }}alt="{{ .Get "caption" | markdownify | plainify }}"
-        {{- end }}
+        {{ else if .Get "caption" }}alt="{{ .Get "caption" | markdownify | plainify }}"
+        {{ end }}
         {{ with .Get "align" }}align="{{ . }}"{{ end }}
         width="{{ .Get "width" | default "100%"}}"
         {{ with .Get "height" }}width="{{ . }}"{{ end }} />
@@ -33,9 +33,9 @@
       <span class="img--caption">
         Figure {{ $.Page.Scratch.Get "fig" }}. {{ $fig.Get "caption" | markdownify | plainify }}
         {{ if .Get "attr" }}
-          [{{- with .Get "attrlink"}}<a href="{{ . | markdownify }}">{{ end -}}
+          [{{ with .Get "attrlink"}}<a href="{{ . | markdownify }}">{{ end }}
                 {{ .Get "attr" | markdownify }}
-          {{- if .Get "attrlink"}}</a>{{- end }}]
+          {{ if .Get "attrlink"}}</a>{{ end }}]
         {{ end }}
       </span>
     </figcaption>

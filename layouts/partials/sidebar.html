@@ -1,6 +1,6 @@
 <!-- Sidebar -->
 <div class="sidebar">
-  <div class="container {{ with .Site.Params.sidebarSticky -}}sidebar-sticky{{- end }}">
+  <div class="container {{ with .Site.Params.sidebarSticky }}sidebar-sticky{{ end }}">
     <div class="sidebar-about">
       <span class="site__title">
         <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
