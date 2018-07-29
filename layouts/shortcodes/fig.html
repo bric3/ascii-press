@@ -24,8 +24,9 @@
         {{ else if .Get "caption" }}alt="{{ .Get "caption" | markdownify | plainify }}"
         {{ end }}
         {{ with .Get "align" }}align="{{ . }}"{{ end }}
-        {{ with .Get "width" }}width="{{ . }}"{{ end }}
-        {{ with .Get "height" }}width="{{ . }}"{{ end }} />
+        {{ with .Get "height" }}width="{{ . }}"{{ end }}
+        {{ with .Get "width" }}width="{{ . }}"{{ end }} style="max-width: 100%;"
+         />
   {{ if .Get "link"}}</a>{{ end }}
   <!-- caption and attr-->
   {{ if ($fig.Get "caption") }}
