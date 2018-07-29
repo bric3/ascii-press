@@ -17,7 +17,7 @@ theme = "hyde-hyde"
     authorimage = "/img/hugo.png"
     dateformat = "Jan 2, 2006"
     highlightjs = true
-    # highlightjsstyle = "github"
+    highlightjsstyle = "github"
     # please choose either GraphComment or Disqus
     # GraphCommentId = "your-graph-comment-id"
     # layoutReverse = true
