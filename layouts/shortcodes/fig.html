@@ -24,7 +24,7 @@
         {{ else if .Get "caption" }}alt="{{ .Get "caption" | markdownify | plainify }}"
         {{ end }}
         {{ with .Get "align" }}align="{{ . }}"{{ end }}
-        width="{{ .Get "width" | default "100%"}}"
+        {{ with .Get "width" }}width="{{ . }}"{{ end }}
         {{ with .Get "height" }}width="{{ . }}"{{ end }} />
   {{ if .Get "link"}}</a>{{ end }}
   <!-- caption and attr-->
