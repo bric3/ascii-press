@@ -47,7 +47,29 @@ That's all. You can render your site using `hugo` and see `hyde-hyde` in action.
 
 ### Options
 
-* __`Hyde-hyde`__ essentially inherits most of Hyde's [options](https://github.com/spf13/hyde#options).
+__`Hyde-hyde`__ essentially inherits most of Hyde's [options](https://github.com/spf13/hyde#options). There are some extra options though
+
+* `highlightjs = true`: use [highlight.js](https://highlightjs.org) instead of Hugo built-in support for code highlighting
+
+	* `highlightjsstyle="highlight-style"`: only when `highlightjs = true`, please choose one of many _highlight.js_'s [styles](https://highlightjs.org/static/demo).
+
+* `postNavigation = true|false` (default `true`): Setting to `false` will disable the navigation _Previous Post_/ _Next Post_
+
+* `relatedPosts = false|true` (default `false`): Setting to `true` allows related posts. Please refer [here](https://gohugo.io/content-management/related) for more details on related contents with Hugo.
+
+* `GraphCommentId = "your-graphcomment-id"`: to use [GraphComment](https://graphcomment.com) instead of the built-in [Disqus](https://disqus.com). This option should be used exclusively with `disqusShortname = "disqus-shortname"`.
+
+* `[params.social]`: in this section, you can set many social identities such as Twitter, Facebook, Github, Bitbucket, Gitlab, Instagram, LinkedIn, StackOverflow, Medium, Xing, Keybase.
+
+	```toml
+	[params.social]
+		twitter = "htr3n"
+		keybase = "htr3n"
+		github = "htr3n"
+		...
+	```
+
+	
 
 ### Customisations
 
