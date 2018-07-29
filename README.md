@@ -15,7 +15,7 @@ For more details, please refer to [CHANGELOG](https://github.com/htr3n/hyde-hyde
 
 ## Usage
 
-#### Installation
+### Installation
 
 __`Hyde-hyde`__ can be easily installed as many other Hugo themes:
 
@@ -45,11 +45,11 @@ theme : "hyde-hyde"
 
 That's all. You can render your site using `hugo` and see `hyde-hyde` in action.
 
-#### Options
+### Options
 
 * __`Hyde-hyde`__ essentially inherits most of Hyde's [options](https://github.com/spf13/hyde#options).
 
-#### Customisations
+### Customisations
 
 * Most of the customisable SCSS styles in [_static-src/scss/hyde-hyde_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/hyde-hyde) and Hugo templates in [_hyde-hyde/layouts_](https://github.com/htr3n/hyde-hyde/blob/master/layouts) are modularised and can be altered/adapted easily.
 
@@ -114,15 +114,15 @@ If you want to adjust the portfolio page to your needs, please have a look at th
 
 ## Some Screenshots
 
-#### Main page
+### Main page
 
 ![hyde-hyde main screen](https://github.com/htr3n/hyde-hyde/raw/master/images/main.png)
 
-#### A post
+### A post
 
 ![A post in hyde-hyde](https://github.com/htr3n/hyde-hyde/raw/master/images/post.png)
 
-#### Portfolio
+### Portfolio
 
 ![Portfolio hyde-hyde](https://github.com/htr3n/hyde-hyde/raw/master/images/portfolio.png)
 
@@ -130,12 +130,12 @@ If you want to adjust the portfolio page to your needs, please have a look at th
 
 ## Author(s)
 
-#### Original Developed by Mark Otto
+### Original Developed by Mark Otto
 
 - <https://github.com/mdo>
 - <https://twitter.com/mdo>
 
-#### Hugo's Hyde Ported by Steve Francia
+### Hugo's Hyde Ported by Steve Francia
 - <https://github.com/spf13>
 - <https://twitter.com/spf13>
 
