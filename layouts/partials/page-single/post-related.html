@@ -1,3 +1,4 @@
+{{ if .Site.Params.relatedPosts }}
 {{ $related := .Site.RegularPages.Related . | first 5 }}
 {{ with $related -}}
 <div class="post__related">
@@ -7,4 +8,5 @@
         {{ partial "posts-list.html" . }}
     </ul>
 </div>
-{{- end }}
+{{ end }}
+{{ end }}
