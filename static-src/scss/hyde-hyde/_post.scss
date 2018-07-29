@@ -58,11 +58,17 @@
     .fa {
       padding-right: 10px;
     }
+    .navigation-tittle {
+      padding-left: 4px;
+    }
   }
   .post--navigation-next {
     text-align: right;
     .fa {
       padding-left: 10px;
+    }
+    .navigation-tittle {
+      padding-right: 4px;
     }
   }
 }

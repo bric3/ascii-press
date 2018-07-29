@@ -1,7 +1,7 @@
 // mobile ~320..480px
 // 320px ~ 16rem/16px ~ 18.8235/17px ~ 17.7778/18px
 // 480px ~ 30rem/16px ~ 28.2353rem/17px ~ 26.6667rem/18px
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   .sidebar {
     li {
       padding: .1rem 0;
@@ -18,9 +18,6 @@
   html,
   body {
     font-size: $small-device-font-size;
-  }
-  .hidden-tablet {
-    display: none;
   }
   .sidebar {
     bottom: 0;
