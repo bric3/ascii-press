@@ -19,9 +19,6 @@ theme = "hyde-hyde"
     highlightjs = true
     highlightjsstyle = "github"
     # please choose either GraphComment or Disqus
-    # GraphCommentId = "your-graph-comment-id"
-    # layoutReverse = true
-    # sidebarSticky = true
 
 ## Social Accounts
 [params.social]
@@ -41,7 +38,12 @@ theme = "hyde-hyde"
     identifier = "posts"
     url = "/posts/"
 [[menu.main]]
+    name = "Portfolio"
+    identifier = "portfolio"
+    weight = 200
+    url = "/portfolio/"
+[[menu.main]]
     name = "About"
     identifier = "about"
-    weight = 200
+    weight = 300
     url = "/about/"
