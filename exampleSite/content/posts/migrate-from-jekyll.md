@@ -3,6 +3,8 @@ date: 2014-03-10
 linktitle: Migrating from Jekyll
 title: Migrate to Hugo from Jekyll
 weight: 10
+categories: [ "Development", "golang" ]
+tags: ["hugo", "jekyll", "migration"]
 ---
 
 ## Move static content to `static`
