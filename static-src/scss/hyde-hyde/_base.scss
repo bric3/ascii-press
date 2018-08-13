@@ -1,9 +1,19 @@
-html,
-body {
+* {
+	box-sizing: border-box;
+}
+
+html {
 	-webkit-text-size-adjust: 100%; // for iOS
 	box-direction: normal;
-	font-weight: 400;
-	line-height: 1.611em; // golden ratio
+	font-weight: $root-font-weight;
+  font-family: $root-font-family;
+  font-size: $root-font-size;
+  line-height: $root-line-height;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
 }
 
 h1,

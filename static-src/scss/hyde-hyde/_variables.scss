@@ -21,9 +21,10 @@ $brown: #8f5536;
 //https://www.client9.com/css-system-font-stack-sans-serif-v3
 $root-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
 
-// poole compability
-$root-font-size: 17px;
-$root-line-height: 1.5;
+// poole's variables
+$root-font-size: 18px;
+$root-font-weight: 400;
+$root-line-height: 30px; // golden ratio https://grtcalculator.com
 
 $body-color: $gray-8;
 $body-bg: #fff;
@@ -32,7 +33,7 @@ $border-color: #e5e5e5;
 
 $large-breakpoint: 38em;
 $large-font-size: 20px;
-// end poole compability
+// 
 
 // hyde-hyde
 $small-device-font-size: 16px;
