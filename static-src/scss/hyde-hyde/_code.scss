@@ -27,8 +27,15 @@ pre {
 
 %code-style-codersblock {
 	padding: 2px 4px;
-	border: 1px dashed #adb5db;
+	border: 1px dotted #adb5db;
 	background-color: $gray-1;
+}
+
+%code-style-npf {
+	padding: .25em .5em;
+	color: #bf616a;
+	background-color: #f9f9f9;
+	border-radius: 3px;
 }
 
 //-code {
@@ -39,7 +46,7 @@ pre {
 
 code {
 	@extend %code-font;
-	@extend %code-style-codersblock;
+	@extend %code-style-npf;
 }
 
 // highlight.js
