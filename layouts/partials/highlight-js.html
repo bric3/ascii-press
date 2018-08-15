@@ -1,12 +1,15 @@
 {{ if .Site.Params.highlightjs }}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-{{ with .Site.Params.highlightjslanguages }}
-{{ range . }}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/{{.}}.min.js"></script>
-{{ end }}
-{{ end }}
-<script type="text/javascript">
-    hljs.configure({languages: []});
-    hljs.initHighlightingOnLoad();
-</script>
+    {{ $hl := newScratch }}
+    {{ $hl.Set "languages" .Site.Params.highlightjslanguages }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    {{ with $hl.Get "languages" }}
+        {{ range . }}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/{{.}}.min.js"></script>
+        {{ end }}
+    {{ end }}
+    <script type="text/javascript">
+        hljs.configure({languages: []});
+        hljs.initHighlightingOnLoad();
+    </script>
+    {{ $hl.Delete "languages" }}
 {{ end }}
