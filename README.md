@@ -51,7 +51,10 @@ __`Hyde-hyde`__ essentially inherits most of Hyde's [options](https://github.com
 
 * `highlightjs = true`: use [highlight.js](https://highlightjs.org) instead of Hugo built-in support for code highlighting
 
-	* `highlightjsstyle="highlight-style"`: only when `highlightjs = true`, please choose one of many _highlight.js_'s [styles](https://highlightjs.org/static/demo).
+  * `highlightjsstyle="highlight-style"`: only when `highlightjs = true`, please choose one of many _highlight.js_'s [styles](https://highlightjs.org/static/demo).
+  * Since [v2.0.1](https://github.com/htr3n/hyde-hyde/tree/v2.0.1), highlighting for each page can be fine-tuned in the front matter, for example
+    * `highlight = false`  (default `true`)
+    * `highlightjslanguages = ["swift", "objectivec"]` 
 
 * `postNavigation = true|false` (default `true`): Setting to `false` will disable the navigation _Previous Post_/ _Next Post_
 
@@ -61,15 +64,15 @@ __`Hyde-hyde`__ essentially inherits most of Hyde's [options](https://github.com
 
 * `[params.social]`: in this section, you can set many social identities such as Twitter, Facebook, Github, Bitbucket, Gitlab, Instagram, LinkedIn, StackOverflow, Medium, Xing, Keybase.
 
-	```toml
-	[params.social]
-		twitter = "htr3n"
-		keybase = "htr3n"
-		github = "htr3n"
-		...
-	```
+  ```toml
+  [params.social]
+  	twitter = "htr3n"
+  	keybase = "htr3n"
+  	github = "htr3n"
+  	...
+  ```
 
-	
+  
 
 ### Customisations
 
