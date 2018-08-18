@@ -29,6 +29,7 @@ theme = "hyde-hyde"
     twitter = "<username>"
     facebook = "<username>"
     stackoverflow = "<username>"
+    telegram = "<username>"
     email = "your-email@example.com"
 
 ## Main Menu
