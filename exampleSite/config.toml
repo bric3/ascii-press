@@ -2,6 +2,7 @@
 baseurl = "https://example.com/"
 languageCode = "en"
 
+title = "Title"
 theme = "hyde-hyde"
 
 ## Hugo Built-in Features
