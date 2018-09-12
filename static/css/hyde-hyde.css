@@ -7,12 +7,12 @@ body {
   padding: 0; }
 
 html {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 18px;
-  line-height: 30px; }
+  font-family: "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 20px;
+  line-height: 1.667em; }
   @media (min-width: 38em) {
     html {
-      font-size: 20px; } }
+      font-size: 18px; } }
 
 body {
   color: #515151;
@@ -112,10 +112,8 @@ footer {
 html {
   -webkit-text-size-adjust: 100%;
   box-direction: normal;
-  font-weight: 400;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 18px;
-  line-height: 30px; }
+  font-family: "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.667em; }
 
 html,
 body {
@@ -178,7 +176,7 @@ blockquote {
   border-left-color: #ae272f; }
 
 kbd {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   padding: 2px 7px;
   border: 1px solid #bbb;
   font-size: 0.8em;
@@ -222,6 +220,10 @@ a {
       border-style: none;
       text-decoration: none; }
   a.tag {
+    border-style: none;
+    text-decoration: none; }
+  a.read-more-symbol {
+    text-decoration: none;
     border-style: none;
     text-decoration: none; }
 
@@ -345,46 +347,6 @@ a {
   font-style: italic;
   padding: 0 0 1rem 0; }
 
-.post--navigation {
-  width: 800px;
-  max-width: calc(100% - 0px);
-  margin: 0 auto;
-  margin-top: 60px; }
-  .post--navigation a {
-    font-size: 0.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-    color: #c2255c;
-    border: 2px solid #c2255c;
-    line-height: 1.25;
-    text-transform: uppercase; }
-    .post--navigation a:hover {
-      padding: 14px;
-      border-width: 3px; }
-    .post--navigation a:nth-child(2) {
-      margin-top: 10px; }
-    .post--navigation a:first-child:last-child {
-      width: 100%; }
-  .post--navigation .fa {
-    font-size: 0.8rem; }
-  .post--navigation .post--navigation-prev {
-    text-align: left; }
-    .post--navigation .post--navigation-prev .fa {
-      padding-right: 10px; }
-    .post--navigation .post--navigation-prev .navigation-tittle {
-      padding-left: 4px; }
-  .post--navigation .post--navigation-next {
-    text-align: right; }
-    .post--navigation .post--navigation-next .fa {
-      padding-left: 10px; }
-    .post--navigation .post--navigation-next .navigation-tittle {
-      padding-right: 4px; }
-
-.post--navigation-single a {
-  text-transform: none; }
-
 #references li {
   font-size: 0.9rem; }
 
@@ -465,17 +427,67 @@ body .gist .highlight {
 body .gist td {
   border: none; }
 
+ul.pagination {
+  list-style: none; }
+  ul.pagination li.page-item {
+    display: inline-block; }
+    ul.pagination li.page-item a {
+      padding: 0.05em 0.25em; }
+    ul.pagination li.page-item.active a {
+      color: #c2255c;
+      border-bottom: 3px solid #c2255c; }
+
+.navigation {
+  max-width: calc(100% - 0px);
+  margin: 0 auto;
+  margin-top: 60px; }
+  .navigation a {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    color: #c2255c;
+    border: 2px solid #c2255c;
+    line-height: 1.25;
+    text-transform: uppercase; }
+    .navigation a:hover {
+      padding: 14px;
+      border-width: 3px; }
+    .navigation a:nth-child(2) {
+      margin-top: 10px; }
+    .navigation a:first-child:last-child {
+      width: 100%; }
+  .navigation .fa {
+    font-size: 0.8rem; }
+  .navigation .navigation-prev {
+    text-align: left; }
+    .navigation .navigation-prev .fa {
+      padding-right: 10px; }
+    .navigation .navigation-prev .navigation-tittle {
+      padding-left: 4px; }
+  .navigation .navigation-next {
+    text-align: right; }
+    .navigation .navigation-next .fa {
+      padding-left: 10px; }
+    .navigation .navigation-next .navigation-tittle {
+      padding-right: 4px; }
+
+.navigation-single a {
+  text-transform: none; }
+
 .badge-category,
 a.badge-category {
   color: #fff !important;
   background-color: #0088cc; }
-
-a.badge-category:hover, a.badge-category:focus {
-  color: #0088cc !important;
-  background: transparent;
-  background-color: transparent;
-  text-decoration: none;
-  border-bottom: none; }
+  .badge-category:hover, .badge-category:focus,
+  a.badge-category:hover,
+  a.badge-category:focus {
+    color: #0088cc !important;
+    background: transparent;
+    background-color: transparent;
+    text-decoration: none;
+    border-bottom: none; }
 
 .badge-tag,
 a.badge-tag {
@@ -599,18 +611,18 @@ a.badge-tag {
     width: 66.66666667%; }
   .project__title {
     margin-top: 0.2rem; }
-  .post--navigation {
+  .navigation {
     display: flex;
     justify-content: space-between; }
-    .post--navigation a {
+    .navigation a {
       width: calc(50% - 10px); }
-      .post--navigation a:nth-child(2) {
+      .navigation a:nth-child(2) {
         margin-top: 0; } }
 
 @media (min-width: 992px) {
   html,
   body {
-    font-size: 18px; }
+    font-size: 20px; }
   .content {
     margin-left: 20rem;
     margin-right: 2rem;
