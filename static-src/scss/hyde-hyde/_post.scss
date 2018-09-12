@@ -35,58 +35,6 @@
   padding: 0 0 1rem 0;
 }
 
-.post--navigation {
-  width: 800px;
-  max-width: calc(100% - 0px);
-  margin: 0 auto;
-  margin-top: 60px;
-  a {
-    font-size: 0.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-    color: $post--navigation-color;
-    border: 2px solid $post--navigation-color;
-    line-height: 1.25;
-    text-transform: uppercase;
-    &:hover {
-      padding: 14px;
-      border-width: 3px;
-    }
-    &:nth-child(2) {
-      margin-top: 10px;
-    }
-    &:first-child:last-child {
-      width: 100%;
-    }
-  }
-  .fa {
-    font-size: 0.8rem;
-  }
-  .post--navigation-prev {
-    text-align: left;
-    .fa {
-      padding-right: 10px;
-    }
-    .navigation-tittle {
-      padding-left: 4px;
-    }
-  }
-  .post--navigation-next {
-    text-align: right;
-    .fa {
-      padding-left: 10px;
-    }
-    .navigation-tittle {
-      padding-right: 4px;
-    }
-  }
-}
-.post--navigation-single a {
-  text-transform: none;
-}
-
 #references {
   li {
     font-size: 0.9rem;

@@ -19,12 +19,14 @@ $blue: #268bd2;
 $brown: #8f5536;
 
 //https://www.client9.com/css-system-font-stack-sans-serif-v3
-$root-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+$root-font-family: "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
 
 // poole's variables
-$root-font-size: 18px;
+$root-font-size: 20px;
 $root-font-weight: 400;
-$root-line-height: 30px; // golden ratio https://grtcalculator.com
+// golden ratio https://grtcalculator.com
+// 18px @ 33 px, 20px @ 33 px ~ 1.667em
+$root-line-height: 1.667em;
 
 $body-color: $gray-8;
 $body-bg: #fff;
@@ -32,12 +34,12 @@ $body-bg: #fff;
 $border-color: #e5e5e5;
 
 $large-breakpoint: 38em;
-$large-font-size: 20px;
-// 
+$large-font-size: 18px;
+//
 
 // hyde-hyde
 $small-device-font-size: 16px;
-$large-device-font-size: 18px;
+$large-device-font-size: $root-font-size;
 
 // https://www.client9.com/css-system-font-stack-monospace-v2
 $code-font-family: "SF-Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Roboto Mono", "Ubuntu Mono", "Courier New", Courier, monospace;
@@ -52,7 +54,7 @@ $link-color: $blue;
 $link-hover-color: $body-color;
 
 // section
-$section__title-font-size: 2.15rem; 
+$section__title-font-size: 2.15rem;
 
 // post
 $post__subtitle-font-size: 1.5rem;
@@ -89,8 +91,8 @@ $sidebar-color: #300030;
 $site__title-font-size: 3rem;
 $copyright-font-size: 0.7rem;
 
-// post navigation
-$post--navigation-color: #c2255c;
+// navigation
+$navigation-color: #c2255c;
 
 // portfolio
 $project__title-font-size: $h2-font-size;
