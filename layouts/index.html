@@ -4,11 +4,12 @@
 
 {{ define "content" }}
   <div class="post-list">
-    {{ range (where .Data.Pages "Type" "not in" (slice "about" "portfolio")).GroupBy "Section" }}
-    {{ range .Pages }}
+    {{ $paginator := .Paginate (where .Data.Pages "Type" "posts") }}
+    {{ range $paginator.Pages }}
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ if .Draft }}<sup> <i class="fas fa-pen-square fa-xs"></i></sup>{{ end }}
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{ if .Draft }}<sup><i class="fas fa-comment-dots fa-xs"></i></sup>{{ end }}
         </span>
         <span class="item__date">
           {{ .Date.Format (.Site.Params.dateformat | default "Jan 02, 2006") }}
@@ -19,20 +20,18 @@
         {{ .Summary }}
         {{ end }}
         {{ if .Truncated }}
-        <div class="read-more-link">
-            <a href="{{ .RelPermalink }}">Read More…</a>
-        </div>
+          ... <a class="read-more-symbol" href="{{ .RelPermalink }}">➦</a>
         {{ end }}
         </div>
-        {{ end }}
      {{ end }}
   </div>
+  {{ partial "pagination.html" . }}
 {{ end }}
 
 {{ define "footer" }}
-{{ if .Site.GoogleAnalytics }}
-  <!-- Google Analytics -->
-  {{ template "_internal/google_analytics_async.html" . }}
-{{ end }}
-{{ partial "footer/font-awesome-js.html" . }}
+  {{ if .Site.GoogleAnalytics }}
+    <!-- Google Analytics -->
+    {{ template "_internal/google_analytics_async.html" . }}
+  {{ end }}
+  {{ partial "footer/font-awesome-js.html" . }}
 {{ end }}
