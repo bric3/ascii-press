@@ -10,6 +10,10 @@ theme = "hyde-hyde"
 # googleAnalytics = "your-google-analytics-id"
 # enableRobotsTXT = true
 
+# summarylength = 30
+
+#paginate = 5
+
 ## Site Settings
 [params]
     author = "Author"
