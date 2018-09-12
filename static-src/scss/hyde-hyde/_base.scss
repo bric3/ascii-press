@@ -5,9 +5,7 @@
 html {
 	-webkit-text-size-adjust: 100%; // for iOS
 	box-direction: normal;
-	font-weight: $root-font-weight;
   font-family: $root-font-family;
-  font-size: $root-font-size;
   line-height: $root-line-height;
 }
 
@@ -128,7 +126,12 @@ a {
 	&.tag {
 		@include link-no-decoration();
 	}
+	&.read-more-symbol {
+		text-decoration: none;
+		@include link-no-decoration();
+	}
 }
+
 
 .content {
 	padding-bottom: 2rem;
