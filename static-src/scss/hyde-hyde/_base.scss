@@ -5,7 +5,8 @@
 html {
 	-webkit-text-size-adjust: 100%; // for iOS
 	box-direction: normal;
-  font-family: $root-font-family;
+	font-family: $root-font-family;
+	font-size: $small-device-font-size;
   line-height: $root-line-height;
 }
 
