@@ -1,21 +1,24 @@
 @page {
-  margin: 1cm !important; }
-
+  margin: 1cm !important;
+}
 body {
-  font-size: 16px;
+  font-size: $small-device-font-size;
   line-height: 1.3;
   background: #fff;
-  color: #000; }
+  color: #000;
+}
 
 .sidebar,
 .navigation {
-  display: none; }
+  display: none;
+}
 
 .content {
   margin: 0 auto;
   width: 100%;
   float: none;
-  display: initial; }
+  display: initial;
+}
 
 .container {
   width: 100%;
@@ -23,16 +26,16 @@ body {
   display: initial;
   padding-left: 1rem;
   padding-right: 1rem;
-  margin: 0 auto; }
-
+  margin: 0 auto;
+}
 img {
-  max-width: 100%; }
-
+  max-width: 100%;
+}
 blockquote,
 ul {
-  margin: 0; }
-
+  margin: 0;
+}
 #disqus_thread {
-  display: none !important; }
+	display: none !important;
+}
 
-/*# sourceMappingURL=print.css.map */
