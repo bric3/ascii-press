@@ -8,11 +8,11 @@ body {
 
 html {
   font-family: "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 20px;
+  font-size: 17px;
   line-height: 1.667em; }
   @media (min-width: 38em) {
     html {
-      font-size: 18px; } }
+      font-size: 20px; } }
 
 body {
   color: #515151;
@@ -113,7 +113,7 @@ html {
   -webkit-text-size-adjust: 100%;
   box-direction: normal;
   font-family: "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.667em; }
 
 html,
@@ -576,16 +576,57 @@ a.badge-tag {
   max-width: 100%;
   height: auto; }
 
-@media (min-width: 320px) and (max-width: 768px) {
+@media (min-width: 320px) and (max-width: 767px) {
+  html,
+  body {
+    font-size: 17px; }
   .sidebar li {
     padding: .1rem 0; }
   .hidden-tablet {
-    display: none; } }
+    display: none; }
+  .sidebar-about,
+  .copyright {
+    display: none; }
+  .sidebar {
+    margin: 0;
+    padding: 0; }
+  .menu-content {
+    padding: 0 0 0 0px;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0; }
+  .collapsible-menu {
+    padding: 0px 0px; }
+  .collapsible-menu ul {
+    list-style-type: none;
+    padding: 0; }
+  .collapsible-menu li {
+    display: block; }
+  .collapsible-menu a {
+    text-decoration: none;
+    cursor: pointer; }
+  .collapsible-menu label {
+    background: url(/img/menu-open.svg) no-repeat left center;
+    display: block;
+    cursor: pointer;
+    color: #fff;
+    padding: 10px 0 10px 0px; }
+  input#menuToggle {
+    display: none; }
+  input#menuToggle + label {
+    font-weight: bold; }
+  input#menuToggle:checked + label {
+    background-image: url(/img/menu-close.svg);
+    color: #fff; }
+  input#menuToggle:checked ~ .menu-content {
+    max-height: 100% !important; }
+  .social {
+    padding: 1em 0 1em 0; } }
 
 @media (min-width: 768px) {
   html,
   body {
-    font-size: 16px; }
+    font-size: 17px; }
   .sidebar {
     bottom: 0;
     left: 0;
@@ -618,7 +659,10 @@ a.badge-tag {
     .navigation a {
       width: calc(50% - 10px); }
       .navigation a:nth-child(2) {
-        margin-top: 0; } }
+        margin-top: 0; }
+  input#menuToggle,
+  input#menuToggle + label {
+    display: none; } }
 
 @media (min-width: 992px) {
   html,
