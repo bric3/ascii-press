@@ -1,7 +1,11 @@
 // mobile ~320..480px
 // 320px ~ 16rem/16px ~ 18.8235/17px ~ 17.7778/18px
 // 480px ~ 30rem/16px ~ 28.2353rem/17px ~ 26.6667rem/18px
-@media (min-width: 320px) and (max-width: 768px) {
+@media (min-width: 320px) and (max-width: 767px) {
+  html,
+  body {
+    font-size: $small-device-font-size;
+  }
   .sidebar {
     li {
       padding: .1rem 0;
@@ -9,6 +13,57 @@
   }
   .hidden-tablet {
     display: none;
+  }
+  .sidebar-about, 
+  .copyright {
+    display: none;
+  }    
+  .sidebar {
+    margin: 0;
+    padding: 0;
+  }
+  .menu-content {
+    padding: 0 0 0 0px;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0; }
+  .collapsible-menu {
+    padding: 0px 0px; 
+  }
+  .collapsible-menu ul {
+    list-style-type: none;
+    padding: 0; 
+  }
+  .collapsible-menu li {
+    display: block;
+  }
+  .collapsible-menu a {
+    text-decoration: none;
+    cursor: pointer; }
+  .collapsible-menu label {
+    background: url(/img/menu-open.svg) no-repeat left center;
+    display: block;
+    cursor: pointer;
+    color: #fff;
+    padding: 10px 0 10px 0px; }
+  
+  input#menuToggle {
+    display: none; 
+  }
+  input#menuToggle + label {
+    font-weight: bold;
+  }
+
+  input#menuToggle:checked + label {
+    background-image: url(/img/menu-close.svg); 
+    color: #fff;
+  }
+  
+  input#menuToggle:checked ~ .menu-content {
+    max-height: 100% !important;
+  }
+  .social {
+    padding: 1em 0 1em 0;
   }
 }
 
@@ -63,6 +118,10 @@
         margin-top: 0;
       }
     }
+  }
+  input#menuToggle,
+  input#menuToggle + label {
+    display: none;
   }
 }
 

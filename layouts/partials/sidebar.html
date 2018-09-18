@@ -16,10 +16,14 @@
         {{ with .Site.Params.description }} {{.}} {{end}}
       </p>
     </div>
-    {{ partial "sidebar/menu.html" . }}
-    <p>
-      {{ partial "sidebar/social.html" . }}
-    </p>
+    <div class="collapsible-menu">
+      <input type="checkbox" id="menuToggle">
+      <label for="menuToggle">{{ .Site.Title }}</label>
+      <div class="menu-content">
+        {{ partial "sidebar/menu.html" . }}
+        {{ partial "sidebar/social.html" . }}
+      </div>
+    </div>
     <p class="copyright">
       {{ with .Site.Params.copyright }}{{.|safeHTML}}{{ else }}&copy; {{ now.Format "2006"}} {{.Site.Params.author}}.
       <a href="https://creativecommons.org/licenses/by-sa/4.0">Some Rights Reserved</a>.
