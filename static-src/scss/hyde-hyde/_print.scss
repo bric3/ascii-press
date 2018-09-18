@@ -8,11 +8,6 @@ body {
   color: #000;
 }
 
-.sidebar,
-.navigation {
-  display: none;
-}
-
 .content {
   margin: 0 auto;
   width: 100%;
@@ -35,6 +30,23 @@ blockquote,
 ul {
   margin: 0;
 }
+
+.sidebar {
+  display: none !important;
+}
+
+.navigation {
+  display: none !important;
+}
+
+.post__related {
+  display: none !important;
+}
+
+.gist-meta {
+  display: none !important;
+}
+
 #disqus_thread {
 	display: none !important;
 }
