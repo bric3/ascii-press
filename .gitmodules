@@ -1,0 +1,3 @@
+[submodule "static-src/scss/font-awesome"]
+	path = static-src/scss/font-awesome
+	url = git@github.com:FortAwesome/font-awesome-sass.git
