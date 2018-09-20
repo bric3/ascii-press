@@ -156,7 +156,7 @@ If you want to adjust the portfolio page to your needs, please have a look at th
 
 ### Mobile Mode with Collapsible Menu
 
-![Portfolio hyde-hyde](https://github.com/htr3n/hyde-hyde/raw/master/images/mobile.png)
+<img src='https://github.com/htr3n/hyde-hyde/raw/master/images/mobile.png' alt='hyde-hyde in mobile mode' width='60%'>
 
 ## Author(s)
 
