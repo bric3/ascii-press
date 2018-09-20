@@ -10,6 +10,7 @@ Since version 2.0, __`hyde-hyde`__ has been overhauled and, therefore, might cau
 * The layouts have been heavily restructured and modularised further (see [_layouts_](https://github.com/htr3n/hyde-hyde/blob/master/layouts))
 * Adding '[_Portfolio_](https://github.com/htr3n/hyde-hyde/blob/master/layouts/portfolio)' page inspired by Xiaoying Riley (@3rdwave_themes) [Developer-Theme](https://github.com/xriley/developer-theme)
 * Switching to use system fonts instead of Web fonts (e.g. privacy issues)
+* Experimenting a collapsible menu in mobile mode
 
 For more details, please refer to [CHANGELOG](https://github.com/htr3n/hyde-hyde/blob/master/CHANGELOG.md).  A real site in action can be found [here](https://htr3n.github.io) and its [WIP source](https://github.com/htr3n/htr3n-blog) for reference.
 
@@ -72,7 +73,6 @@ __`Hyde-hyde`__ essentially inherits most of Hyde's [options](https://github.com
   	...
   ```
 
-  
 
 ### Customisations
 
@@ -154,17 +154,16 @@ If you want to adjust the portfolio page to your needs, please have a look at th
 
 
 
+### Mobile Mode with Collapsible Menu
+
+![Portfolio hyde-hyde](https://github.com/htr3n/hyde-hyde/raw/master/images/mobile.png)
+
 ## Author(s)
 
-### Original Developed by Mark Otto
+* Original developed by [Mark Otto](https://github.com/mdo)
 
-- <https://github.com/mdo>
-- <https://twitter.com/mdo>
-
-### Hugo's Hyde Ported by Steve Francia
-- <https://github.com/spf13>
-- <https://twitter.com/spf13>
+* Hugo's `hyde` ported by [Steve Francia](https://github.com/spf13)
 
 ## License
 
-Open sourced under the [MIT license](LICENSE.md).
+Open sourced under the [MIT license](LICENSE.md)
