@@ -433,7 +433,7 @@ ul.pagination {
   ul.pagination li.page-item {
     display: inline-block; }
     ul.pagination li.page-item a {
-      padding: 0.05em 0.5em; }
+      padding: 0.05em 0.4em; }
     ul.pagination li.page-item.active a {
       color: #c2255c;
       border-bottom: 3px solid #c2255c; }
