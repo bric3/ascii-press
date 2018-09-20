@@ -1,16 +1,6 @@
 # Changelog
 
-__2018-09__
-
-* Experimenting collapsible menu in mobile mode (screen width less than 767px)
-
-__2018-08__
-
-* Fine tuning of `highlight.js`  using front-matter
-* Fixing `layoutReverse`
-
 __2018-07__
-
 * Revises the shortcode ['fig.html'](https://github.com/htr3n/hyde-hyde/blob/master/layouts/shortcodes/fig.html)
 * Renames `header/font-awesome.html` to `header/font-awesome-css.html` and adds [_footer/font-awesome-js.html_](https://github.com/htr3n/hyde-hyde/blob/master/layouts/partials/footer/font-awesome-js.html), uses Font-Awesome 5 deferred JavaScript loading to reduce CSS rendering blocking
 * Refactors and consolidates all responsive breakpoints and creates a new style  [_\_responsive.scss_](static-src/scss/hyde-hyde/_responsive.scss)

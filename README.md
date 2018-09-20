@@ -72,6 +72,7 @@ __`Hyde-hyde`__ essentially inherits most of Hyde's [options](https://github.com
   	...
   ```
 
+  
 
 ### Customisations
 
@@ -152,10 +153,6 @@ If you want to adjust the portfolio page to your needs, please have a look at th
 ![Portfolio hyde-hyde](https://github.com/htr3n/hyde-hyde/raw/master/images/portfolio.png)
 
 
-
-### Mobile
-
-![Hyde-hyde on mobile](https://github.com/htr3n/hyde-hyde/raw/master/images/mobile.png)
 
 ## Author(s)
 
