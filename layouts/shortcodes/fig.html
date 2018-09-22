@@ -1,8 +1,7 @@
-{{ $fig := newScratch }}
 {{ if .Get "caption" }}
-  {{ $fig.Set "caption" (.Get "caption") }}
+  {{ $.Scratch.Set "caption" (.Get "caption") }}
 {{ else if .Get "alt" }}
-  {{ $fig.Set "caption" (.Get "alt") }}
+  {{ $.Scratch.Set "caption" (.Get "alt") }}
 {{ end }}
 <!-- resolve absolute image path -->
 {{ $permalink := $.Page.Permalink }}
@@ -29,10 +28,10 @@
          />
   {{ if .Get "link"}}</a>{{ end }}
   <!-- caption and attr-->
-  {{ if ($fig.Get "caption") }}
+  {{ if ($.Scratch.Get "caption") }}
     <figcaption>
       <span class="img--caption">
-        Figure {{ $.Page.Scratch.Get "fig" }}. {{ $fig.Get "caption" | markdownify | plainify }}
+        Figure {{ $.Page.Scratch.Get "fig" }}. {{ $.Scratch.Get "caption" | markdownify | plainify }}
         {{ if .Get "attr" }}
           [{{- with .Get "attrlink"}}<a href="{{ . }}">{{ end }}{{ .Get "attr" | markdownify }}{{ if .Get "attrlink"}}</a>{{ end -}}]
         {{ end }}
@@ -41,4 +40,4 @@
   {{ end }}
 </figure>
 {{ .Page.Scratch.Add "fig" 1 }}
-{{ $fig.Delete "caption"}}
+{{ $.Scratch.Delete "caption"}}
