@@ -11,6 +11,8 @@ Since version 2.0, __`hyde-hyde`__ has been overhauled and, therefore, might cau
 * Adding '[_Portfolio_](https://github.com/htr3n/hyde-hyde/blob/master/layouts/portfolio)' page inspired by Xiaoying Riley (@3rdwave_themes) [Developer-Theme](https://github.com/xriley/developer-theme)
 * Switching to use system fonts instead of Web fonts (e.g. privacy issues)
 * Experimenting a collapsible menu in mobile mode
+* Adding _Table of Contents_
+  * Configure using `.Site.Params.toc` with two possible value: "hugo" (using Hugo `{{ .TableOfContents }}`, and "tocbot" (using [Tocbot](https://tscanlin.github.io/tocbot/)), remove `.Site.Params.toc` to disable TOC
 
 For more details, please refer to [CHANGELOG](https://github.com/htr3n/hyde-hyde/blob/master/CHANGELOG.md).  A real site in action can be found [here](https://htr3n.github.io) and its [WIP source](https://github.com/htr3n/htr3n-blog) for reference.
 
@@ -86,7 +88,7 @@ Since version 2.0+, I added a portfolio page just in case. If you need it, simpl
 [[menu.main]]
     name = "Portfolio"
     identifier = "portfolio"
-    weight = xxx
+    weight = xyz
     url = "/portfolio/"
 ```
 

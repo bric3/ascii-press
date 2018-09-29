@@ -1,3 +1,10 @@
 {{ partial "header/styles-highlight.html" . }}
 <link rel="stylesheet" href="{{ "css/hyde-hyde.css" | relURL }}">
 <link rel="stylesheet" href="{{ "css/print.css" | relURL }}" media="print">
+{{ with .Site.Params.toc }}
+  {{ if eq . "hugo" }}
+    <link rel="stylesheet" href="{{ "css/hugo-toc.css" | relURL }}">
+  {{ else if eq . "tocbot"}}
+    <link rel="stylesheet" href="{{ "css/tocbot.css" | relURL }}">
+  {{ end }}
+{{ end }}

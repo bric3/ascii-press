@@ -24,6 +24,10 @@ theme = "hyde-hyde"
     highlightjs = true
     highlightjsstyle = "github"
     # please choose either GraphComment or Disqus
+    #GraphCommentId = "..."
+    
+    # Table of contents
+    #toc = none, "hugo", or "tocbot"
 
 ## Social Accounts
 [params.social]

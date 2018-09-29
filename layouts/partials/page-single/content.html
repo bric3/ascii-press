@@ -5,9 +5,21 @@
     <span class="post__subtitle">
       {{.}}
     </span>
-    {{ end }} 
+    {{ end }}
     {{ partial "page-single/post-meta.html" . }}
   </header>
+  {{ $tableOfContents := .TableOfContents }}
+  {{ with .Site.Params.toc }}
+  <div class="toc-wrapper">
+    <input type="checkbox" id="tocToggle">
+    <label for="tocToggle">Table of Content</label>
+    {{ if eq . "hugo" }}
+        {{ $tableOfContents }}
+    {{ else if eq . "tocbot"}}
+      <div class="toc" id="TableOfContents"></div>
+    {{ end }}
+  </div>
+  {{ end }}
   <div class="post">
     {{ .Content }}
   </div>
