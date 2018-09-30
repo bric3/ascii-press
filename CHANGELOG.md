@@ -5,8 +5,9 @@ __2018-09__
 * Add _Table of Contents_ 
   * Configure using `.Site.Params.toc` with two possible value: "hugo" (using Hugo `{{ .TableOfContents }}`, and "tocbot" (using [Tocbot](https://tscanlin.github.io/tocbot/)), remove `.Site.Params.toc` to disable TOC
   * Change [_layouts/partials/header/styles.html_](https://github.com/htr3n/hyde-hyde/blob/master/layouts/partials/header/styles.html) to check `.Site.Params.toc` and add the corresponding styles
-  * Change [_layouts/partials/page-single/content.html_](_layouts/partials/page-single/content.html_ )  to add TOC per `.Site.Params.toc`
+  * Change [_layouts/partials/page-single/content.html_](https://github.com/htr3n/hyde-hyde/blob/master/layouts/partials/page-single/content.html )  to add TOC per `.Site.Params.toc`
   * Add styles [_static-src/scss/hugo-toc.scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/hugo-toc.scss) and [_static-src/scss/tocbot.scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/tocbot.scss) that generate `hugo-toc.css` and `tocbot.css`, respectively
+  * Tocbot can be configured in [_layouts/partials/page-single/footer.html_](_layouts/partials/page-single/footer.html_) with options as described in [its documentation](https://tscanlin.github.io/tocbot/#api)
 
 __2018-07__
 
