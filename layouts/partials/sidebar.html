@@ -9,7 +9,7 @@
       {{ $strippedSlash := ($.Site.Params.authorimage | replaceRE "^(/)+(.*)" "$2") }}
       {{ $authorImage := (printf "%s/%s" $.Site.BaseURL $strippedSlash) }}
       <div class="author-image">
-        <img src="{{$authorImage}}" alt="Author Image" class="img--circle img--headshot element--center"> 
+        <img src="{{$authorImage}}" alt="Author Image" class="img--circle img--headshot element--center">
       </div>
       {{ end }}
       <p class="site__description">
@@ -24,14 +24,6 @@
         {{ partial "sidebar/social.html" . }}
       </div>
     </div>
-    <p class="copyright">
-      {{ with .Site.Params.copyright }}{{.|safeHTML}}{{ else }}&copy; {{ now.Format "2006"}} {{.Site.Params.author}}.
-      <a href="https://creativecommons.org/licenses/by-sa/4.0">Some Rights Reserved</a>.
-      <br/>Built with
-      <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
-      {{end}}
-    </p>
-  </div>
-  <div>
+    {{ partial "sidebar/copyright.html" . }}
   </div>
 </div>
