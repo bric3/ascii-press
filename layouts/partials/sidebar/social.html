@@ -35,6 +35,9 @@
 	{{ with .Site.Params.social.telegram }}
 	<a href="https://t.me/{{.}}" rel="me"><i class="fab fa-telegram fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
+	{{ with .Site.Params.social.aboutme }}
+	&nbsp;<a href="https://about.me/{{.}}"><i class="fas fa-address-card fa-lg" aria-hidden="true"></i></a>
+	{{ end }}
 	{{ with .Site.Params.social.email }}
 	<a href="mailto:{{.}}" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
