@@ -1,4 +1,4 @@
-[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://lbesson.mit-license.org/) ![GitHub release](https://img.shields.io/github/release/htr3n/hyde-hyde.svg) ![GitHub stars](https://img.shields.io/github/stars/htr3n/hyde-hyde.svg) ![GitHub forks](https://img.shields.io/github/forks/htr3n/hyde-hyde.svg) ![GitHub issues](https://img.shields.io/github/issues/htr3n/hyde-hyde.svg) ![GitHub issues closed](https://img.shields.io/github/issues-closed/htr3n/hyde-hyde.svg)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://github.com/htr3n/hyde-hyde/blob/master/LICENSE.md) ![GitHub release](https://img.shields.io/github/release/htr3n/hyde-hyde.svg) ![GitHub stars](https://img.shields.io/github/stars/htr3n/hyde-hyde.svg) ![GitHub forks](https://img.shields.io/github/forks/htr3n/hyde-hyde.svg) ![GitHub issues](https://img.shields.io/github/issues/htr3n/hyde-hyde.svg) ![GitHub issues closed](https://img.shields.io/github/issues-closed/htr3n/hyde-hyde.svg)
 
 # Hyde-hyde
 
