@@ -3,5 +3,7 @@
         {{ partial "page-single/comment/disqus.html" . }}
     {{ else if .Site.Params.GraphCommentId }}
         {{ partial "page-single/comment/graphcomment.html" . }}
+    {{ else if .Site.Params.UtterancesRepo }}
+        {{ partial "page-single/comment/utterances.html" . }}
     {{ end }}
 {{ end }}
