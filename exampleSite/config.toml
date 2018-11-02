@@ -27,7 +27,7 @@ theme = "hyde-hyde"
     #GraphCommentId = "..."
     #UtterancesRepo = "..." # https://utteranc.es/
     #UtterancesIssueTerm = "..." # pathname, url, title, og:title
-    #UtterancesIssueTheme = "..." # github-light or github-dark
+    #UtterancesTheme = "..." # github-light or github-dark
     
     # Table of contents
     #toc = none, "hugo", or "tocbot"

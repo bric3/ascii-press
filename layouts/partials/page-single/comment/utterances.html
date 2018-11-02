@@ -1,7 +1,7 @@
 <script src="https://utteranc.es/client.js"
         repo="{{ .Site.Params.UtterancesRepo }}"
         issue-term="{{ .Site.Params.UtterancesIssueTerm }}"
-        theme="{{ .Site.Params.UtterancesIssueTheme }}"
+        theme="{{ with .Site.Params.UtterancesTheme }}{{ . }}{{else}}github-light{{ end }}"
         crossorigin="anonymous"
         async>
 </script>
