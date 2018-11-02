@@ -10,6 +10,10 @@
     li {
       padding: .1rem 0;
     }
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
   .hidden-tablet {
     display: none;
@@ -42,6 +46,7 @@
     cursor: pointer; }
   .collapsible-menu label {
     background: url(/img/menu-open.svg) no-repeat left center;
+    background-position: 1.5rem;
     display: block;
     cursor: pointer;
     color: #fff;
@@ -55,7 +60,8 @@
   }
 
   input#menuToggle:checked + label {
-    background-image: url(/img/menu-close.svg); 
+    background-image: url(/img/menu-close.svg);
+    background-position: 1.5rem; 
     color: #fff;
   }
   
