@@ -9,6 +9,7 @@ __`Hyde-hyde`__ is a [Hugo](https://gohugo.io)'s theme inspired and derived from
 Since version 2.0, __`hyde-hyde`__ has been overhauled and, therefore, might cause some disruptions.
 
 * The main styles are refactored and redeveloped using SCSS (see [_static-src/scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss)),  `poole.css` and `hyde.css` are no longer needed because `hyde-hyde.scss` already incorporates relevant elements (I still keep them there for reference purpose)
+  * Per PR [#45 by [@jd4no](https://github.com/jd4no), `hyde-hyde` can use SCSSs diectly in the templates instead of the generated CSSs. The generated CSSs and the generated resources are still kept in `hyde-hyde` in order to ensure the demo on [Hugo theme site](https://themes.gohugo.io) working.
 * The layouts have been heavily restructured and modularised further (see [_layouts_](https://github.com/htr3n/hyde-hyde/blob/master/layouts))
 * Adding '[_Portfolio_](https://github.com/htr3n/hyde-hyde/blob/master/layouts/portfolio)' page inspired by Xiaoying Riley (@3rdwave_themes) [Developer-Theme](https://github.com/xriley/developer-theme)
 * Switching to use system fonts instead of Web fonts (e.g. privacy issues)

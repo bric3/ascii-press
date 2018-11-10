@@ -1,5 +1,18 @@
 # Changelog
 
+This changelog mainly documented some major changes, updates or fixes (with credits) for reference purposes. It by no means covers all contributors. Nonetheless, to the bottom of my heart, I truly appreciate all of your time and contributions.
+
+__2018-11__
+
+* Fix Hugo demo (issue [#53](https://github.com/htr3n/hyde-hyde/issues/53))
+* Fix mobile header (PR [#51](https://github.com/htr3n/hyde-hyde/pull/51): credits to [@gamingrobot](https://github.com/gamingrobot))
+* Add Utterances comments (PR [#50](https://github.com/htr3n/hyde-hyde/pull/50): credits to [@gamingrobot](https://github.com/gamingrobot))
+
+__2018-10__
+
+* Enable `hyde-hyde` to work directly with SCSSs instead of generated CSSs (PR [#45](https://github.com/htr3n/hyde-hyde/pull/45): credits to [@jd4no](https://github.com/jd4no))
+* Patch potential vulnerabilities of `target="_blank"` (PR [#48](https://github.com/htr3n/hyde-hyde/pull/48): credits to [@gfrcsd](https://github.com/gfrcsd))
+
 __2018-09__
 
 * Add _Table of Contents_ 
