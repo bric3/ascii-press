@@ -38,6 +38,11 @@ pre {
 	border-radius: 3px;
 }
 
+a {
+	code {
+		color: $link-color;
+	}
+}
 //-code {
 //	white-space: pre-wrap;
 //	@extend %code-font;
