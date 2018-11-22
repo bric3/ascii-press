@@ -12,6 +12,11 @@
         <img src="{{$authorImage}}" alt="Author Image" class="img--circle img--headshot element--center">
       </div>
       {{ end }}
+      {{ with .Site.Params.social.email}}
+        <div class="author-image">
+          <img src="https://www.gravatar.com/avatar/{{md5 .}}?s=240&d=mp" class="img--circle img--headshot element--center" alt="gravatar">
+        </div>
+      {{ end }}
       <p class="site__description">
         {{ with .Site.Params.description }} {{.}} {{end}}
       </p>
