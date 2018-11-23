@@ -4,8 +4,17 @@ This changelog mainly documented some major changes, updates or fixes (with cred
 
 __2018-11__
 
+* Per PR [#56](https://github.com/htr3n/hyde-hyde/commit/5ed13e17400bbc09a342b60fd50cd9fe3e6f1525), Gravatar pics can be used exclusively to `.Site.Params.authorimage` via the parameter `.Site.Params.social.gravatar`
+
+  * ```toml
+    [params.social]
+    	gravatar = "your.email@domain.com"
+    ```
+
 * Fix Hugo demo (issue [#53](https://github.com/htr3n/hyde-hyde/issues/53))
+
 * Fix mobile header (PR [#51](https://github.com/htr3n/hyde-hyde/pull/51): credits to [@gamingrobot](https://github.com/gamingrobot))
+
 * Add Utterances comments (PR [#50](https://github.com/htr3n/hyde-hyde/pull/50): credits to [@gamingrobot](https://github.com/gamingrobot))
 
 __2018-10__
