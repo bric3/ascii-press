@@ -35,6 +35,8 @@ $border-color: #e5e5e5;
 
 $large-breakpoint: 38em;
 $large-font-size: 20px;
+$font-scale-dot7: .7rem;
+$font-scale-dot8: .8rem;
 //
 
 // hyde-hyde
@@ -44,7 +46,7 @@ $large-device-font-size: $large-font-size;
 // https://www.client9.com/css-system-font-stack-monospace-v2
 $code-font-family: "SF-Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Roboto Mono", "Ubuntu Mono", "Courier New", Courier, monospace;
 $code-font-size: .9rem;
-$code-fence-font-size: .9rem;
+$code-fence-font-size: .8rem;
 $code-color: #bf616a;
 $code-background-color: #f9f2f4;
 $code-line-height: 1.4;
@@ -62,7 +64,7 @@ $gradient-color-1: #ff2c2c;
 $gradient-color-2: #7a5e91;
 
 // post meta
-$meta-font-size: .8rem;
+$meta-font-size: $font-scale-dot8;
 $meta-font-weight: 300;
 $meta-color: $gray-6;
 
@@ -90,7 +92,7 @@ $h5-font-size:1rem;
 $sidebar-color: #300030;
 $sidebar-width: 16rem;
 $site__title-font-size: 2.5rem;
-$copyright-font-size: 0.7rem;
+$copyright-font-size: $font-scale-dot7;
 
 // content
 $content-max-width: 38rem; // @ ~70 CPL

@@ -72,9 +72,17 @@
 	font-style: italic;
 }
 
+%small-center-text {
+  font-size: $font-scale-dot7;
+  line-height: 1.1rem;
+  text-align: center;
+}
+
 .copyright {
   padding-top: 1rem;
-  text-align: center;
-	font-size: $copyright-font-size;
-  line-height: 1.1rem;
+	@extend %small-center-text;
+}
+.builtwith {
+  padding-top: .2rem;
+  @extend %small-center-text;
 }
