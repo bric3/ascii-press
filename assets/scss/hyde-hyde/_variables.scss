@@ -34,7 +34,7 @@ $body-bg: #fff;
 $border-color: #e5e5e5;
 
 $large-breakpoint: 38em;
-$large-font-size: 20px;
+$large-font-size: 19px;
 $font-scale-dot7: .7rem;
 $font-scale-dot8: .8rem;
 //
@@ -44,11 +44,11 @@ $small-device-font-size: $root-font-size;
 $large-device-font-size: $large-font-size;
 
 // https://www.client9.com/css-system-font-stack-monospace-v2
-$code-font-family: "SF-Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Roboto Mono", "Ubuntu Mono", "Courier New", Courier, monospace;
+$code-font-family: "SFMono-Regular", "SF-Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Roboto Mono", "Ubuntu Mono", "Courier New", Courier, monospace;
 $code-font-size: .9rem;
 $code-fence-font-size: .8rem;
-$code-color: #bf616a;
-$code-background-color: #f9f2f4;
+//$code-color: #bf616a;
+//$code-background-color: #f9f2f4;
 $code-line-height: 1.4;
 
 // links
