@@ -8,7 +8,7 @@
       {{ if and (isset .Site.Params "authorimage") (not (isset .Site.Params.social "gravatar")) }}
         {{ with .Site.Params.authorimage }}
         {{ $strippedSlash := ($.Site.Params.authorimage | replaceRE "^(/)+(.*)" "$2") }}
-        {{ $authorImage := (printf "%s/%s" $.Site.BaseURL $strippedSlash) }}
+        {{ $authorImage := (printf "%s%s" $.Site.BaseURL $strippedSlash) }}
         <div class="author-image">
           <img src="{{$authorImage}}" alt="Author Image" class="img--circle img--headshot element--center">
         </div>
