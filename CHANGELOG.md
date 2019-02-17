@@ -28,18 +28,18 @@ __2018-09__
   * Configure using `.Site.Params.toc` with two possible value: "hugo" (using Hugo `{{ .TableOfContents }}`, and "tocbot" (using [Tocbot](https://tscanlin.github.io/tocbot/)), remove `.Site.Params.toc` to disable TOC
   * Change [_layouts/partials/header/styles.html_](https://github.com/htr3n/hyde-hyde/blob/master/layouts/partials/header/styles.html) to check `.Site.Params.toc` and add the corresponding styles
   * Change [_layouts/partials/page-single/content.html_](https://github.com/htr3n/hyde-hyde/blob/master/layouts/partials/page-single/content.html )  to add TOC per `.Site.Params.toc`
-  * Add styles [_static-src/scss/hugo-toc.scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/hugo-toc.scss) and [_static-src/scss/tocbot.scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/tocbot.scss) that generate `hugo-toc.css` and `tocbot.css`, respectively
-  * Tocbot can be configured in [_layouts/partials/page-single/footer.html_](_layouts/partials/page-single/footer.html_) with options as described in [its documentation](https://tscanlin.github.io/tocbot/#api)
+  * Add styles [_static-src/scss/hugo-toc.scss_](https://github.com/htr3n/hyde-hyde/blob/v2.0.2/static-src/scss/hugo-toc.scss) and [_static-src/scss/tocbot.scss_](https://github.com/htr3n/hyde-hyde/blob/v2.0.2/static-src/scss/tocbot.scss) that generate `hugo-toc.css` and `tocbot.css`, respectively
+  * Tocbot can be configured in [_layouts/partials/page-single/footer.html_](layouts/partials/page-single/footer.html) with options as described in [its documentation](https://tscanlin.github.io/tocbot/#api)
 
 __2018-07__
 
 * Revise the shortcode ['fig.html'](https://github.com/htr3n/hyde-hyde/blob/master/layouts/shortcodes/fig.html)
 * Rename `header/font-awesome.html` to `header/font-awesome-css.html` and adds [_footer/font-awesome-js.html_](https://github.com/htr3n/hyde-hyde/blob/master/layouts/partials/footer/font-awesome-js.html), uses Font-Awesome 5 deferred JavaScript loading to reduce CSS rendering blocking
-* Refactor and consolidate all responsive breakpoints and creates a new style  [_\_responsive.scss_](static-src/scss/hyde-hyde/_responsive.scss)
-* Refactor portfolio's projects into [_\_project.scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/hyde-hyde/_project.scss)
-* Refactor styles for a list of posts into [_\_list.scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/hyde-hyde/_list.scss)
-* Refactor misc. styles into [_\_misc.scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/hyde-hyde/_misc.scss)
-* Remove  [_\_customised.scss_](https://github.com/htr3n/hyde-hyde/blob/master/static-src/scss/hyde-hyde/_customised.scss)
+* Refactor and consolidate all responsive breakpoints and creates a new style  [_\_responsive.scss_](https://github.com/htr3n/hyde-hyde/blob/v2.0.1/static-src/scss/hyde-hyde/_responsive.scss)
+* Refactor portfolio's projects into [_\_project.scss_](https://github.com/htr3n/hyde-hyde/blob/v2.0.1/static-src/scss/hyde-hyde/_project.scss)
+* Refactor styles for a list of posts into [_\_list.scss_](https://github.com/htr3n/hyde-hyde/blob/v2.0.1/static-src/scss/hyde-hyde/_list.scss)
+* Refactor misc. styles into [_\_misc.scss_](https://github.com/htr3n/hyde-hyde/blob/v2.0.1/static-src/scss/hyde-hyde/_misc.scss)
+* Remove  [_\_customised.scss_](https://github.com/htr3n/hyde-hyde/blob/v2.0.0/static-src/scss/hyde-hyde/_customised.scss)
 
 __Version 2.0__
 
@@ -49,7 +49,7 @@ __Version 2.0__
   * To generate `hyde-hyde.css`, please use any SCSS compiler to compile the main file  `hyde-hyde.scss`
 * Restructure/modularise further the layouts (see [_layouts_](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts))
 * Add '[_Portfolio_](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts/portfolio)' page inspired by Xiaoying Riley ([@3rdwave_themes](https://twitter.com/3rdwave_themes)) [Developer-Theme](https://github.com/xriley/developer-theme)
-* Change the main body font to use system fonts (see [_\_variables.scss_](https://github.com/htr3n/hyde-hyde/tree/v1.0.0/static-src/scss/hyde-hyde/_variables.scss))
+* Change the main body font to use system fonts (see [_\_variables.scss_](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/static-src/scss/hyde-hyde/_variables.scss))
 	* In case you prefer Web fonts, just include the template "[web-fonts.html](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts/partials/header/web-fonts.html)" to "[header.html](https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts/partials/header.html)"
 * Switch to main fixed width font [Source Code Pro](https://fonts.google.com/specimen/Source+Code+Pro)
 * Add OpenGraph and TwitterCard templates (for SEO)
