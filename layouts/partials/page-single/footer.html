@@ -7,7 +7,7 @@
 {{ partial "highlight-js.html" . }}
 {{ with .Site.Params.toc }}
 {{ if and (eq . "tocbot") (ne $include_toc false) }}
-<script src="/js/tocbot.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
 <script type="text/javascript">
   if (tocbot) {
     tocbot.init({

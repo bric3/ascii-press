@@ -82,6 +82,8 @@ __`Hyde-hyde`__ essentially inherits most of Hyde's [options](https://github.com
   	github = "htr3n"
   	...
   ```
+  
+*  `include_toc = false`: Setting to `false` in FrontMatter will disable too short TOC data as your want. 
 
   * Per PR [#56](https://github.com/htr3n/hyde-hyde/commit/5ed13e17400bbc09a342b60fd50cd9fe3e6f1525), Gravatar pics can be used exclusively to `.Site.Params.authorimage` via the parameter `.Site.Params.social.gravatar`
 
