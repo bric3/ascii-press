@@ -23,6 +23,7 @@ theme = "hyde-hyde"
     dateformat = "Jan 2, 2006"
 
     # sidebar, copyright & license
+    #logoimage = "/img/hugo.png"
     copyright = "htr3n"
     license = "CC BY-SA 4.0"
     licenseURL = "https://creativecommons.org/licenses/by-sa/4.0"
