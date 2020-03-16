@@ -45,4 +45,7 @@
 	{{ with .Site.Params.social.email }}
 	<a href="mailto:{{.}}" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
+	{{ with .Site.Params.social.pgpkey }}
+	<a href="{{.}}" rel="pgpkey"><i class="fa fa-key fa-lg" aria-hidden="true"></i></a>
+	{{ end }}
 </section>

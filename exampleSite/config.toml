@@ -53,6 +53,7 @@ theme = "hyde-hyde"
     telegram = "<username>"
     email = "your-email@example.com"
     # gravatar = "your-email@example.com"
+    # pgpkey = "<path-to-your-key-in-/static>"
 
 ## Main Menu
 [[menu.main]]
