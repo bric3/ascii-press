@@ -2,6 +2,9 @@
 	{{ with .Site.Params.social.twitter }}
 	<a href="https://twitter.com/{{.}}" rel="me"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
+	{{ with .Site.Params.social.microblog }}
+	<a href="https://micro.blog/{{.}}" rel="me"><i class="fab fa-microblog fa-lg" aria-hidden="true"></i></a>
+	{{ end }}
 	{{ with .Site.Params.social.facebook }}
 	<a href="https://facebook.com/{{.}}" rel="me"><i class="fab fa-facebook-f"></i></a>
 	{{ end }}
