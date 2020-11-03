@@ -4,6 +4,8 @@
 
 __`Hyde-hyde`__ is a [Hugo](https://gohugo.io)'s theme inspired and derived from @spf13's [Hyde](https://github.com/spf13/hyde.git) and [Nate Finch's blog](https://npf.io). 
 
+> NOTICE: Maintainers / collaborators seeking: As I'm underwater with my full time job at the moment, I'm actively looking for and welcome any new maintainers or collaborators. If you are interested, comment on [#130](https://github.com/htr3n/hyde-hyde/issues/130) and I can add you to the project. TIA.
+
 ## Breaking Changes
 
 Since version 2.0, __`hyde-hyde`__ has been overhauled and, therefore, might cause some disruptions.
@@ -158,6 +160,16 @@ Here is a longer summary of the project. You can write as long as you wish.
 > * The body of the Markdown file will be the summary of the project.
 
 If you want to adjust the portfolio page to your needs, please have a look at the [main template](https://github.com/htr3n/hyde-hyde/blob/master/layouts/portfolio/list.html), that uses this [partial template](https://github.com/htr3n/hyde-hyde/blob/master/layouts/partials/portfolio/content.html) and [this SCSS style](https://github.com/htr3n/hyde-hyde/blob/master/assets/scss/hyde-hyde/_project.scss).
+
+### Posts in home page
+By default hugo will show in your home page the most populated section.
+This means that if you have more projects than posts, by default your home page will list your projects instead of your posts.
+If you want to change this behaviour you can change the [mainsections](https://gohugo.io/functions/where/#mainsections).
+For example, for the [exampleSite](https://github.com/htr3n/hyde-hyde/tree/master/exampleSite) this is how you should change the `config.toml` file:
+```
+[params]
+    mainSections = ["posts"]
+```
 
 ## Some Screenshots
 
