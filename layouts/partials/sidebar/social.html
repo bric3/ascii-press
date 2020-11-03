@@ -27,6 +27,9 @@
 	{{ with .Site.Params.social.linkedin }}
 	<a href="https://linkedin.com/in/{{.}}" rel="me"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
+	{{ with .Site.Params.social.googlescholar}}
+	<a href="https://scholar.google.com/citations?user={{.}}" rel="me"><i class="fas fa-graduation-cap fa-lg" aria-hidden="true"></i></a>
+	{{ end }}
 	{{ with .Site.Params.social.stackoverflow }}
 	<a href="https://stackoverflow.com/users/{{.}}" rel="me"><i class="fab fa-stack-overflow fa-lg" aria-hidden="true"></i></a>
 	{{ end }}
