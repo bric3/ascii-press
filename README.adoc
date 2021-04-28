@@ -1,115 +1,152 @@
+= ascii-press
+
 image:https://img.shields.io/badge/License-MIT-blue.svg?style=flat[MIT license,link=https://github.com/bric3/ascii-press/blob/master/LICENSE.md]
 
-image:https://img.shields.io/github/release/bric3/ascii-press.svg[GitHub release] image:https://img.shields.io/github/stars/bric3/ascii-press.svg[GitHub stars] image:https://img.shields.io/github/forks/bric3/ascii-press.svg[GitHub forks] image:https://img.shields.io/github/issues/bric3/ascii-press.svg[GitHub issues] image:https://img.shields.io/github/issues-closed/bric3/ascii-press.svg[GitHub issues closed]
+//image:https://img.shields.io/github/release/bric3/ascii-press.svg[GitHub release]
+//image:https://img.shields.io/github/stars/bric3/ascii-press.svg[GitHub stars]
+//image:https://img.shields.io/github/forks/bric3/ascii-press.svg[GitHub forks]
+//image:https://img.shields.io/github/issues/bric3/ascii-press.svg[GitHub issues]
+//image:https://img.shields.io/github/issues-closed/bric3/ascii-press.svg[GitHub issues closed]
 
-= Hyde-hyde
 
-*`Hyde-hyde`* is a https://gohugo.io[Hugo]'s theme inspired and derived from @spf13's https://github.com/spf13/hyde.git[Hyde] and https://npf.io[Nate Finch's blog]. 
+* **ascii-press** is a https://gohugo.io[Hugo]'s theme derived from https://github.com/bric3[@bric3]'s' https://github.com/bric3/hyde-hyde[hyde-hyde]
+  which was derived from https://github.com/spf13[@spf13]'s https://github.com/spf13/hyde.git[Hyde] and https://npf.io[Nate Finch's blog].
 
-____
 
-NOTICE: Maintainers / collaborators seeking: As I'm underwater with my full time job at the moment, I'm actively looking for and welcome any new maintainers or collaborators. If you are interested, comment on https://github.com/bric3/ascii-press/issues/130[#130] and I can add you to the project. TIA.
+== Changes from hyde-hyde
 
-____
+The last commit from hyde-hyde is https://github.com/bric3/ascii-press/commit/14b387e6663c91750f0d80cc4cb17659d5979758[14b387e6663c91750f0d80cc4cb17659d5979758]
 
-== Breaking Changes
+.Ascii-press features
+* Draft section, it is not show in the menu, however it is available when pointing to `/drafts`
+* Dark theme, activated automatically depending on system settings
+* Thorough asciidoctor support
+** Almost all elements are styled accordingly, and responsively
+** Diagrams support, although it requires configuration on the site itself
+** Archetypes
+** Block switch, to have tabbed elements (code blocks, example blocks, etc)
+** stem/asciimath support
+** Font-Awesome 5 integration (asciidoctor outputs font-awesome compatible code, see https://github.com/asciidoctor/asciidoctor/issues/539[asciidoctor/asciidoctor#539] https://github.com/FortAwesome/Font-Awesome/issues/16477[FortAwesome/Font-Awesome#16477])
+* Some additional shortcodes
+* Social icons
+** Additional icons like Speakerdeck
+** Work around removal by ad-blockers of some icons like Twitter, Youtube, LinkedIn in the sidebar
+* Responsive Table of Content, toggleable
+* Tweak reading-time
+* Taxonomy
+** _Tags_ are arranged by letters
+** Article _series_
+** Tweaked responsive styling (eg. phones in landscape mode)
+* Custom 404 page
+* Custom landing page
+* Github edit button on blog post
 
-Since version 2.0, *`hyde-hyde`* has been overhauled and, therefore, might cause some disruptions.
+.Code changes
+* Some stuff removed
+** Old assets (`poole.css`, `hyde.css`)
+** Generated CSSs as the site is not demoed on https://themes.gohugo.io[Hugo theme site]
 
-* The main styles are refactored and redeveloped using SCSS (see https://github.com/bric3/ascii-press/blob/master/assets/scss[_assets/scss_]), `poole.css` and `hyde.css` are no longer needed because `hyde-hyde.scss` already incorporates relevant elements (I still keep them there for reference purpose)
-* Per PR [#45 by https://github.com/jd4no[@jd4no], `hyde-hyde` can use SCSSs directly in the templates instead of the generated CSSs. The generated CSSs and the generated resources are still kept in `hyde-hyde` in order to ensure the demo on https://themes.gohugo.io[Hugo theme site] working.
-* The layouts have been heavily restructured and modularised further (see https://github.com/bric3/ascii-press/blob/master/layouts[_layouts_])
-* Adding 'https://github.com/bric3/ascii-press/blob/master/layouts/portfolio[_Portfolio_]' page inspired by Xiaoying Riley (@3rdwave_themes) https://github.com/xriley/developer-theme[Developer-Theme]
-* Switching to use system fonts instead of Web fonts (e.g. privacy issues)
-* Experimenting a collapsible menu in mobile mode
-* Adding _Table of Contents_
-* Configure using `.Site.Params.toc` with two possible value: "hugo" (using Hugo `{{ .TableOfContents }}`, and "tocbot" (using https://tscanlin.github.io/tocbot/[Tocbot]), remove `.Site.Params.toc` to disable TOC
-* Tocbot can be configured in link:layouts/partials/page-single/footer.html[layouts/partials/page-single/footer.html] with options as described in https://tscanlin.github.io/tocbot/#api[its documentation]
+.Hyde-hyde features
+* Responsive (Mobile phone support)
+* Portfolio section
+* System font, instead of web fonts for privacy
+* Gravatar
+* Comment system (Disqus, Utterances, Commento, ...)
+* https://github.com/bric3/ascii-press/blob/master/CHANGELOG-hyde-hyde.md[Hyde-hyde's specific changelog]
 
-For more details, please refer to https://github.com/bric3/ascii-press/blob/master/CHANGELOG.md[CHANGELOG]. A real site in action can be found https://htr3n.github.io[here] and its https://github.com/htr3n/htr3n-blog[WIP source] for reference.
+.Todos
+* [ ] Revamp portfolio section
+* [ ] Tocbot is not supported (in `.Site.Params.toc`)
+
+// Investigate in link:layouts/partials/page-single/footer.html[layouts/partials/page-single/footer.html] with options as described in https://tscanlin.github.io/tocbot/#api[its documentation]
+
+
+My https://blog.arkey.fr[blog] shows a real usage of this theme.
 
 == Usage
 
 === Installation
 
-*`Hyde-hyde`* can be easily installed as many other Hugo themes:
+*`Ascii-press`* can be easily installed as many other Hugo themes:
 
 [source,sh]
 ----
 $ cd HUGO_PROJECT
 
-# then either clone hyde-hyde
-$ git clone https://github.com/bric3/ascii-press.git themes/hyde-hyde
+# then either clone ascii-press
+$ git clone https://github.com/bric3/ascii-press.git themes/ascii-press
 
-# or just add hyde-hyde as a submodule
-$ git submodule add https://github.com/bric3/ascii-press.git themes/hyde-hyde
+# or just add ascii-press as a submodule
+$ git submodule add https://github.com/bric3/ascii-press.git themes/ascii-press
 
 ----
 
-After that, choose `hyde-hyde` as the main theme.
+After that, choose `ascii-press` as the main theme.
 
 * `config.toml`
 [source,toml]
 ----
-theme = "hyde-hyde"
-
+theme = "ascii-press"
 ----
 
 * `config.yaml`
 [source,yaml]
 ----
-theme : "hyde-hyde"
-
+theme : "ascii-press"
 ----
 
-That's all. You can render your site using `hugo` and see `hyde-hyde` in action.
+That's all. You can render your site using `hugo` and see `ascii-press` in action.
 
 === Options
 
-*`Hyde-hyde`* essentially inherits most of Hyde's https://github.com/spf13/hyde#options[options]. There are some extra options though
+* *Ascii-press* essentially inherits most of Hyde-Hyde's https://github.com/htr3n/hyde-hyde/#options[options] and Hyde's https://github.com/spf13/hyde#options[options].
 
 * `highlightjs = true`: use https://highlightjs.org[highlight.js] instead of Hugo built-in support for code highlighting
 
-* `highlightjsstyle=&quot;highlight-style&quot;`: only when `highlightjs = true`, please choose one of many _highlight.js_'s https://highlightjs.org/static/demo[styles].
+** `highlightjsstyle = "a11y-light"`: choose from https://highlightjs.org/static/demo[styles].
+** `highlightjsdarkstyle = "gruvbox-dark"`: choose from https://highlightjs.org/static/demo[styles].
+** highlighting for each page can be fine-tuned in the front matter, for example
+*** `highlight = false` (default `true`)
+*** `highlightjslanguages = ["swift", "objectivec"]`
 
-* Since https://github.com/bric3/ascii-press/tree/v2.0.1[v2.0.1], highlighting for each page can be fine-tuned in the front matter, for example
-** `highlight = false` (default `true`)
-** `highlightjslanguages = [&quot;swift&quot;, &quot;objectivec&quot;]`
 * `postNavigation = true|false` (default `true`): Setting to `false` will disable the navigation _Previous Post_/ _Next Post_
 
 * `relatedPosts = false|true` (default `false`): Setting to `true` allows related posts. Please refer https://gohugo.io/content-management/related[here] for more details on related contents with Hugo.
 
-* `GraphCommentId = &quot;your-graphcomment-id&quot;`: to use https://graphcomment.com[GraphComment] instead of the built-in https://disqus.com[Disqus]. This option should be used exclusively with `disqusShortname = &quot;disqus-shortname&quot;`.
+* `GraphCommentId = "your-graphcomment-id"`: to use https://graphcomment.com[GraphComment] instead of the built-in https://disqus.com[Disqus]. This option should be used exclusively with `disqusShortname = "disqus-shortname"`.
 
-* `UtterancesRepo = &quot;owner/repo-name&quot;`: to use https://utteranc.es/[Utterances] instead of the built-in https://disqus.com[Disqus]. This option should be used exclusively with `disqusShortname = &quot;disqus-shortname&quot;`.
+* `UtterancesRepo = "owner/repo-name"`: to use https://utteranc.es/[Utterances] instead of the built-in https://disqus.com[Disqus]. This option should be used exclusively with `disqusShortname = "disqus-shortname"`.
 
-* `UtterancesIssueTerm = &quot;pathname&quot;` Method for Utterances to match issue's to posts (pathname, url, title, og:title)
-* `UtterancesTheme = &quot;github-light&quot;` Theme for Utterances (github-light, github-dark)
-* `Commento = true`: to use https://commento.io/[Commento] instead of the built-in https://disqus.com[Disqus]. This option should be used exclusively with `disqusShortname = &quot;disqus-shortname&quot;`.
+* `UtterancesIssueTerm = "pathname"` Method for Utterances to match issue's to posts (pathname, url, title, og:title)
+* `UtterancesTheme = "github-light"` Theme for Utterances (github-light, github-dark)
+* `Commento = true`: to use https://commento.io/[Commento] instead of the built-in https://disqus.com[Disqus]. This option should be used exclusively with `disqusShortname = "disqus-shortname"`.
 
-* `CommentoHost = &quot;your-commento-instance&quot;` https://docs.commento.io/installation/self-hosting/[Self-hosted Commento] instance. This is not required if you're a https://commento.io[Commento.io] user.
+* `CommentoHost = "your-commento-instance"` https://docs.commento.io/installation/self-hosting/[Self-hosted Commento] instance. This is not required if you're a https://commento.io[Commento.io] user.
 * `[params.social]`: in this section, you can set many social identities such as Twitter, Facebook, Github, Bitbucket, Gitlab, Instagram, LinkedIn, StackOverflow, Medium, Xing, Keybase.
-
-`toml
++
+Gravatar pictures can be used as `.Site.Params.authorimage` via the parameter `.Site.Params.social.gravatar`
++
+[source,toml]
+----
   [params.social]
-  	twitter = &quot;htr3n&quot;
-  	keybase = &quot;htr3n&quot;
-  	github = &quot;htr3n&quot;
+  	twitter = "bric3"
+  	keybase = "bric3"
+  	github = "bric3"
   	...
-`
+  	gravatar = "your.email@domain.com"
+----
 
-* `include_toc = false`: Setting to `false` in FrontMatter will disable too short TOC data as your want.
-
-* Per PR https://github.com/bric3/ascii-press/commit/5ed13e17400bbc09a342b60fd50cd9fe3e6f1525[#56], Gravatar pics can be used exclusively to `.Site.Params.authorimage` via the parameter `.Site.Params.social.gravatar`
-
-** `toml
-  [params.social]
-  	gravatar = &quot;your.email@domain.com&quot;
-`
+* `githubEdit= "https://github.com/bric3/bric3.github.io/edit/hugo-sources/content/"` to set the link for the edit link.
 
 === Customisations
 
-* Most of the customisable SCSS styles in https://github.com/bric3/ascii-press/blob/master/assets/scss/hyde-hyde[_assets/scss/hyde-hyde_] and Hugo templates in https://github.com/bric3/ascii-press/blob/master/layouts[_hyde-hyde/layouts_] are modularised and can be altered/adapted easily.
+* Most of the customisable SCSS styles in
+https://github.com/bric3/ascii-press/blob/master/assets/scss/ascii-press[_assets/scss/ascii-press_]
+and Hugo templates in
+https://github.com/bric3/ascii-press/blob/master/layouts[_ascii-press/layouts_]
+are modularised and can be altered/adapted easily.
+
+////
 
 == Portfolio
 
@@ -177,11 +214,13 @@ ____
 
 ____
 
-If you want to adjust the portfolio page to your needs, please have a look at the https://github.com/bric3/ascii-press/blob/master/layouts/portfolio/list.html[main template], that uses this https://github.com/bric3/ascii-press/blob/master/layouts/partials/portfolio/content.html[partial template] and https://github.com/bric3/ascii-press/blob/master/assets/scss/hyde-hyde/_project.scss[this SCSS style].
+If you want to adjust the portfolio page to your needs, please have a look at the https://github.com/bric3/ascii-press/blob/master/layouts/portfolio/list.html[main template], that uses this https://github.com/bric3/ascii-press/blob/master/layouts/partials/portfolio/content.html[partial template] and https://github.com/bric3/ascii-press/blob/master/assets/scss/ascii-press/_project.scss[this SCSS style].
+
+////
 
 === Posts in home page
 
-By default hugo will show in your home page the most populated section.
+By default, hugo will show in your home page the most populated section.
 This means that if you have more projects than posts, by default your home page will list your projects instead of your posts.
 If you want to change this behaviour you can change the https://gohugo.io/functions/where/#mainsections[mainsections].
 For example, for the https://github.com/bric3/ascii-press/tree/master/exampleSite[exampleSite] this is how you should change the `config.toml` file:
@@ -193,25 +232,37 @@ For example, for the https://github.com/bric3/ascii-press/tree/master/exampleSit
 
 == Some Screenshots
 
-=== Main page
+ifdef::env-github[]
+:imagesdir: https://github.com/bric3/ascii-press/raw/master/
+endif::[]
 
-image:https://github.com/bric3/ascii-press/raw/master/images/main.png[hyde-hyde main screen]
+.Main page
+image:images/main.png[ascii-press main screen]
 
-=== A post
+.A post
+image:images/post.png[A post in ascii-press]
 
-image:https://github.com/bric3/ascii-press/raw/master/images/post.png[A post in hyde-hyde]
+.A draft post
+image:images/draft-post.png[A draft post in ascii-press]
 
-=== Portfolio
+.Table of Content
+image:images/table-of-content-menu.png[Table of Content menu opened]
 
-image:https://github.com/bric3/ascii-press/raw/master/images/portfolio.png[Portfolio hyde-hyde]
+.Tabs
+image:images/tabbed-block-switch.png[Tabbed block switch]
 
-=== Mobile Mode with Collapsible Menu
+.Sorted tags
+image:images/tags.png[Sorted tags]
+
+.Mobile Mode
+image:images/mobile.png[Mobile mode]
+
 
 == Author(s)
 
 * Original developed by https://github.com/mdo[Mark Otto]
-
 * Hugo's `hyde` ported by https://github.com/spf13[Steve Francia]
+* Hugo's `hyde-hyde` adapted by https://github.com/bric3[Huy Tran]
 
 == License
 
