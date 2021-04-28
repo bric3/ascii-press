@@ -20,6 +20,44 @@
 	float: right;
 }
 
-.draft {
-    color: #999 !important;
+body.draft {
+	background: repeating-linear-gradient(
+									45deg,
+									rgba(0, 0, 0, 0.03),
+									rgba(0, 0, 0, 0.03) 1rem,
+									rgba(0, 0, 0, 0.07) 1rem,
+									rgba(0, 0, 0, 0.07) 2rem
+	);
+	& div.content.container article::before {
+		content: "DRAFT";
+		color: $red;
+		margin-left: 80%;
+		position: -webkit-sticky;
+		position: sticky;
+		top: -3px;
+		z-index: 1000;
+		background: $body-bg;
+		border: $red solid 1px;
+		border-radius: 4px;
+		padding: 0.2rem;
+		display: block; // position:sticky fix for safari
+		text-align: center;
+		width: 4rem;
+	}
+}
+
+
+.github-edit {
+  font-size: 0.7em;
+  float: right;
+}
+
+header .github-edit {
+  margin-top: -2.5em;
+  margin-right: -2.5%;
+}
+
+footer .github-edit {
+  margin-right: -2.5%;
+  margin-top: 2.5em;
 }

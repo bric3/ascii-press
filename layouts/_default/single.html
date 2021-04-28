@@ -1,6 +1,10 @@
-{{ define "header" }}
+{{ define "head" }}
     {{ partial "page-single/variables-init.html" . }}
-    {{ partial "header.html" . }}
+    {{ partial "head.html" . }}
+{{ end }}
+
+{{ define "header" }}
+    {{ partial "page-single/header.html" . }}
 {{ end }}
 
 {{ define "content" }}
