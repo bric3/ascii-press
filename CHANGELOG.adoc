@@ -1,0 +1,75 @@
+= Changelog
+
+This changelog mainly documented some major changes, updates or fixes (with credits) for reference purposes. It by no means covers all contributors. Nonetheless, to the bottom of my heart, I truly appreciate all of your time and contributions.
+
+*2018-11*
+
+* Per PR https://github.com/htr3n/hyde-hyde/commit/5ed13e17400bbc09a342b60fd50cd9fe3e6f1525[#56], Gravatar pics can be used exclusively to `.Site.Params.authorimage` via the parameter `.Site.Params.social.gravatar`
+
+* 
+[source,toml]
+----
+[params.social]
+	gravatar = "your.email@domain.com"
+----
+
+* Fix Hugo demo (issue https://github.com/htr3n/hyde-hyde/issues/53[#53])
+
+* Fix mobile header (PR https://github.com/htr3n/hyde-hyde/pull/51[#51]: credits to https://github.com/gamingrobot[@gamingrobot])
+
+* Add Utterances comments (PR https://github.com/htr3n/hyde-hyde/pull/50[#50]: credits to https://github.com/gamingrobot[@gamingrobot])
+
+*2018-10*
+
+* Enable `hyde-hyde` to work directly with SCSSs instead of generated CSSs (PR https://github.com/htr3n/hyde-hyde/pull/45[#45]: credits to https://github.com/jd4no[@jd4no])
+* Patch potential vulnerabilities of `target=&quot;_blank&quot;` (PR https://github.com/htr3n/hyde-hyde/pull/48[#48]: credits to https://github.com/gfrcsd[@gfrcsd])
+
+*2018-09*
+
+* Add _Table of Contents_
+* Configure using `.Site.Params.toc` with two possible value: "hugo" (using Hugo `{{ .TableOfContents }}`, and "tocbot" (using https://tscanlin.github.io/tocbot/[Tocbot]), remove `.Site.Params.toc` to disable TOC
+* Change https://github.com/htr3n/hyde-hyde/blob/master/layouts/partials/header/styles.html[_layouts/partials/header/styles.html_] to check `.Site.Params.toc` and add the corresponding styles
+* Change https://github.com/htr3n/hyde-hyde/blob/master/layouts/partials/page-single/content.html[_layouts/partials/page-single/content.html_] to add TOC per `.Site.Params.toc`
+* Add styles https://github.com/htr3n/hyde-hyde/blob/v2.0.2/static-src/scss/hugo-toc.scss[_static-src/scss/hugo-toc.scss_] and https://github.com/htr3n/hyde-hyde/blob/v2.0.2/static-src/scss/tocbot.scss[_static-src/scss/tocbot.scss_] that generate `hugo-toc.css` and `tocbot.css`, respectively
+* Tocbot can be configured in link:layouts/partials/page-single/footer.html[_layouts/partials/page-single/footer.html_] with options as described in https://tscanlin.github.io/tocbot/#api[its documentation]
+
+*2018-07*
+
+* Revise the shortcode https://github.com/htr3n/hyde-hyde/blob/master/layouts/shortcodes/fig.html['fig.html']
+* Rename `header/font-awesome.html` to `header/font-awesome-css.html` and adds https://github.com/htr3n/hyde-hyde/blob/master/layouts/partials/footer/font-awesome-js.html[_footer/font-awesome-js.html_], uses Font-Awesome 5 deferred JavaScript loading to reduce CSS rendering blocking
+* Refactor and consolidate all responsive breakpoints and creates a new style https://github.com/htr3n/hyde-hyde/blob/v2.0.1/static-src/scss/hyde-hyde/_responsive.scss[__responsive.scss_]
+* Refactor portfolio's projects into https://github.com/htr3n/hyde-hyde/blob/v2.0.1/static-src/scss/hyde-hyde/_project.scss[__project.scss_]
+* Refactor styles for a list of posts into https://github.com/htr3n/hyde-hyde/blob/v2.0.1/static-src/scss/hyde-hyde/_list.scss[__list.scss_]
+* Refactor misc. styles into https://github.com/htr3n/hyde-hyde/blob/v2.0.1/static-src/scss/hyde-hyde/_misc.scss[__misc.scss_]
+* Remove https://github.com/htr3n/hyde-hyde/blob/v2.0.0/static-src/scss/hyde-hyde/_customised.scss[__customised.scss_]
+
+*Version 2.0*
+
+* The main styles are refactored and redeveloped using SCSS (see https://github.com/htr3n/hyde-hyde/tree/v2.0.0/static-src/scss[_static-src/scss_])
+ and we no longer need `poole.css` and `hyde.css` because `hyde-hyde.scss` already incorporates relevant elements
+* `Hyde-hyde` can be customised by changing SCSS styles in https://github.com/htr3n/hyde-hyde/tree/v2.0.0/static-src/scss/hyde-hyde[_static-src/scss/hyde-hyde_] and layouts in https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts[_layouts_]
+* To generate `hyde-hyde.css`, please use any SCSS compiler to compile the main file `hyde-hyde.scss`
+* Restructure/modularise further the layouts (see https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts[_layouts_])
+* Add 'https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts/portfolio[_Portfolio_]' page inspired by Xiaoying Riley (https://twitter.com/3rdwave_themes[@3rdwave_themes]) https://github.com/xriley/developer-theme[Developer-Theme]
+* Change the main body font to use system fonts (see https://github.com/htr3n/hyde-hyde/tree/v2.0.0/static-src/scss/hyde-hyde/_variables.scss[__variables.scss_])
+** In case you prefer Web fonts, just include the template "https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts/partials/header/web-fonts.html[web-fonts.html]" to "https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts/partials/header.html[header.html]"
+* Switch to main fixed width font https://fonts.google.com/specimen/Source+Code+Pro[Source Code Pro]
+* Add OpenGraph and TwitterCard templates (for SEO)
+* Add '_Related Articles_' (see https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts/partials/post-related.html[_layouts/partials/post-related.html_])
+* Add page navigation _NEXT / PREVIOUS_
+* Switch datetime format to `&quot;Jan 02 &#39;06&quot;` in the list of posts (see https://github.com/htr3n/hyde-hyde/tree/v2.0.0/layouts/partials/post-list.html[_layouts/partials/post-list.html_]) to save some space
+* Change styles for links, tags, text
+* Add some handy shortcodes for `&lt;kbd&gt;&lt;/kbd&gt;` and `&lt;blockquote&gt;&lt;/blockquote&gt;`
+* The License under '_Some Rights Reversed_' in the sidebar is switched from http://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International License] to http://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 International License].
+
+*Version 1.0*
+
+* Color tones and layouts are inspired by https://npf.io[Nate Finch's blog]
+* Restructure/modularise the layouts (see https://github.com/htr3n/hyde-hyde/tree/v1.0.0/layouts/_default/baseof.html[`layouts/_default/baseof.html`], https://github.com/htr3n/hyde-hyde/tree/v1.0.0/layouts/_default/single.html[`layouts/_default/single.html`], https://github.com/htr3n/hyde-hyde/tree/v1.0.0/layouts/_default/list.html[`layouts/_default/list.html`] and https://github.com/htr3n/hyde-hyde/tree/v1.0.0/layouts/partials/[`layouts/partials`])
+* Use https://highlightjs.org[highlight.js] for code highlighting
+* Use https://fontawesome.com[Font-Awesome 5]'s icons
+* Use main font https://fonts.google.com/specimen/Fira+Sans[Fira-Sans] + fixed width font https://fonts.google.com/specimen/Roboto+Mono[Roboto Mono]
+* Add https://graphcomment.com[GraphComment] for replacing the built-in https://disqus.com[Disqus]
+* Fork from https://github.com/spf13/hyde[Hyde]
+* Refactor `basedof.html` and corresponding pages `index.html`, `single.html`, `list.html`
+** define blocks `content` and `footer` that will be fulfilled by each different type of layout.

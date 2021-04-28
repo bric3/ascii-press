@@ -2,10 +2,10 @@
 
 {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" true) }}
 
-{{ $style := resources.Get "scss/hyde-hyde.scss" | toCSS $options | fingerprint }}
+{{ $style := resources.Get "scss/ascii-press.scss" | toCSS $options | fingerprint }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 
-{{ $style := resources.Get "scss/hyde-hyde-dark.scss" | toCSS $options | fingerprint }}
+{{ $style := resources.Get "scss/ascii-press-dark.scss" | toCSS $options | fingerprint }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" media="(prefers-color-scheme: dark)">
 
 {{ $printStyle := resources.Get "scss/print.scss" | toCSS $options | fingerprint }}

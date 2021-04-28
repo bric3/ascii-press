@@ -3,7 +3,7 @@ baseurl = "https://example.com/"
 languageCode = "en"
 
 title = "Title"
-theme = "hyde-hyde"
+theme = "ascii-press"
 
 ## Hugo Built-in Features
 # disqusShortname = "your-disqus-shortname"
