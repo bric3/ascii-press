@@ -1,4 +1,6 @@
 * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -14,6 +16,23 @@ html {
 html, body {
   margin: 0;
   padding: 0;
+}
+
+html {
+  font-family: $root-font-family;
+  font-size: $root-font-size;
+  line-height: $root-line-height;
+
+  @media (min-width: $large-breakpoint) {
+    font-size: $large-font-size;
+  }
+}
+
+body {
+  color: $body-color;
+  background-color: $body-bg;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 h1,
@@ -55,13 +74,11 @@ figure {
 %quotebox {
   padding: .8889rem;
   margin-top: 1rem;
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: 0;
+  margin-right: 0;
   //border-radius: 6px;
   border-left: 6px solid;
   border-right: 6px solid transparent;
-  border-right-width: 6px;
-  border-right-style: solid;
   border-right-color: rgba(0, 0, 0, 0) transparent;
   color: #7a7a7a;
 }
@@ -115,15 +132,7 @@ a {
     }
   }
 
-  &:focus {
-    @include link-hover();
-
-    &.tag {
-      @include link-no-decoration();
-    }
-  }
-
-  &:hover {
+  &:focus, &:hover {
     @include link-hover();
 
     &.tag {
@@ -139,6 +148,10 @@ a {
     text-decoration: none;
     @include link-no-decoration();
   }
+
+  strong {
+    color: inherit;
+  }
 }
 
 
@@ -147,6 +160,36 @@ a {
   padding-top: 2rem;
 }
 
+
+img {
+  display: block;
+  max-width: 100%;
+  margin: 0 0 1rem;
+  border-radius: 5px;
+}
+
+table {
+  margin-bottom: 1rem;
+  width: 100%;
+  font-size: 85%;
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: .25rem .5rem;
+  border: 1px solid #e5e5e5;
+}
+
+th {
+  text-align: left;
+}
+
+tbody tr:nth-child(odd) td,
+tbody tr:nth-child(odd) th {
+  background-color: #f9f9f9;
+}
 
 /////// arkey.fr specifics
 

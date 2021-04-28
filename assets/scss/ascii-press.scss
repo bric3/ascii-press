@@ -1,9 +1,6 @@
 @import "ascii-press/variables";
-// poole
-@import "poole/base";
-@import "poole/layout";
-@import "poole/posts";
 // ascii-press
+@import "ascii-press/layout";
 @import 'ascii-press/mixins';
 @import 'ascii-press/base';
 @import 'ascii-press/sidebar';
