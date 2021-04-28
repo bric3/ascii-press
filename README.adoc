@@ -9,7 +9,7 @@ image:https://img.shields.io/badge/License-MIT-blue.svg?style=flat[MIT license,l
 //image:https://img.shields.io/github/issues-closed/bric3/ascii-press.svg[GitHub issues closed]
 
 
-* **ascii-press** is a https://gohugo.io[Hugo]'s theme derived from https://github.com/bric3[@bric3]'s' https://github.com/bric3/hyde-hyde[hyde-hyde]
+**ascii-press** is a https://gohugo.io[Hugo]'s theme derived from https://github.com/bric3[@bric3]'s' https://github.com/bric3/hyde-hyde[hyde-hyde]
   which was derived from https://github.com/spf13[@spf13]'s https://github.com/spf13/hyde.git[Hyde] and https://npf.io[Nate Finch's blog].
 
 
