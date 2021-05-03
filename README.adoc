@@ -15,7 +15,9 @@ image:https://img.shields.io/badge/License-MIT-blue.svg?style=flat[MIT license,l
 
 == Changes from hyde-hyde
 
-The last commit from hyde-hyde is https://github.com/bric3/ascii-press/commit/14b387e6663c91750f0d80cc4cb17659d5979758[14b387e6663c91750f0d80cc4cb17659d5979758]
+This theme is not a direct replacement for hyde-hyde, some heavy renaming and structure change happened.
+
+The last commit from hyde-hyde is https://github.com/bric3/ascii-press/commit/14b387e6663c91750f0d80cc4cb17659d5979758[14b387e6663c91750f0d80cc4cb17659d5979758].
 
 .Ascii-press features
 * Draft section, it is not show in the menu, however it is available when pointing to `/drafts`
