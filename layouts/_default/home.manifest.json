@@ -1,0 +1,27 @@
+{
+  "name": "{{ .Site.Title }}",
+  "short_name": "{{ .Site.Title }}",
+  "description": "{{ .Site.Params.description }}",
+  "icons": [
+    {{- $baseURL := .Site.BaseURL -}}
+    {{- $files := readDir (print "/static/") }}
+    {{- $len := (len $files) -}}
+
+    {{- range $index, $element := $files -}}
+      {{- $isappicon := lower .Name | findRE "(apple-touch-icon|app-icon|android-chrome)-.*\\.png" }}
+      {{- if $isappicon }}
+        {{- $imgData := imageConfig (print "/static/" .Name) -}}
+        {{- $linkURL := print $baseURL .Name | absURL }}
+        {{- /* index trick to get the separator right */ -}}
+        {{- if not (eq $index 1) -}}, {{- end -}}{
+        "sizes": "{{ $imgData.Width }}x{{ $imgData.Height }}",
+        "src": "{{ $linkURL }}",
+        "type": "image/png"
+      }
+      {{- end }}
+    {{- end }}
+  ],
+  "theme_color": "#b64f4f",
+  "background_color": "#b64f4f",
+  "display": "standalone"
+}

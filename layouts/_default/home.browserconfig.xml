@@ -1,0 +1,27 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\"?>" | safeHTML }}
+<browserconfig>
+    <msapplication>
+        <tile>
+{{- $baseURL := .Site.BaseURL -}}
+{{- $files := readDir (print "/static/") }}
+{{- range $files -}}
+  {{- $isappicon := lower .Name | findRE "mstile-.*\\.png" }}
+  {{- if $isappicon }}
+    {{- $imgData := imageConfig (print "/static/" .Name) -}}
+    {{- $linkURL := print $baseURL .Name | absURL -}}
+
+    {{- /*
+    To confuse things somewhat, Microsoft recommends that to cover a wide range of devices, use an image 1.8 times the standard tile size so the image can be scaled up or down as needed.
+    https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/samples/dn455106(v=vs.85)
+
+    This would result in the following browserconfig.xml which references tile images which have been scaled by 1.8.
+
+    https://realfavicongenerator.net/ generates these icons with the 1.8 factor.
+    */ -}}
+            <square{{ div $imgData.Width 1.8 | safeHTMLAttr }}x{{ div $imgData.Height 1.8 | safeHTMLAttr }}logo src="{{ $linkURL }}"/>
+  {{- end }}
+{{- end }}
+            <TileColor>#b64f4f</TileColor>
+        </tile>
+    </msapplication>
+</browserconfig>
