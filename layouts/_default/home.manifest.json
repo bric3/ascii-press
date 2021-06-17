@@ -11,7 +11,7 @@
       {{- $isappicon := lower .Name | findRE "(apple-touch-icon|app-icon|android-chrome)-.*\\.png" }}
       {{- if $isappicon }}
         {{- $imgData := imageConfig (print "/static/" .Name) -}}
-        {{- $linkURL := print $baseURL .Name | absURL }}
+        {{- $linkURL := print $baseURL "/" .Name | absURL }}
         {{- /* index trick to get the separator right */ -}}
         {{- if not (eq $index 1) -}}, {{- end -}}{
         "sizes": "{{ $imgData.Width }}x{{ $imgData.Height }}",
