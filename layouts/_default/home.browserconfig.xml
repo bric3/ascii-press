@@ -8,7 +8,7 @@
   {{- $isappicon := lower .Name | findRE "mstile-.*\\.png" }}
   {{- if $isappicon }}
     {{- $imgData := imageConfig (print "/static/" .Name) -}}
-    {{- $linkURL := print $baseURL .Name | absURL -}}
+    {{- $linkURL := print $baseURL "/" .Name | absURL -}}
 
     {{- /*
     To confuse things somewhat, Microsoft recommends that to cover a wide range of devices, use an image 1.8 times the standard tile size so the image can be scaled up or down as needed.
