@@ -1,0 +1,24 @@
+{{- with .Site.Params.giscus }}
+  {{- if or (not .repo) (not .category) (not .categoryId) }}
+    {{- errorf "[giscus] both of repo, category and categoryId are required." }}
+  {{- end }}
+  {{- $lang := default $.Site.Language.Lang }}
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="{{ .repo }}"
+    data-repo-id="{{ .repoId }}"
+    data-category="{{ .category }}"
+    data-category-id="{{ .categoryId }}"
+    data-mapping="{{ .mapping }}"
+    data-reactions-enabled="{{ cond .reactions "1" "0" }}"
+    data-input-position="{{ .inputPosition }}"
+    data-theme="{{ .theme }}"
+    data-lang="{{ $lang }}"
+    {{ with default true .lazyLoading }}data-loading="lazy"{{ end }}
+    {{ with default true .strictMatching }}data-strict="1"{{ end }}
+    {{ with default false .emitMetadata }}data-emit-metadata="1"{{ end }}
+    data-theme="{{ with default "preferred_color_scheme" .theme }}{{ . }}{{ end }}"
+    crossorigin="anonymous"
+    async
+  ></script>
+{{- end }}
