@@ -42,6 +42,7 @@ The last commit from hyde-hyde is https://github.com/bric3/ascii-press/commit/14
 * Custom 404 page
 * Custom landing page
 * Github edit button on blog post
+* Giscus comment system
 
 .Code changes
 * Some stuff removed
@@ -53,7 +54,7 @@ The last commit from hyde-hyde is https://github.com/bric3/ascii-press/commit/14
 * Portfolio section
 * System font, instead of web fonts for privacy
 * Gravatar
-* Comment system (Disqus, Utterances, Commento, ...)
+* [.line-through]#Comment system (Disqus, Utterances, Commento, ...)#, currently disabled and forced to Giscus
 * https://github.com/bric3/ascii-press/blob/master/CHANGELOG-hyde-hyde.md[Hyde-hyde's specific changelog]
 
 .Todos
