@@ -1,6 +1,6 @@
 {{- with .Site.Params.giscus }}
-  {{- if or (not .repo) (not .category) (not .categoryId) }}
-    {{- errorf "[giscus] both of repo, category and categoryId are required." }}
+  {{- if or (not .repo) (not .repoId) (not .category) (not .categoryId) }}
+    {{- errorf "[giscus] repo, repoId, category and categoryId are required." }}
   {{- end }}
   {{- $lang := default $.Site.Language.Lang }}
   <script
