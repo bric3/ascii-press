@@ -60,6 +60,12 @@ $dark-box-shadow-color: black;
         &:hover {
           background: $toc-link-hover-bg-color;
         }
+
+        // See footer.html
+        // based on https://codepen.io/saas/pen/LYENgqq
+        &.visible-section {
+          font-weight: bolder;
+        }
       }
 
       ul {
@@ -76,7 +82,7 @@ input#tocToggle {
 }
 
 h2:target, h3:target, h4:target, h5:target {
-  animation: highlight 2s ease;
+  animation: highlight 3s ease;
 }
 
 @keyframes highlight {

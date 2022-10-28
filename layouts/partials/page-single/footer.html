@@ -91,6 +91,63 @@ function select(selected) {
 $(addBlockSwitches);
 $(globalSwitch);
 </script>
+
+<script type="text/javascript">
+  // based on https://codepen.io/saas/pen/LYENgqq
+  // Adapted for the non-semantic HTML output of asciidoctor
+  window.addEventListener("load", () => {
+    if (!'IntersectionObserver' in window) {
+      return;
+    }
+
+    // Retrieve all sections
+    const sections = Array.from(document.querySelectorAll("section[id], h2[id], h3[id], h4[id], h5[id]"));
+    const visibleSectionClass = "visible-section";
+
+    // Once a scrolling event is detected, iterate all elements
+    // whose visibility changed and highlight their navigation entry
+    const scrollHandler = entries =>
+            entries.forEach(entry => {
+              const section = entry.target;
+              const sectionId = section.id;
+              const sectionLink = document.querySelector(`a[href="#${sectionId}"]`);
+
+              console.log(sectionId, sectionLink);
+              console.log(entry)
+              console.log(entry.intersectionRect.height / entry.rootBounds.height)
+
+              if (entry.intersectionRatio > 0) {
+                section.classList.add(visibleSectionClass);
+                sectionLink.classList.add(visibleSectionClass);
+              } else {
+                section.classList.remove(visibleSectionClass);
+                sectionLink.classList.remove(visibleSectionClass);
+              }
+            });
+
+    // Creates a new scroll observer
+    const observer = new IntersectionObserver(scrollHandler);
+    sections.map(section => {
+      if (section.tagName === "SECTION") {
+        return section;
+      } else {
+        // in the case of asciidoctor, the section is a title that is contained
+        // in a div with classes like "sect1", "sect2", to represent nested
+        // sections. Using the enclosing element is necessary otherwise the menu
+        // will only highlight the title when it is visible. While we want to
+        // keep the menu highlight for the whole section.
+        //
+        // Also, the scrollHandler need to work with the section id so it's added
+        // to the enclosing element.
+        let actualSectionContainer = section.parentElement;
+        actualSectionContainer.id = section.id;
+        return actualSectionContainer;
+      }
+    }).forEach(section => observer.observe(section));
+  });
+
+</script>
+
 {{ with .Site.Params.toc }}
 {{ if and (eq . "tocbot") (ne $include_toc false) }}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js" integrity="sha512-g3ESN5HI4E4N2ZsgXw6mcLgD6U8qs1vneuEhN8xq3fQcgiBz7MD1jIMBjf404FPu8NrEaJNUwwxholBy4NiIZg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

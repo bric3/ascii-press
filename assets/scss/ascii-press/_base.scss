@@ -65,6 +65,20 @@ h5 {
   font-size: $h5-font-size;
 }
 
+// Style section headers if needed
+// related to highlighting the current section
+// based on https://codepen.io/saas/pen/LYENgqq
+h1,
+h2,
+h3,
+h4,
+h5 {
+  section.visible-section & {
+  }
+  div.visible-section & {
+  }
+}
+
 figure {
   max-width: 100%;
   margin: 0;
