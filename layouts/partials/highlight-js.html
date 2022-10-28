@@ -201,7 +201,7 @@
         {{ with $.Scratch.Get "hl_languages" }}
         hljs.configure({languages: [{{(delimit . ", ")}}]});
         {{ end }}
-        hljs.initHighlightingOnLoad();
+        hljs.highlightAll();
     </script>
     {{ $.Scratch.Delete "hl_languages" }}
 {{ end }}
