@@ -2,6 +2,9 @@
 	{{ with .Site.Params.social.twitter }}
 	<a href="https://twitter.com/{{.}}" rel="me"><i class="fa-w-16" aria-hidden="true">{{- readFile "/themes/ascii-press/assets/icons/twitter-brands.svg" | replaceRE "twitter" "bird" | safeHTML -}}</i></a>
 	{{ end }}
+	{{ with .Site.Params.social.mastodon }}
+	<a href="{{.}}" rel="me"><i class="fa-w-16" aria-hidden="true">{{- readFile "/themes/ascii-press/assets/icons/mastodon-brands.svg" | replaceRE "mastodon" "jumbo" | safeHTML -}}</i></a>
+	{{ end }}
 	{{ with .Site.Params.social.facebook }}
 	<a href="https://facebook.com/{{.}}" rel="me"><i class="fab fa-facebook-f"></i></a>
 	{{ end }}
