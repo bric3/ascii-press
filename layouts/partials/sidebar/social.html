@@ -9,49 +9,49 @@
 	<a href="https://facebook.com/{{.}}" rel="me"><i class="fab fa-facebook-f"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.github }}
-	<a href="https://github.com/{{.}}" rel="me"><i class="fab fa-github fa-lg" aria-hidden="true"></i></a>
+	<a href="https://github.com/{{.}}" rel="me"><i class="fab fa-github" aria-hidden="true"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.speakerdeck }}
 	<a href="https://speakerdeck.com/{{.}}" rel="me"><i class="fab fa-speaker-deck" aria-hidden="true"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.bitbucket }}
-	<a href="https://bitbucket.org/{{.}}" rel="me"><i class="fab fa-bitbucket fa-lg" aria-hidden="true"></i></a>
+	<a href="https://bitbucket.org/{{.}}" rel="me"><i class="fab fa-bitbucket" aria-hidden="true"></i></a>
 	{{ end }}
 	{{ $gitlab_domain := "gitlab.com" }}
 	{{ with .Site.Params.social.custom_gitlab_domain }}
 		{{ $gitlab_domain = . }}
 	{{ end }}
 	{{ with .Site.Params.social.gitlab }}
-	<a href="https://{{ $gitlab_domain }}/{{.}}" rel="me"><i class="fab fa-gitlab fa-lg" aria-hidden="true"></i></a>
+	<a href="https://{{ $gitlab_domain }}/{{.}}" rel="me"><i class="fab fa-gitlab" aria-hidden="true"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.instagram }}
-	<a href="https://instagram.com/{{.}}" rel="me"><i class="fab fa-instagram fa-lg" aria-hidden="true"></i></a>
+	<a href="https://instagram.com/{{.}}" rel="me"><i class="fab fa-instagram" aria-hidden="true"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.linkedin }}
 	<a href="https://linkedin.com/in/{{.}}" rel="me"><i class="fa-w-16" aria-hidden="true">{{- readFile "/themes/ascii-press/assets/icons/linkedin-brands.svg" | replaceRE "linkedin" "pro-network" | safeHTML -}}</i></a>
 	{{ end }}
 	{{ with .Site.Params.social.stackoverflow }}
-	<a href="https://stackoverflow.com/users/{{.}}" rel="me"><i class="fab fa-stack-overflow fa-lg" aria-hidden="true"></i></a>
+	<a href="https://stackoverflow.com/users/{{.}}" rel="me"><i class="fab fa-stack-overflow" aria-hidden="true"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.medium}}
-	<a href="https://medium.com/@{{.}}" rel="me"><i class="fab fa-medium fa-lg" aria-hidden="true"></i></a>
+	<a href="https://medium.com/@{{.}}" rel="me"><i class="fab fa-medium" aria-hidden="true"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.xing }}
-	<a href="https://www.xing.com/profile/{{.}}" rel="me"><i class="fab fa-xing fa-lg" aria-hidden="true"></i></a>
+	<a href="https://www.xing.com/profile/{{.}}" rel="me"><i class="fab fa-xing" aria-hidden="true"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.keybase }}
-	<a href="https://keybase.io/{{.}}" rel="me"><i class="fab fa-keybase fa-lg" aria-hidden="true"></i></a>
+	<a href="https://keybase.io/{{.}}" rel="me"><i class="fab fa-keybase" aria-hidden="true"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.telegram }}
-	<a href="https://t.me/{{.}}" rel="me"><i class="fab fa-telegram fa-lg" aria-hidden="true"></i></a>
+	<a href="https://t.me/{{.}}" rel="me"><i class="fab fa-telegram" aria-hidden="true"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.aboutme }}
-	&nbsp;<a href="https://about.me/{{.}}"><i class="fas fa-address-card fa-lg" aria-hidden="true"></i></a>
+	&nbsp;<a href="https://about.me/{{.}}"><i class="fas fa-address-card" aria-hidden="true"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.orcid }}
-	<a href="https://orcid.org/{{.}}" rel="me"><i class="fab fa-orcid fa-lg" aria-hidden="true"></i></a>
+	<a href="https://orcid.org/{{.}}" rel="me"><i class="fab fa-orcid" aria-hidden="true"></i></a>
 	{{end}}
 	{{ with .Site.Params.social.email }}
-	<a href="mailto:{{.}}" rel="me"><i class="fas fa-at fa-lg" aria-hidden="true"></i></a>
+	<a href="mailto:{{.}}" rel="me"><i class="fas fa-at" aria-hidden="true"></i></a>
 	{{ end }}
 </section>
