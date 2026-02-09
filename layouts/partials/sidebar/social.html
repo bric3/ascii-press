@@ -1,18 +1,21 @@
 <section class="social">
-	{{ with .Site.Params.social.twitter }}
-	<a href="https://twitter.com/{{.}}" rel="me"><i class="fa-w-16" aria-hidden="true">{{- readFile "/themes/ascii-press/assets/icons/twitter-brands.svg" | replaceRE "twitter" "bird" | safeHTML -}}</i></a>
+	{{ with .Site.Params.social.bluesky }}
+	<a href="https://bsky.app/profile/{{.}}" rel="me"><i class="fa-w-16" aria-hidden="true">{{- readFile "/themes/ascii-press/assets/icons/bluesky-brands.svg" | safeHTML -}}</i></a>
 	{{ end }}
 	{{ with .Site.Params.social.mastodon }}
 	<a href="{{.}}" rel="me"><i class="fa-w-16" aria-hidden="true">{{- readFile "/themes/ascii-press/assets/icons/mastodon-brands.svg" | replaceRE "mastodon" "jumbo" | safeHTML -}}</i></a>
-	{{ end }}
-	{{ with .Site.Params.social.facebook }}
-	<a href="https://facebook.com/{{.}}" rel="me"><i class="fab fa-facebook-f"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.github }}
 	<a href="https://github.com/{{.}}" rel="me"><i class="fab fa-github" aria-hidden="true"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.speakerdeck }}
 	<a href="https://speakerdeck.com/{{.}}" rel="me"><i class="fab fa-speaker-deck" aria-hidden="true"></i></a>
+	{{ end }}
+	{{ with .Site.Params.social.twitter }}
+	<a href="https://twitter.com/{{.}}" rel="me"><i class="fa-w-16" aria-hidden="true">{{- readFile "/themes/ascii-press/assets/icons/twitter-brands.svg" | replaceRE "twitter" "bird" | safeHTML -}}</i></a>
+	{{ end }}
+	{{ with .Site.Params.social.facebook }}
+	<a href="https://facebook.com/{{.}}" rel="me"><i class="fab fa-facebook-f"></i></a>
 	{{ end }}
 	{{ with .Site.Params.social.bitbucket }}
 	<a href="https://bitbucket.org/{{.}}" rel="me"><i class="fab fa-bitbucket" aria-hidden="true"></i></a>
