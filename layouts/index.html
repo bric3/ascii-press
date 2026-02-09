@@ -38,9 +38,9 @@
 {{ end }}
 
 {{ define "footer" }}
-  {{ if .Site.GoogleAnalytics }}
+  {{ if .Site.Config.Services.GoogleAnalytics.ID }}
     <!-- Google Analytics -->
-    {{ template "_internal/google_analytics_async.html" . }}
+    {{ template "_internal/google_analytics.html" . }}
   {{ end }}
   {{ partial "footer/font-awesome-js.html" . }}
 {{ end }}
