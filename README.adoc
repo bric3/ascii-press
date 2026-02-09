@@ -12,6 +12,14 @@ image:https://img.shields.io/badge/License-MIT-blue.svg?style=flat[MIT license,l
 **ascii-press** is a https://gohugo.io[Hugo]'s theme derived from https://github.com/bric3[@bric3]'s' https://github.com/bric3/hyde-hyde[hyde-hyde]
   which was derived from https://github.com/spf13[@spf13]'s https://github.com/spf13/hyde.git[Hyde] and https://npf.io[Nate Finch's blog].
 
+== Hugo Compatibility
+
+* **Tested with Hugo 0.155.3** (February 2026)
+* Requires Hugo Extended (for SCSS compilation)
+* Modern Hugo features supported:
+** New pagination configuration (`pagination.pagerSize`)
+** Security whitelist for external processors (asciidoctor)
+
 
 == Changes from hyde-hyde
 
@@ -29,9 +37,13 @@ The last commit from hyde-hyde is https://github.com/bric3/ascii-press/commit/14
 ** Block switch, to have tabbed elements (code blocks, example blocks, etc)
 ** stem/asciimath support
 ** Font-Awesome 5 integration (asciidoctor outputs font-awesome compatible code, see https://github.com/asciidoctor/asciidoctor/issues/539[asciidoctor/asciidoctor#539] https://github.com/FortAwesome/Font-Awesome/issues/16477[FortAwesome/Font-Awesome#16477])
-* Some additional shortcodes
+* Custom shortcodes, like: `{{< gist user id >}}`, `{{< kbd "Ctrl" >}}`, `{{< fab "fa-battery-full" >}}`.
+** **External content**: `gist` (GitHub gists), `amzn` (Amazon products)
+** **Typography**: `kbd` (keyboard keys), `mark` (highlighted text), `menu` (menu paths)
+** **Content blocks**: `note`, `warning`, `draftNotes`, `wrapTable` (table scrolling)
+** **Icons**: `fas` (Font Awesome Solid), `fab` (Font Awesome Brands), `fig` (figures)
 * Social icons
-** Additional icons like Speakerdeck
+** Additional icons like Speakerdeck, Mastodon.
 ** Work around removal by ad-blockers of some icons like Twitter, Youtube, LinkedIn in the sidebar
 * Responsive Table of Content, toggleable
 * Tweak reading-time
@@ -42,7 +54,8 @@ The last commit from hyde-hyde is https://github.com/bric3/ascii-press/commit/14
 * Custom 404 page
 * Custom landing page
 * Github edit button on blog post
-* Giscus comment system
+* Giscus comment system (powered by GitHub Discussions)
+* Table of content for each post, with a toggle button to show/hide it
 
 .Code changes
 * Some stuff removed
@@ -59,9 +72,6 @@ The last commit from hyde-hyde is https://github.com/bric3/ascii-press/commit/14
 
 .Todos
 * [ ] Revamp portfolio section
-* [ ] Tocbot is not supported (in `.Site.Params.toc`)
-
-// Investigate in link:layouts/partials/page-single/footer.html[layouts/partials/page-single/footer.html] with options as described in https://tscanlin.github.io/tocbot/#api[its documentation]
 
 
 My https://blog.arkey.fr[blog] shows a real usage of this theme.
@@ -86,13 +96,13 @@ $ git submodule add https://github.com/bric3/ascii-press.git themes/ascii-press
 
 After that, choose `ascii-press` as the main theme.
 
-* `config.toml`
+* `hugo.toml` (or `config.toml` for older Hugo versions)
 [source,toml]
 ----
 theme = "ascii-press"
 ----
 
-* `config.yaml`
+* `hugo.yaml` (or `config.yaml` for older Hugo versions)
 [source,yaml]
 ----
 theme : "ascii-press"
@@ -115,6 +125,11 @@ That's all. You can render your site using `hugo` and see `ascii-press` in actio
 * `postNavigation = true|false` (default `true`): Setting to `false` will disable the navigation _Previous Post_/ _Next Post_
 
 * `relatedPosts = false|true` (default `false`): Setting to `true` allows related posts. Please refer https://gohugo.io/content-management/related[here] for more details on related contents with Hugo.
+
+* `toc = "hugo"|"tocbot"|"none"` (default `"hugo"`): Table of contents implementation
+** `"hugo"`: Use Hugo's built-in TOC (fast, server-side)
+** `"tocbot"`: Use https://tscanlin.github.io/tocbot/[Tocbot] (client-side, more features)
+** `"none"`: Disable table of contents
 
 * `GraphCommentId = "your-graphcomment-id"`: to use https://graphcomment.com[GraphComment] instead of the built-in https://disqus.com[Disqus]. This option should be used exclusively with `disqusShortname = "disqus-shortname"`.
 
