@@ -2,7 +2,7 @@
 <div class="copyright">
   &copy; {{ with $.Site.Params.since }}{{ if lt . now.Year }}{{ . | safeHTML }} - {{ end }}{{ end }}{{ now.Format "2006"}} {{ . | safeHTML }}
   {{ with $.Site.Params.license }}
-    <a href="{{$.Site.Params.licenseURL | safeHTML}}">{{ . | safeHTML }}</a>
+    <span style="white-space: nowrap;"><a href="{{$.Site.Params.licenseURL | safeHTML}}">{{ . | safeHTML }}</a></span>
   {{end}}
 </div>
 {{ end }}
