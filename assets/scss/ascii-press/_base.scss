@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  color-scheme: light dark;
+}
+
 html {
   -webkit-text-size-adjust: 100%; // for iOS
   box-direction: normal;
@@ -11,6 +15,7 @@ html {
   font-size: $small-device-font-size;
   line-height: $root-line-height;
   font-weight: $root-font-weight;
+  color-scheme: light dark;
 }
 
 html, body {
