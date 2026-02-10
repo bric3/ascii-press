@@ -233,9 +233,13 @@ $blockquote-quote-shadow-color: rgba(0, 0, 0, 0.1) !default;
     }
   }
 
+  .admonitionblock:has(> table) {
+    margin-bottom: 1.25em;
+  }
+
   table {
     background: $background-color;
-    margin-bottom: 1.25em;
+    margin-bottom: 0;
     border: solid 1px $table-border-color;
 
     thead, tfoot {
