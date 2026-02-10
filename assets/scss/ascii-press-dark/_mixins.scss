@@ -7,3 +7,20 @@
   color: $link-hover-color;
   border-bottom: 1px dotted $link-hover-color;
 }
+
+// Scroll shadows mixin for horizontally scrollable elements
+@mixin scroll-shadows($color) {
+  &.has-scroll-shadow-left {
+    box-shadow: inset 10px 0 10px -10px $color;
+  }
+
+  &.has-scroll-shadow-right {
+    box-shadow: inset -10px 0 10px -10px $color;
+  }
+
+  &.has-scroll-shadow-left.has-scroll-shadow-right {
+    box-shadow:
+      inset 10px 0 10px -10px $color,
+      inset -10px 0 10px -10px $color;
+  }
+}

@@ -1,0 +1,21 @@
+// Dynamic scroll shadows for dark mode
+// From _asciidark.scss - matching exact selector structure
+
+// Note: The @mixin scroll-shadows is defined in _mixins.scss
+
+// General pre elements inside posts (for Markdown)
+.post.md, .post.adoc {
+  pre {
+    @include scroll-shadows($dark-scroll-shadow-color);
+  }
+
+  // AsciiDoc specific blocks (more specific, will override general pre)
+  .literalblock pre, .listingblock > .content > pre {
+    @include scroll-shadows($dark-scroll-shadow-color);
+  }
+}
+
+// Table wrappers (global, not scoped to posts)
+.table-wrapper {
+  @include scroll-shadows($dark-scroll-shadow-color);
+}
