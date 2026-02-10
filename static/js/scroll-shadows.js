@@ -5,7 +5,8 @@
 (function() {
   'use strict';
 
-  function updateScrollShadows(element) {
+  // Get scroll information from an element
+  function getScrollInfo(element) {
     let scrollLeft = element.scrollLeft;
     let scrollWidth = element.scrollWidth;
     const clientWidth = element.clientWidth;
@@ -14,8 +15,6 @@
     const codeElement = element.querySelector('code');
     if (codeElement && codeElement.scrollWidth > scrollWidth) {
       scrollWidth = codeElement.scrollWidth;
-      // If the code element is wider, read scrollLeft from it too
-      // Use Math.max because sometimes parent scrolls, sometimes child scrolls
       if (codeElement.scrollLeft > 0 || element.scrollLeft === 0) {
         scrollLeft = Math.max(scrollLeft, codeElement.scrollLeft);
       }
@@ -25,72 +24,100 @@
     const tableElement = element.querySelector('table');
     if (tableElement && tableElement.scrollWidth > scrollWidth) {
       scrollWidth = tableElement.scrollWidth;
-      // Sometimes the table itself scrolls instead of the wrapper (e.g., admonitionblock tables)
-      // Use Math.max to handle both cases
       if (tableElement.scrollLeft > 0 || element.scrollLeft === 0) {
         scrollLeft = Math.max(scrollLeft, tableElement.scrollLeft);
       }
     }
 
     const maxScroll = scrollWidth - clientWidth;
-
-    // Check if there's overflow at all
     const hasOverflow = scrollWidth > clientWidth;
 
-    if (!hasOverflow) {
+    return { scrollLeft, scrollWidth, clientWidth, maxScroll, hasOverflow };
+  }
+
+  // Apply shadow classes based on scroll info
+  function applyScrollClasses(element, scrollInfo) {
+    if (!scrollInfo.hasOverflow) {
       element.classList.remove('has-scroll-shadow-left', 'has-scroll-shadow-right');
       return;
     }
 
     // Show left shadow if not at the start (with 5px threshold)
-    if (scrollLeft > 5) {
+    if (scrollInfo.scrollLeft > 5) {
       element.classList.add('has-scroll-shadow-left');
+      console.log('Added left shadow to:', element);
     } else {
       element.classList.remove('has-scroll-shadow-left');
     }
 
     // Show right shadow if not at the end (with 5px threshold)
-    if (scrollLeft < maxScroll - 5) {
+    if (scrollInfo.scrollLeft < scrollInfo.maxScroll - 5) {
       element.classList.add('has-scroll-shadow-right');
+      console.log('Added right shadow to:', element);
     } else {
       element.classList.remove('has-scroll-shadow-right');
     }
   }
 
+  // Compatibility wrapper for old code
+  function updateScrollShadows(element) {
+    const scrollInfo = getScrollInfo(element);
+    applyScrollClasses(element, scrollInfo);
+  }
+
   function initScrollShadows() {
     // Select all scrollable pre elements and table wrappers
     const selectors = [
-      '.literalblock pre',
-      '.listingblock > .content > pre',
+      '.post.adoc .literalblock pre',
+      '.post.adoc .listingblock > .content > pre',
       '.post.md pre',  // Markdown code blocks
-      '.table-wrapper'
+      '.table-wrapper',  // Detection logic will find admonitionblock inside if needed
     ];
 
     const scrollables = document.querySelectorAll(selectors.join(', '));
+    console.log('Scroll shadows: found', scrollables.length, 'elements');
 
     scrollables.forEach(element => {
+      console.log('Initializing scroll shadow for:', element);
+
+      // For table-wrapper, find the actual scrolling element but keep classes on wrapper
+      let scrollingElement = element;
+      let targetElement = element;  // Element that gets the shadow classes
+
+      if (element.classList.contains('table-wrapper')) {
+        const admonitionBlock = element.querySelector(':scope > .admonitionblock');
+        if (admonitionBlock) {
+          const computedStyle = window.getComputedStyle(admonitionBlock);
+          if (computedStyle.overflowX === 'auto' || computedStyle.overflowX === 'scroll') {
+            scrollingElement = admonitionBlock;  // Read scroll from this
+            targetElement = element;  // But add classes to wrapper
+            console.log('Using admonitionblock for scroll, wrapper for classes');
+          }
+        }
+      }
+
+      // Helper to update shadows with correct target
+      const updateShadows = () => {
+        const scrollInfo = getScrollInfo(scrollingElement);
+        applyScrollClasses(targetElement, scrollInfo);
+      };
+
       // Initial check
-      updateScrollShadows(element);
+      updateShadows();
 
       // Update on scroll
-      element.addEventListener('scroll', () => {
-        updateScrollShadows(element);
-      }, { passive: true });
+      scrollingElement.addEventListener('scroll', updateShadows, { passive: true });
 
       // Also listen to scroll on the code element inside
-      const codeElement = element.querySelector('code');
+      const codeElement = scrollingElement.querySelector('code');
       if (codeElement) {
-        codeElement.addEventListener('scroll', () => {
-          updateScrollShadows(element);
-        }, { passive: true });
+        codeElement.addEventListener('scroll', updateShadows, { passive: true });
       }
 
       // Also listen to scroll on the table element inside
-      const tableElement = element.querySelector('table');
+      const tableElement = scrollingElement.querySelector('table');
       if (tableElement) {
-        tableElement.addEventListener('scroll', () => {
-          updateScrollShadows(element);
-        }, { passive: true });
+        tableElement.addEventListener('scroll', updateShadows, { passive: true });
       }
     });
 

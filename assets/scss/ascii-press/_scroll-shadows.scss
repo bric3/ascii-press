@@ -7,14 +7,9 @@
 // Note: The @mixin scroll-shadows is defined in _mixins.scss
 
 // From _code.scss - Markdown code blocks (general pre elements)
-pre {
-  @include scroll-shadows($scroll-shadow-color);
-
-  &.has-scroll-shadow-left,
-  &.has-scroll-shadow-right {
-    > code {
-      background: transparent;
-    }
+.post.md {
+  pre {
+    @include scroll-shadows($scroll-shadow-color);
   }
 }
 
@@ -22,17 +17,18 @@ pre {
 .post.adoc {
   .literalblock pre, .listingblock > .content > pre {
     @include scroll-shadows($scroll-shadow-color);
-
-    &.has-scroll-shadow-left,
-    &.has-scroll-shadow-right {
-      > code {
-        background: transparent;
-      }
-    }
   }
 }
 
 // From _base.scss - wrapTable shortcode
+// Apply shadows to table-wrapper (which doesn't scroll)
+// while admonitionblock or table inside does the scrolling (like pre/code)
 .table-wrapper {
-  @include scroll-shadows($scroll-shadow-color);
+  //&:has(> table:only-child) {
+  //  @include scroll-shadows($scroll-shadow-color);
+  //}
+
+  &:has(> .admonitionblock) {
+    @include scroll-shadows($scroll-shadow-color);
+  }
 }

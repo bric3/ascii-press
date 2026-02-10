@@ -1,6 +1,5 @@
 @mixin link-no-decoration() {
   border-style: none;
-
 }
 
 @mixin link-hover() {
@@ -8,19 +7,30 @@
   border-bottom: 1px dotted $link-hover-color;
 }
 
-// Scroll shadows mixin using inset box-shadow
 @mixin scroll-shadows($color) {
-  &.has-scroll-shadow-left {
-    box-shadow: inset 10px 0 8px -8px $color;
+  position: relative;
+
+  &.has-scroll-shadow-left::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 8px;
+    background: linear-gradient(to right, $color, transparent);
+    pointer-events: none;
+    z-index: 1;
   }
 
-  &.has-scroll-shadow-right {
-    box-shadow: inset -10px 0 8px -8px $color;
-  }
-
-  &.has-scroll-shadow-left.has-scroll-shadow-right {
-    box-shadow:
-      inset 10px 0 8px -8px $color,
-      inset -10px 0 8px -8px $color;
+  &.has-scroll-shadow-right::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 8px;
+    background: linear-gradient(to left, $color, transparent);
+    pointer-events: none;
+    z-index: 1;
   }
 }

@@ -247,29 +247,33 @@ hr {
 }
 
 // wrapTable shortcode
+// The reason is that tables can't have overflow so they need a container that can.
+// Note: :has() is supported in modern browsers (Chrome 105+, Safari 15.4+, Firefox 121+).
 .table-wrapper {
-  overflow-x: auto;
+  // Simple case: direct table child
+  &:has(> table:only-child) {
+    overflow-x: auto;
 
-  table {
-    white-space: nowrap;
+    > table {
+      white-space: nowrap;
+    }
   }
 
-  // Allow text wrapping in admonition block tables
-  .admonitionblock > table {
-    white-space: normal;
-  }
+  // Complex case: admonitionblock with table
+  // Admonitionblock scrolls, table-wrapper holds pseudo-elements (like pre/code)
+  &:has(> .admonitionblock:only-child) {
+    > .admonitionblock {
+      overflow-x: auto;
 
-  // Make admonition backgrounds semi-transparent when scrolling to show shadows
-  &.has-scroll-shadow-left,
-  &.has-scroll-shadow-right {
-    .admonitionblock > table {
-      background: transparent;
-
-      tbody tr td,
-      tbody tr th {
-        background: transparent;
+      > table {
+        white-space: normal;
       }
     }
+  }
+
+  > .quoteblock {
+    // the following won't work because quoteblock has a display:table, overflow only works on grid, flex and grid
+    // overflow-x: auto;
   }
 }
 

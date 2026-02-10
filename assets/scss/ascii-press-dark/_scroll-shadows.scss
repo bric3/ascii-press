@@ -4,32 +4,28 @@
 // Note: The @mixin scroll-shadows is defined in _mixins.scss
 
 // General pre elements inside posts (for Markdown)
-.post.md, .post.adoc {
+.post.md {
   pre {
     @include scroll-shadows($dark-scroll-shadow-color);
-
-    &.has-scroll-shadow-left,
-    &.has-scroll-shadow-right {
-      > code {
-        background: transparent;
-      }
-    }
   }
+}
 
+.post.adoc {
   // AsciiDoc specific blocks (more specific, will override general pre)
   .literalblock pre, .listingblock > .content > pre {
     @include scroll-shadows($dark-scroll-shadow-color);
-
-    &.has-scroll-shadow-left,
-    &.has-scroll-shadow-right {
-      > code {
-        background: transparent;
-      }
-    }
   }
 }
 
 // Table wrappers (global, not scoped to posts)
+// Apply shadows to table-wrapper (which doesn't scroll)
+// while admonitionblock or table inside does the scrolling (like pre/code)
 .table-wrapper {
-  @include scroll-shadows($dark-scroll-shadow-color);
+  //&:has(> table:only-child) {
+  //  @include scroll-shadows($dark-scroll-shadow-color);
+  //}
+
+  &:has(> .admonitionblock) {
+    @include scroll-shadows($dark-scroll-shadow-color);
+  }
 }
