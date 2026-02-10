@@ -976,7 +976,7 @@ $blockquote-quote-shadow-color: rgba(0, 0, 0, 0.1) !default;
       font-family: 'Font Awesome 5 Free';
       font-weight: 800;
       //content: "\f138"; // equivalent to <i class="fas fa-chevron-circle-right"></i>
-      content: "\f0fe"; // equivalent to <i class="fas fa-plus-square"></i>
+      content: "\f0fe\00a0\00a0"; // icon + 2 non-breaking spaces
       font-style: normal;
     }
 
@@ -991,7 +991,7 @@ $blockquote-quote-shadow-color: rgba(0, 0, 0, 0.1) !default;
       font-family: 'Font Awesome 5 Free';
       font-weight: 800;
       //content: "\f13a"; // equivalent to <i class="fas fa-chevron-circle-down"></i>
-      content: "\f146"; // equivalent to <i class="fas fa-minus-square"></i>
+      content: "\f146\00a0\00a0"; // icon + 2 non-breaking spaces
       font-style: normal;
     }
   }
