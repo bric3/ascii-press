@@ -709,6 +709,31 @@ $blockquote-quote-shadow-color: rgba(0, 0, 0, 0.1) !default;
     overflow-x: auto;
     padding: 1em;
     font-size: .8125em;
+
+    background-color: $pre-bg-color;
+
+    // Dynamic scroll shadows controlled by JavaScript (see static/js/scroll-shadows.js)
+    // Ideally this would be controlled by animation-timeline
+    // but this isn't supported by Firefox 147 to this day.
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation-timeline
+    // https://daverupert.com/2023/08/animation-timeline-scroll-shadows/
+    &.has-scroll-shadow-left {
+      box-shadow: inset 10px 0 10px -10px $scroll-shadow-color;
+    }
+
+    &.has-scroll-shadow-right {
+      box-shadow: inset -10px 0 10px -10px $scroll-shadow-color;
+    }
+
+    &.has-scroll-shadow-left.has-scroll-shadow-right {
+      box-shadow:
+        inset 10px 0 10px -10px $scroll-shadow-color,
+        inset -10px 0 10px -10px $scroll-shadow-color;
+    }
+
+    code {
+      background: transparent;
+    }
   }
 
   @media screen and (min-width: 768px) {
@@ -724,13 +749,11 @@ $blockquote-quote-shadow-color: rgba(0, 0, 0, 0.1) !default;
   }
 
   .literalblock pre {
-    background: $pre-bg-color;
+    /* Scroll shadows already defined above */
   }
 
   .listingblock > .content > pre {
-    &:not(.highlight), &[class="highlight"], &[class^="highlight "] {
-      background: $pre-bg-color;
-    }
+    /* Scroll shadows already defined above */
   }
 
   .literalblock.output pre {

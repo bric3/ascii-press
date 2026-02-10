@@ -250,8 +250,41 @@ hr {
 .table-wrapper {
   overflow-x: auto;
 
+  /* Dynamic scroll shadows controlled by JavaScript */
+  &.has-scroll-shadow-left {
+    box-shadow: inset 10px 0 10px -10px $scroll-shadow-color !important;
+  }
+
+  &.has-scroll-shadow-right {
+    box-shadow: inset -10px 0 10px -10px $scroll-shadow-color !important;
+  }
+
+  &.has-scroll-shadow-left.has-scroll-shadow-right {
+    box-shadow:
+      inset 10px 0 10px -10px $scroll-shadow-color,
+      inset -10px 0 10px -10px $scroll-shadow-color !important;
+  }
+
   table {
     white-space: nowrap;
+  }
+
+  // Allow text wrapping in admonition block tables
+  .admonitionblock > table {
+    white-space: normal;
+  }
+
+  // Make admonition backgrounds semi-transparent when scrolling to show shadows
+  &.has-scroll-shadow-left,
+  &.has-scroll-shadow-right {
+    .admonitionblock > table {
+      background: transparent;
+
+      tbody tr td,
+      tbody tr th {
+        background: transparent;
+      }
+    }
   }
 }
 

@@ -199,33 +199,23 @@ $dark-pre-border-color: rgb(88, 78, 61) !default;
     }
   }
 
-  .listingblock {
-    & > .content > pre:not(.highlight) {
-      background-color: $dark-pre-bg-color;
-    }
-
-    pre {
-      &[class^="highlight "], &.CodeRay, &.prettyprint {
-        background-image: initial;
-        background-color: $dark-pre-bg-color;
-      }
-    }
-
-    pre {
-      background-image: initial;
-      background-color: $dark-pre-bg-color;
-    }
-
-    pre {
-      &:not(.highlight), &[class="highlight"], &[class^="highlight "], &.CodeRay, &.prettyprint {
-        background-image: initial;
-        background-color: $dark-pre-bg-color;
-      }
-    }
-  }
-
-  .literalblock pre {
+  .literalblock pre, .listingblock > .content > pre {
     background-color: $dark-pre-bg-color;
+
+    /* Dynamic scroll shadows controlled by JavaScript */
+    &.has-scroll-shadow-left {
+      box-shadow: inset 10px 0 10px -10px $dark-scroll-shadow-color;
+    }
+
+    &.has-scroll-shadow-right {
+      box-shadow: inset -10px 0 10px -10px $dark-scroll-shadow-color;
+    }
+
+    &.has-scroll-shadow-left.has-scroll-shadow-right {
+      box-shadow:
+        inset 10px 0 10px -10px $dark-scroll-shadow-color,
+        inset -10px 0 10px -10px $dark-scroll-shadow-color;
+    }
   }
 
   .quoteblock {
