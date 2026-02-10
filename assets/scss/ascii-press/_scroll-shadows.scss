@@ -10,8 +10,11 @@
 pre {
   @include scroll-shadows($scroll-shadow-color);
 
-  code {
-    background: transparent !important;
+  &.has-scroll-shadow-left,
+  &.has-scroll-shadow-right {
+    > code {
+      background: transparent;
+    }
   }
 }
 
@@ -20,8 +23,11 @@ pre {
   .literalblock pre, .listingblock > .content > pre {
     @include scroll-shadows($scroll-shadow-color);
 
-    code {
-      background: transparent !important;
+    &.has-scroll-shadow-left,
+    &.has-scroll-shadow-right {
+      > code {
+        background: transparent;
+      }
     }
   }
 }

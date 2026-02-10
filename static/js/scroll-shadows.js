@@ -15,15 +15,21 @@
     if (codeElement && codeElement.scrollWidth > scrollWidth) {
       scrollWidth = codeElement.scrollWidth;
       // If the code element is wider, read scrollLeft from it too
-      scrollLeft = codeElement.scrollLeft;
+      // Use Math.max because sometimes parent scrolls, sometimes child scrolls
+      if (codeElement.scrollLeft > 0 || element.scrollLeft === 0) {
+        scrollLeft = Math.max(scrollLeft, codeElement.scrollLeft);
+      }
     }
 
     // Check if there's a table element inside with wider content
     const tableElement = element.querySelector('table');
     if (tableElement && tableElement.scrollWidth > scrollWidth) {
       scrollWidth = tableElement.scrollWidth;
-      // If the table element is wider, read scrollLeft from it too
-      scrollLeft = tableElement.scrollLeft;
+      // Sometimes the table itself scrolls instead of the wrapper (e.g., admonitionblock tables)
+      // Use Math.max to handle both cases
+      if (tableElement.scrollLeft > 0 || element.scrollLeft === 0) {
+        scrollLeft = Math.max(scrollLeft, tableElement.scrollLeft);
+      }
     }
 
     const maxScroll = scrollWidth - clientWidth;
