@@ -197,12 +197,35 @@ $dark-pre-border-color: rgb(88, 78, 61) !default;
     > code {
       color: $dark-pre-color;
     }
+
+    // Dynamic scroll shadows controlled by JavaScript (see static/js/scroll-shadows.js)
+    // Ideally this would be controlled by animation-timeline
+    // but this isn't supported by Firefox 147 to this day.
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation-timeline
+    // https://daverupert.com/2023/08/animation-timeline-scroll-shadows/
+    &.has-scroll-shadow-left {
+      box-shadow: inset 10px 0 10px -10px $dark-scroll-shadow-color;
+    }
+
+    &.has-scroll-shadow-right {
+      box-shadow: inset -10px 0 10px -10px $dark-scroll-shadow-color;
+    }
+
+    &.has-scroll-shadow-left.has-scroll-shadow-right {
+      box-shadow:
+        inset 10px 0 10px -10px $dark-scroll-shadow-color,
+        inset -10px 0 10px -10px $dark-scroll-shadow-color;
+    }
   }
 
   .literalblock pre, .listingblock > .content > pre {
     background-color: $dark-pre-bg-color;
 
-    /* Dynamic scroll shadows controlled by JavaScript */
+    // Dynamic scroll shadows controlled by JavaScript (see static/js/scroll-shadows.js)
+    // Ideally this would be controlled by animation-timeline
+    // but this isn't supported by Firefox 147 to this day.
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation-timeline
+    // https://daverupert.com/2023/08/animation-timeline-scroll-shadows/
     &.has-scroll-shadow-left {
       box-shadow: inset 10px 0 10px -10px $dark-scroll-shadow-color;
     }
@@ -482,4 +505,22 @@ $dark-pre-border-color: rgb(88, 78, 61) !default;
     background-color: rgb(208, 195, 97);
   }
 
+}
+
+// Dark mode scroll shadows for table-wrapper
+.table-wrapper {
+  // Dynamic scroll shadows controlled by JavaScript (see static/js/scroll-shadows.js)
+  &.has-scroll-shadow-left {
+    box-shadow: inset 10px 0 10px -10px $dark-scroll-shadow-color !important;
+  }
+
+  &.has-scroll-shadow-right {
+    box-shadow: inset -10px 0 10px -10px $dark-scroll-shadow-color !important;
+  }
+
+  &.has-scroll-shadow-left.has-scroll-shadow-right {
+    box-shadow:
+      inset 10px 0 10px -10px $dark-scroll-shadow-color,
+      inset -10px 0 10px -10px $dark-scroll-shadow-color !important;
+  }
 }

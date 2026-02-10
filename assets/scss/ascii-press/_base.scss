@@ -250,7 +250,11 @@ hr {
 .table-wrapper {
   overflow-x: auto;
 
-  /* Dynamic scroll shadows controlled by JavaScript */
+  // Dynamic scroll shadows controlled by JavaScript (see static/js/scroll-shadows.js)
+  // Ideally this would be controlled by animation-timeline
+  // but this isn't supported by Firefox 147 to this day.
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation-timeline
+  // https://daverupert.com/2023/08/animation-timeline-scroll-shadows/
   &.has-scroll-shadow-left {
     box-shadow: inset 10px 0 10px -10px $scroll-shadow-color !important;
   }

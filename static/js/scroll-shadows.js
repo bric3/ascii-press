@@ -56,6 +56,7 @@
     const selectors = [
       '.literalblock pre',
       '.listingblock > .content > pre',
+      '.post.md pre',  // Markdown code blocks
       '.table-wrapper'
     ];
 
@@ -107,7 +108,13 @@
   // Recheck after page fully loads (after syntax highlighting, etc.)
   window.addEventListener('load', () => {
     setTimeout(() => {
-      const scrollables = document.querySelectorAll('.literalblock pre, .listingblock > .content > pre, .table-wrapper');
+      const selectors = [
+        '.literalblock pre',
+        '.listingblock > .content > pre',
+        '.post.md pre',
+        '.table-wrapper'
+      ];
+      const scrollables = document.querySelectorAll(selectors.join(', '));
       scrollables.forEach(element => updateScrollShadows(element));
     }, 500);
   });
