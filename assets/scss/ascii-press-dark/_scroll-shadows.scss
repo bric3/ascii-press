@@ -27,5 +27,16 @@
 
   &:has(> .admonitionblock) {
     @include scroll-shadows($dark-scroll-shadow-color);
+
+    // Round corners of the shadow pseudo-elements
+    &.has-scroll-shadow-right::after {
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    &.has-scroll-shadow-left::before {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
   }
 }
