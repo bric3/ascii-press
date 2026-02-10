@@ -24,10 +24,7 @@
 // Apply shadows to table-wrapper (which doesn't scroll)
 // while admonitionblock or table inside does the scrolling (like pre/code)
 .table-wrapper {
-  //&:has(> table:only-child) {
-  //  @include scroll-shadows($scroll-shadow-color);
-  //}
-
+  &:has(> table:only-child),
   &:has(> .admonitionblock) {
     @include scroll-shadows($scroll-shadow-color);
 

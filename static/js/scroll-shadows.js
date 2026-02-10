@@ -94,6 +94,17 @@
             targetElement = element;  // But add classes to wrapper
             checkChildren = true;  // Admonitionblock can have table children
           }
+        } else {
+          // Check for direct table child
+          const table = element.querySelector(':scope > table');
+          if (table) {
+            const computedStyle = window.getComputedStyle(table);
+            if (computedStyle.overflowX === 'auto' || computedStyle.overflowX === 'scroll') {
+              scrollingElement = table;  // Read scroll from table
+              targetElement = element;  // But add classes to wrapper
+              checkChildren = false;  // Table is the scrolling element, don't check its children
+            }
+          }
         }
       }
 

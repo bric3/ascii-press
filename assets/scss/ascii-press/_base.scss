@@ -251,11 +251,14 @@ hr {
 // Note: :has() is supported in modern browsers (Chrome 105+, Safari 15.4+, Firefox 121+).
 .table-wrapper {
   // Simple case: direct table child
+  // Table scrolls, wrapper holds pseudo-elements (like pre/code and admonitionblock)
   &:has(> table:only-child) {
-    overflow-x: auto;
-
     > table {
-      white-space: nowrap;
+      display: block;
+      overflow-x: auto;
+
+      // Allow the table to wrap
+      // white-space: nowrap;
     }
   }
 
