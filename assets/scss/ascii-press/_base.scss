@@ -270,11 +270,6 @@ hr {
       }
     }
   }
-
-  > .quoteblock {
-    // the following won't work because quoteblock has a display:table, overflow only works on grid, flex and grid
-    // overflow-x: auto;
-  }
 }
 
 // used in a 'c' (class) shortcode

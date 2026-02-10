@@ -6,31 +6,34 @@
   'use strict';
 
   // Get scroll information from an element
-  function getScrollInfo(element) {
+  function getScrollInfo(element, checkChildren = true) {
     let scrollLeft = element.scrollLeft;
     let scrollWidth = element.scrollWidth;
     const clientWidth = element.clientWidth;
 
-    // Check if there's a code element inside with wider content
-    const codeElement = element.querySelector('code');
-    if (codeElement && codeElement.scrollWidth > scrollWidth) {
-      scrollWidth = codeElement.scrollWidth;
-      if (codeElement.scrollLeft > 0 || element.scrollLeft === 0) {
-        scrollLeft = Math.max(scrollLeft, codeElement.scrollLeft);
+    if (checkChildren) {
+      // Check if there's a code element inside with wider content
+      const codeElement = element.querySelector('code');
+      if (codeElement && codeElement.scrollWidth > scrollWidth) {
+        scrollWidth = codeElement.scrollWidth;
+        if (codeElement.scrollLeft > 0 || element.scrollLeft === 0) {
+          scrollLeft = Math.max(scrollLeft, codeElement.scrollLeft);
+        }
       }
-    }
 
-    // Check if there's a table element inside with wider content
-    const tableElement = element.querySelector('table');
-    if (tableElement && tableElement.scrollWidth > scrollWidth) {
-      scrollWidth = tableElement.scrollWidth;
-      if (tableElement.scrollLeft > 0 || element.scrollLeft === 0) {
-        scrollLeft = Math.max(scrollLeft, tableElement.scrollLeft);
+      // Check if there's a table element inside with wider content
+      const tableElement = element.querySelector('table');
+      if (tableElement && tableElement.scrollWidth > scrollWidth) {
+        scrollWidth = tableElement.scrollWidth;
+        if (tableElement.scrollLeft > 0 || element.scrollLeft === 0) {
+          scrollLeft = Math.max(scrollLeft, tableElement.scrollLeft);
+        }
       }
     }
 
     const maxScroll = scrollWidth - clientWidth;
-    const hasOverflow = scrollWidth > clientWidth;
+    // Use a 2px threshold to avoid false positives from sub-pixel rendering
+    const hasOverflow = scrollWidth > clientWidth + 2;
 
     return { scrollLeft, scrollWidth, clientWidth, maxScroll, hasOverflow };
   }
@@ -45,7 +48,6 @@
     // Show left shadow if not at the start (with 5px threshold)
     if (scrollInfo.scrollLeft > 5) {
       element.classList.add('has-scroll-shadow-left');
-      console.log('Added left shadow to:', element);
     } else {
       element.classList.remove('has-scroll-shadow-left');
     }
@@ -53,7 +55,6 @@
     // Show right shadow if not at the end (with 5px threshold)
     if (scrollInfo.scrollLeft < scrollInfo.maxScroll - 5) {
       element.classList.add('has-scroll-shadow-right');
-      console.log('Added right shadow to:', element);
     } else {
       element.classList.remove('has-scroll-shadow-right');
     }
@@ -75,30 +76,30 @@
     ];
 
     const scrollables = document.querySelectorAll(selectors.join(', '));
-    console.log('Scroll shadows: found', scrollables.length, 'elements');
-
     scrollables.forEach(element => {
-      console.log('Initializing scroll shadow for:', element);
-
       // For table-wrapper, find the actual scrolling element but keep classes on wrapper
       let scrollingElement = element;
       let targetElement = element;  // Element that gets the shadow classes
 
+      // Track if we should check for nested code/table children
+      let checkChildren = true;
+
       if (element.classList.contains('table-wrapper')) {
+        // Check for admonitionblock
         const admonitionBlock = element.querySelector(':scope > .admonitionblock');
         if (admonitionBlock) {
           const computedStyle = window.getComputedStyle(admonitionBlock);
           if (computedStyle.overflowX === 'auto' || computedStyle.overflowX === 'scroll') {
             scrollingElement = admonitionBlock;  // Read scroll from this
             targetElement = element;  // But add classes to wrapper
-            console.log('Using admonitionblock for scroll, wrapper for classes');
+            checkChildren = true;  // Admonitionblock can have table children
           }
         }
       }
 
       // Helper to update shadows with correct target
       const updateShadows = () => {
-        const scrollInfo = getScrollInfo(scrollingElement);
+        const scrollInfo = getScrollInfo(scrollingElement, checkChildren);
         applyScrollClasses(targetElement, scrollInfo);
       };
 
@@ -108,16 +109,19 @@
       // Update on scroll
       scrollingElement.addEventListener('scroll', updateShadows, { passive: true });
 
-      // Also listen to scroll on the code element inside
-      const codeElement = scrollingElement.querySelector('code');
-      if (codeElement) {
-        codeElement.addEventListener('scroll', updateShadows, { passive: true });
-      }
+      // Only listen to nested code/table elements if checkChildren is true
+      if (checkChildren) {
+        // Also listen to scroll on the code element inside
+        const codeElement = scrollingElement.querySelector('code');
+        if (codeElement) {
+          codeElement.addEventListener('scroll', updateShadows, { passive: true });
+        }
 
-      // Also listen to scroll on the table element inside
-      const tableElement = scrollingElement.querySelector('table');
-      if (tableElement) {
-        tableElement.addEventListener('scroll', updateShadows, { passive: true });
+        // Also listen to scroll on the table element inside
+        const tableElement = scrollingElement.querySelector('table');
+        if (tableElement) {
+          tableElement.addEventListener('scroll', updateShadows, { passive: true });
+        }
       }
     });
 
@@ -161,7 +165,6 @@
       console.error('Element not found');
       return;
     }
-    console.log('Manual check for element:', element);
     updateScrollShadows(element);
   };
 })();
