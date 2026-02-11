@@ -6,7 +6,7 @@
         {{- if not .PublishDate.IsZero -}}{{/* taxonomies don't have a publish date */}}
         <time class="hidden-tablet">{{ .PublishDate.Format (.Site.Params.dateformat | default "Jan 02 '06") }}</time>
         {{- end -}}
-        <a href="{{ .RelPermalink }}" {{if .Draft}}class="draft" {{end}}>{{ .Title }}</a>
+        <a href="{{ .RelPermalink }}" {{if .Draft}}class="draft" {{end}}>{{ partial "title-with-formatting.html" . }}</a>
     </span>
 </li>
 {{ end }}

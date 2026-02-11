@@ -2,6 +2,17 @@
 
 .section__title {
 	font-size: $section__title-font-size;
+
+	code {
+		@extend %code-in-rounded-box;
+		font-size: 0.85em;
+		white-space: nowrap;
+		margin: 0 0.2em;
+	}
+
+	em, strong {
+		margin: 0 0.15em;
+	}
 }
 
 .post-list__item {
@@ -12,10 +23,32 @@
 	display: block;
 	font-size: $item__title-big-font-size;
 	line-height: 1.25;
+
+	code {
+		@extend %code-in-rounded-box;
+		font-size: 0.85em;
+		white-space: nowrap;
+		margin: 0 0.2em;
+	}
+
+	em, strong {
+		margin: 0 0.15em;
+	}
 }
 
 .item__title--small {
 	font-size: 1rem;
+
+	code {
+		@extend %code-in-rounded-box;
+		font-size: 0.85em;
+		white-space: nowrap;
+		margin: 0 0.2em;
+	}
+
+	em, strong {
+		margin: 0 0.15em;
+	}
 }
 
 .item__date {

@@ -39,7 +39,7 @@
             <ul>
                 {{ range $value := (.GetTerms "series") }}
                     {{ range $value.Pages }}
-                    <li hugo-nav="{{ .RelPermalink}}"><a href="{{ .Permalink}}"> {{ .LinkTitle }} </a> </li>
+                    <li hugo-nav="{{ .RelPermalink}}"><a href="{{ .Permalink}}"> {{ partial "title-with-formatting.html" . }} </a> </li>
                     {{ end }}
                 {{ end }}
             </ul>

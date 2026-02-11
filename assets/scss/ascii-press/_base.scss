@@ -82,6 +82,19 @@ h5 {
   }
   div.visible-section & {
   }
+
+  // Code elements in headings
+  code {
+    @extend %code-in-rounded-box;
+    font-size: 0.85em;
+    white-space: nowrap;
+    margin: 0 0.2em;
+  }
+
+  // Italic and bold elements in headings
+  em, strong {
+    margin: 0 0.15em;
+  }
 }
 
 figure {
@@ -383,6 +396,17 @@ ul.posts {
 
         &:hover {
           @include link-hover();
+        }
+
+        code {
+          @extend %code-in-rounded-box;
+          font-size: 0.85em;
+          white-space: nowrap;
+          margin: 0 0.2em;
+        }
+
+        em, strong {
+          margin: 0 0.15em;
         }
       }
     }

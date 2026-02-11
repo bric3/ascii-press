@@ -13,7 +13,7 @@
       {{ end }}
       <div class="post-list__item">
         <span class="item__title--big">
-          <a href="{{ .RelPermalink }}" {{if .Scratch.Get "draftPage" }}class="draft"{{end}}>{{ .Title }}</a>
+          <a href="{{ .RelPermalink }}" {{if .Scratch.Get "draftPage" }}class="draft"{{end}}>{{ partial "title-with-formatting.html" . }}</a>
         </span>
         <span class="item__date">
           {{ .Date.Format (.Site.Params.dateformat | default "Jan 02, 2006") }}

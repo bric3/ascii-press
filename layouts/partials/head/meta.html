@@ -8,7 +8,7 @@
 {{ if .IsHome }}
     {{ $.Scratch.Set "theTitle" .Site.Title }}
 {{else}}
-    {{ $.Scratch.Set "theTitle" .Title}}
+    {{ $.Scratch.Set "theTitle" (.Title | markdownify | plainify)}}
     {{ $.Scratch.Add "theTitle" " • "}}
     {{ $.Scratch.Add "theTitle" .Site.Title}}
 {{ end }}

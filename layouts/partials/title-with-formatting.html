@@ -1,0 +1,8 @@
+{{- /*
+    This partial renders a page title with markdown formatting support.
+    It processes backticks (for inline code) and asterisks (for italic/bold),
+    while stripping the paragraph wrapper that markdownify adds.
+
+    Usage: {{ partial "title-with-formatting.html" . }}
+*/ -}}
+{{- .Title | markdownify | replaceRE "^<p>(.*)</p>\n?$" "$1" | safeHTML -}}

@@ -15,9 +15,9 @@
         {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{.}} on {{ end }}{{ .Site.Title }}{{ end }}</title>
+        <title>{{ if eq  .Title  .Site.Title }}{{ .Site.Title }}{{ else }}{{ with .Title }}{{ . | markdownify | plainify }} on {{ end }}{{ .Site.Title }}{{ end }}</title>
         <link>{{ .Permalink }}</link>
-        <description>Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{.}} {{ end }}{{ end }}on {{ .Site.Title }}</description>
+        <description>Recent content {{ if ne  .Title  .Site.Title }}{{ with .Title }}in {{ . | markdownify | plainify }} {{ end }}{{ end }}on {{ .Site.Title }}</description>
         <generator>Hugo -- gohugo.io</generator>{{ with .Site.LanguageCode }}
         <language>{{.}}</language>{{end}}{{ with $authorName }}
         <managingEditor>{{$authorEmail}} ({{.}})</managingEditor>
@@ -30,7 +30,7 @@
         {{ range $pages }}
         {{ if ne .Section "drafts"  }}
         <item>
-            <title>{{ .Title }}</title>
+            <title>{{ .Title | markdownify | plainify }}</title>
             <link>{{ .Permalink }}</link>
             <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
             <author>{{$authorEmail}} ({{$authorName}})</author>

@@ -1,4 +1,4 @@
-<span class="section__title">{{ .Title }}</span>
+<span class="section__title">{{ partial "title-with-formatting.html" . }}</span>
 <ul class="posts">
     {{ $paginator := .Paginate (where .Pages "Type" "in" "posts") }}
     {{ partial "pagination.html" . }}
@@ -7,7 +7,7 @@
     <li>
         <span class="list__title--small">
             <time class="hidden-tablet">{{ .Date.Format (.Site.Params.dateformat | default "Jan 02 '06") }}</time>
-            <a href="{{ .RelPermalink }}" {{if .Draft}}class="draft"{{end}}>{{ .Title }}</a>
+            <a href="{{ .RelPermalink }}" {{if .Draft}}class="draft"{{end}}>{{ partial "title-with-formatting.html" . }}</a>
         </span>
     </li>
     {{ end }}

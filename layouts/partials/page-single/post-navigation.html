@@ -4,12 +4,12 @@
     {{ with .PrevInSection }}
     <a href="{{ .RelPermalink }}" class="navigation-prev">
       <i aria-hidden="true" class="fa fa-chevron-left"></i>
-      <span class="navigation-tittle">{{ .Title }}</span>
+      <span class="navigation-tittle">{{ partial "title-with-formatting.html" . }}</span>
     </a>
     {{ end }}
     {{ with .NextInSection }}
     <a href="{{ .RelPermalink }}" class="navigation-next">
-      <span class="navigation-tittle">{{ .Title }}</span>
+      <span class="navigation-tittle">{{ partial "title-with-formatting.html" . }}</span>
       <i aria-hidden="true" class="fa fa-chevron-right"></i>
     </a>
     {{ end }}

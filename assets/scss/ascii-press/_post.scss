@@ -40,3 +40,18 @@
     font-size: 0.9rem;
   }
 }
+
+.page-series {
+  a {
+    code {
+      @extend %code-in-rounded-box;
+      font-size: 0.85em;
+      white-space: nowrap;
+      margin: 0 0.2em;
+    }
+
+    em, strong {
+      margin: 0 0.15em;
+    }
+  }
+}
