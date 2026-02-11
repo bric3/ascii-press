@@ -212,77 +212,106 @@
   };
 })();
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js" integrity="sha256-vrn14y7WH7zgEElyQqm2uCGSQrX/xjYDjniRUQx3NyU=" crossorigin="anonymous"></script>
 <script type="text/javascript">
+// Vanilla JS helper functions
+function children(element, selector) {
+	if (!selector) return Array.from(element.children);
+	return Array.from(element.children).filter(child => child.matches(selector));
+}
+
+function siblings(element, selector) {
+	const sibs = Array.from(element.parentElement.children).filter(child => child !== element);
+	return selector ? sibs.filter(sib => sib.matches(selector)) : sibs;
+}
+
+function getOffset(element) {
+	const rect = element.getBoundingClientRect();
+	return {
+		top: rect.top + window.scrollY,
+		left: rect.left + window.scrollX
+	};
+}
+
 function addBlockSwitches() {
-	$('.primary').each(function() {
-		primary = $(this);
-		createSwitchItem(primary, createBlockSwitch(primary)).item.addClass("selected");
-		primary.children('.title').remove();
+	document.querySelectorAll('.primary').forEach(primary => {
+		const switchItem = createSwitchItem(primary, createBlockSwitch(primary));
+		switchItem.item.classList.add("selected");
+		const title = children(primary, '.title')[0];
+		if (title) title.remove();
 	});
-	$('.secondary').each(function(idx, node) {
-		secondary = $(node);
-		primary = findPrimary(secondary);
-		switchItem = createSwitchItem(secondary, primary.children('.switch'));
-		switchItem.content.addClass('hidden');
-		findPrimary(secondary).append(switchItem.content);
+
+	document.querySelectorAll('.secondary').forEach(secondary => {
+		const primary = findPrimary(secondary);
+		const switchElement = children(primary, '.switch')[0];
+		const switchItem = createSwitchItem(secondary, switchElement);
+		switchItem.content.classList.add('hidden');
+		findPrimary(secondary).appendChild(switchItem.content);
 		secondary.remove();
 	});
 }
 
 function createBlockSwitch(primary) {
-	blockSwitch = $('<div class="switch"></div>');
+	const blockSwitch = document.createElement('div');
+	blockSwitch.className = 'switch';
 	primary.prepend(blockSwitch);
 	return blockSwitch;
 }
 
 function findPrimary(secondary) {
-	candidate = secondary.prev();
-	while (!candidate.is('.primary')) {
-		candidate = candidate.prev();
+	let candidate = secondary.previousElementSibling;
+	while (candidate && !candidate.matches('.primary')) {
+		candidate = candidate.previousElementSibling;
 	}
 	return candidate;
 }
 
 function createSwitchItem(block, blockSwitch) {
-	blockName = block.children('.title').text();
-	content = block.children('.content').first().append(block.next('.colist'));
-	item = $('<div class="switch--item">' + blockName + '</div>');
-	blockSwitch.append(item);
-	return {'item': item, 'content': content};
+	const titleElement = children(block, '.title')[0];
+	const blockName = titleElement ? titleElement.textContent : '';
+	const contentElement = children(block, '.content')[0];
+	const colist = block.nextElementSibling?.matches('.colist') ? block.nextElementSibling : null;
+	if (contentElement && colist) {
+		contentElement.appendChild(colist);
+	}
+	const item = document.createElement('div');
+	item.className = 'switch--item';
+	item.textContent = blockName;
+	blockSwitch.appendChild(item);
+	return {'item': item, 'content': contentElement};
 }
 
 function globalSwitch() {
-	$('.switch--item').each(function() {
-		var blockId = blockIdForSwitchItem($(this));
-		$(this).off('click');
-		$(this).on('click', function() {
-			selectedText = $(this).text()
+	document.querySelectorAll('.switch--item').forEach(item => {
+		const blockId = blockIdForSwitchItem(item);
+
+		// Remove existing click handlers by cloning (off equivalent)
+		const newItem = item.cloneNode(true);
+		item.parentNode.replaceChild(newItem, item);
+
+		newItem.addEventListener('click', function() {
+			const selectedText = this.textContent;
 			window.localStorage.setItem(blockId, selectedText);
 
 			// Preserve scroll position relative to the clicked element
-			var clickedSwitch = $(this).closest('.openblock.primary');
+			const clickedSwitch = this.closest('.openblock.primary');
 
 			// Measure before DOM changes
-			var scrollTopBefore = $(window).scrollTop();
-			var offsetTopBefore = clickedSwitch.offset().top;
+			const scrollTopBefore = window.scrollY;
+			const offsetTopBefore = getOffset(clickedSwitch).top;
 
-			$(".switch--item").filter(function() {
-				return blockIdForSwitchItem($(this)) === blockId;
-			}).filter(function() {
-				return $(this).text() === selectedText;
-			}).each(function() {
-				select($(this))
-			});
+			Array.from(document.querySelectorAll(".switch--item"))
+				.filter(el => blockIdForSwitchItem(el) === blockId)
+				.filter(el => el.textContent === selectedText)
+				.forEach(el => select(el));
 
 			// Restore scroll position after layout stabilizes
 			requestAnimationFrame(function() {
 				requestAnimationFrame(function() {
 					// Measure after DOM changes
-					var offsetTopAfter = clickedSwitch.offset().top;
+					const offsetTopAfter = getOffset(clickedSwitch).top;
 
 					// Calculate new scroll position to keep element in same viewport position
-					var scrollAdjustment = offsetTopAfter - offsetTopBefore;
+					const scrollAdjustment = offsetTopAfter - offsetTopBefore;
 
 					if (Math.abs(scrollAdjustment) > 1) {
 						window.scrollTo({
@@ -300,31 +329,50 @@ function globalSwitch() {
 				});
 			});
 		});
-		if ($(this).text() === window.localStorage.getItem(blockId)) {
-			select($(this))
+
+		if (newItem.textContent === window.localStorage.getItem(blockId)) {
+			select(newItem);
 		}
 	});
 }
 
 function blockIdForSwitchItem(item) {
-	idComponents = []
-	idComponents.push(item.text().toLowerCase());
-	item.siblings(".switch--item").each(function(index, sibling) {
-		idComponents.push($(sibling).text().toLowerCase());
+	const idComponents = [];
+	idComponents.push(item.textContent.toLowerCase());
+	siblings(item, ".switch--item").forEach(sibling => {
+		idComponents.push(sibling.textContent.toLowerCase());
 	});
-	return idComponents.sort().join("-")
+	return idComponents.sort().join("-");
 }
 
 function select(selected) {
-	selected.addClass('selected');
-	selected.siblings().removeClass('selected');
-	selectedContent = selected.parent().siblings(".content").eq(selected.index())
-	selectedContent.removeClass('hidden');
-	selectedContent.siblings().addClass('hidden');
+	selected.classList.add('selected');
+	siblings(selected).forEach(sib => sib.classList.remove('selected'));
+
+	const parent = selected.parentElement;
+	const selectedIndex = Array.from(parent.children).indexOf(selected);
+	const contentElements = siblings(parent, ".content");
+
+	if (contentElements[selectedIndex]) {
+		contentElements[selectedIndex].classList.remove('hidden');
+		contentElements.forEach((content, idx) => {
+			if (idx !== selectedIndex) {
+				content.classList.add('hidden');
+			}
+		});
+	}
 }
 
-$(addBlockSwitches);
-$(globalSwitch);
+// Run on DOM ready
+if (document.readyState === 'loading') {
+	document.addEventListener('DOMContentLoaded', function() {
+		addBlockSwitches();
+		globalSwitch();
+	});
+} else {
+	addBlockSwitches();
+	globalSwitch();
+}
 </script>
 
 <script type="text/javascript">
