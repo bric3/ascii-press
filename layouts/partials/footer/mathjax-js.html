@@ -1,25 +1,49 @@
-<!--<script src="https://polyfill.io/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script>-->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.min.js" integrity="sha512-7rZgZU/u5XjLaO7dBpkcvZ2+ilGXbdIak0FXUgMoO+adNy7RUceort055Wn7LkZY3VLwEsSDpi8Ui+32N1vrfw==" crossorigin="anonymous"></script>-->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.2/es5/input/asciimath.min.js" integrity="sha512-AFR1AMvfJtRfu5KEwqNMq7WvMk8aeQyK/aSOb3iN6YB3FHMHh31WkI4FSMQUbMwDnKaOSbiE9qsObx6YnIpKdA==" crossorigin="anonymous"></script>-->
-
-
-<!-- from https://github.com/asciidoctor/asciidoctor-intellij-plugin/commit/9a74407baec12b3dc18741c8d8b64676efa7e30c -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  messageStyle: "none",
-  tex2jax: { inlineMath: [["\\(", "\\)"]], displayMath: [["\\[", "\\]"]], ignoreClass: "nostem|nolatexmath" },
-  asciimath2jax: { delimiters: [["\\$", "\\$"]], ignoreClass: "nostem|noasciimath" },
-  TeX: { equationNumbers: { autoNumber: "none" } }
-})
-MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
-  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
-    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains("stemblock")) {
-      data.math.root.display = "block"
+<!-- MathJax 4 Configuration -->
+<script>
+window.MathJax = {
+  loader: {
+    load: ['input/asciimath']
+  },
+  tex: {
+    inlineMath: [['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    tags: 'none'
+  },
+  asciimath: {
+    delimiters: [['$', '$'], ['`', '`']]
+  },
+  options: {
+    ignoreHtmlClass: 'nostem|nolatexmath|noasciimath',
+    processHtmlClass: 'stemblock|latexmath|asciimath'
+  },
+  startup: {
+    ready() {
+      MathJax.startup.defaultReady();
+      MathJax.startup.promise.then(() => {
+        // Handle stemblock display mode (AsciiDoctor compatibility)
+        const asciimath = MathJax._.input.asciimath.AsciiMath?.AsciiMath;
+        if (asciimath) {
+          const originalCompile = asciimath.Compile;
+          asciimath.Compile = function(latex, display) {
+            const node = this.parseMath(latex);
+            // Check if parent has stemblock class for block display
+            if (node && node.parentNode?.parentNode?.classList?.contains('stemblock')) {
+              display = true;
+            }
+            return originalCompile.call(this, latex, display);
+          };
+        }
+      });
     }
-    return data
-  })
-})
+  }
+};
+
+/* Note: AsciiDoctor wraps AsciiMath delimiters ($) in separate <span> tags,
+ * which MathJax cannot remove since they're in different parent elements.
+ * A CSS rule in _asciidoctor.scss hides these delimiter spans using:
+ *   span:not([class]):has(+ mjx-container),
+ *   mjx-container + span:not([class]) { display: none; }
+ * This hides classless spans immediately adjacent to MathJax containers.
+ */
 </script>
-<!-- Minified version of MathJax don't work -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js" integrity="sha512-M36RUChWzAh1veeenRZFql7HydLEnkYmoloiCvVrhz402UZgKI93qkV7SsaxtVKdN95Wzajh39ysrXCq34NTsg==" crossorigin="anonymous"></script>
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/config/TeX-MML-AM_HTMLorMML-full.min.js" integrity="sha512-SdNVJmCczXFqz3Iok8gP+cloe2CScrnHJczMBwL+aSrdZVllRNqRJ5A2p83S4fUM8I4endIZgM2ZIkwNqb3Eew==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.0.0/tex-mml-chtml.js" integrity="sha512-D0eU0TwZjXn2FsQXymdhToKse0yD7CFS6dQhhBQe5sUKYVp1hufw6lQtXxpvwBRj7dDjVJ858l2HEfktsOBv0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

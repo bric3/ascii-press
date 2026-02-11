@@ -1030,4 +1030,13 @@ $blockquote-quote-shadow-color: rgba(0, 0, 0, 0.1) !default;
   .white-background {background-color: rgb(185, 177, 164)}
   .yellow {color: rgb(255, 243, 152)}
   .yellow-background {background-color: rgb(208, 195, 97)}
+
+  // Hide AsciiMath delimiter spans that MathJax leaves behind
+  // AsciiDoctor wraps $ delimiters in spans, but MathJax doesn't remove them
+  // Only hide spans without classes (delimiter spans have no class)
+  // See mathjax-js.html footer partial for more info
+  span:not([class]):has(+ mjx-container),
+  mjx-container + span:not([class]) {
+    display: none;
+  }
 }
