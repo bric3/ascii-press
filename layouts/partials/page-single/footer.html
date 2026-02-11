@@ -259,12 +259,45 @@ function globalSwitch() {
 		$(this).on('click', function() {
 			selectedText = $(this).text()
 			window.localStorage.setItem(blockId, selectedText);
+
+			// Preserve scroll position relative to the clicked element
+			var clickedSwitch = $(this).closest('.openblock.primary');
+
+			// Measure before DOM changes
+			var scrollTopBefore = $(window).scrollTop();
+			var offsetTopBefore = clickedSwitch.offset().top;
+
 			$(".switch--item").filter(function() {
 				return blockIdForSwitchItem($(this)) === blockId;
 			}).filter(function() {
 				return $(this).text() === selectedText;
 			}).each(function() {
 				select($(this))
+			});
+
+			// Restore scroll position after layout stabilizes
+			requestAnimationFrame(function() {
+				requestAnimationFrame(function() {
+					// Measure after DOM changes
+					var offsetTopAfter = clickedSwitch.offset().top;
+
+					// Calculate new scroll position to keep element in same viewport position
+					var scrollAdjustment = offsetTopAfter - offsetTopBefore;
+
+					if (Math.abs(scrollAdjustment) > 1) {
+						window.scrollTo({
+							top: scrollTopBefore + scrollAdjustment,
+							behavior: 'instant'
+						});
+					}
+
+					// Refresh scroll shadows after scroll adjustment
+					setTimeout(function() {
+						if (typeof window.refreshScrollShadows === 'function') {
+							window.refreshScrollShadows();
+						}
+					}, 0);
+				});
 			});
 		});
 		if ($(this).text() === window.localStorage.getItem(blockId)) {
@@ -288,14 +321,6 @@ function select(selected) {
 	selectedContent = selected.parent().siblings(".content").eq(selected.index())
 	selectedContent.removeClass('hidden');
 	selectedContent.siblings().addClass('hidden');
-
-	// Refresh scroll shadows after visibility changes
-	if (typeof window.refreshScrollShadows === 'function') {
-		// Use requestAnimationFrame to ensure layout has completed
-		requestAnimationFrame(function() {
-			setTimeout(window.refreshScrollShadows, 50);
-		});
-	}
 }
 
 $(addBlockSwitches);
