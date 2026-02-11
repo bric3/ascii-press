@@ -30,13 +30,14 @@ The last commit from hyde-hyde is https://github.com/bric3/ascii-press/commit/14
 .Ascii-press features
 * Draft section, it is not show in the menu, however it is available when pointing to `/drafts`
 * Dark theme, activated automatically depending on system settings
+* Markdown formatting in titles (inline code with backticks, italic/bold with asterisks) with styled backgrounds
 * Thorough asciidoctor support
 ** Almost all elements are styled accordingly, and responsively
 ** Diagrams support, although it requires configuration on the site itself
 ** Archetypes
 ** Block switch, to have tabbed elements (code blocks, example blocks, etc)
-** stem/asciimath support
-** Font-Awesome 5 integration (asciidoctor outputs font-awesome compatible code, see https://github.com/asciidoctor/asciidoctor/issues/539[asciidoctor/asciidoctor#539] https://github.com/FortAwesome/Font-Awesome/issues/16477[FortAwesome/Font-Awesome#16477])
+** stem/asciimath support with MathJax 4
+** Font-Awesome 7 integration (asciidoctor outputs font-awesome compatible code, see https://github.com/asciidoctor/asciidoctor/issues/539[asciidoctor/asciidoctor#539] https://github.com/FortAwesome/Font-Awesome/issues/16477[FortAwesome/Font-Awesome#16477])
 * Custom shortcodes, like: `{{< gist user id >}}`, `{{< kbd "Ctrl" >}}`, `{{< fab "fa-battery-full" >}}`.
 ** **External content**: `gist` (GitHub gists), `amzn` (Amazon products)
 ** **Typography**: `kbd` (keyboard keys), `mark` (highlighted text), `menu` (menu paths)
@@ -61,6 +62,7 @@ The last commit from hyde-hyde is https://github.com/bric3/ascii-press/commit/14
 * Some stuff removed
 ** Old assets (`poole.css`, `hyde.css`)
 ** Generated CSSs as the site is not demoed on https://themes.gohugo.io[Hugo theme site]
+** Internet Explorer compatibility shims (modern browsers only)
 
 .Hyde-hyde features
 * Responsive (Mobile phone support)
