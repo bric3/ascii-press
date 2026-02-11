@@ -15,7 +15,7 @@
 
 // From _asciidoctor.scss - AsciiDoc code blocks
 .post.adoc {
-  .literalblock pre, .listingblock > .content > pre {
+  .literalblock pre, .listingblock > .content > pre, .openblock > .content > pre {
     @include scroll-shadows($scroll-shadow-color);
   }
 }

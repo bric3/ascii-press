@@ -71,6 +71,7 @@
     const selectors = [
       '.post.adoc .literalblock pre',
       '.post.adoc .listingblock > .content > pre',
+      '.post.adoc .openblock > .content > pre',  // Block switches
       '.post.md pre',  // Markdown code blocks
       '.table-wrapper',  // Detection logic will find admonitionblock inside if needed
     ];
@@ -157,8 +158,9 @@
   window.addEventListener('load', () => {
     setTimeout(() => {
       const selectors = [
-        '.literalblock pre',
-        '.listingblock > .content > pre',
+        '.post.adoc .literalblock pre',
+        '.post.adoc .listingblock > .content > pre',
+        '.post.adoc .openblock > .content > pre',  // Block switches
         '.post.md pre',
         '.table-wrapper'
       ];
@@ -177,5 +179,22 @@
       return;
     }
     updateScrollShadows(element);
+  };
+
+  // Expose function to refresh all scroll shadows (useful after dynamic content changes)
+  window.refreshScrollShadows = function() {
+    const selectors = [
+      '.post.adoc .literalblock pre',
+      '.post.adoc .listingblock > .content > pre',
+      '.post.adoc .openblock > .content > pre',
+      '.post.md pre',
+      '.table-wrapper'
+    ];
+    const scrollables = document.querySelectorAll(selectors.join(', '));
+    scrollables.forEach(element => {
+      // Skip hidden elements - they can't be measured accurately
+      if (element.offsetParent === null) return;
+      updateScrollShadows(element);
+    });
   };
 })();

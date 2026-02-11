@@ -87,6 +87,14 @@ function select(selected) {
 	selectedContent = selected.parent().siblings(".content").eq(selected.index())
 	selectedContent.removeClass('hidden');
 	selectedContent.siblings().addClass('hidden');
+
+	// Refresh scroll shadows after visibility changes
+	if (typeof window.refreshScrollShadows === 'function') {
+		// Use requestAnimationFrame to ensure layout has completed
+		requestAnimationFrame(function() {
+			setTimeout(window.refreshScrollShadows, 50);
+		});
+	}
 }
 
 $(addBlockSwitches);

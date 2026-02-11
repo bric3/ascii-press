@@ -12,7 +12,7 @@
 
 .post.adoc {
   // AsciiDoc specific blocks (more specific, will override general pre)
-  .literalblock pre, .listingblock > .content > pre {
+  .literalblock pre, .listingblock > .content > pre, .openblock > .content > pre {
     @include scroll-shadows($dark-scroll-shadow-color);
   }
 }
