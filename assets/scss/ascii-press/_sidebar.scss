@@ -120,9 +120,10 @@
 
 .social {
   text-align: center;
+  font-size: 0.85em;
 
   a {
-    padding: 0 4px;
+    padding: 0 2px;
     @include link-no-decoration();
   }
 }
