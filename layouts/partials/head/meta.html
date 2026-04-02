@@ -12,7 +12,7 @@
     {{ $.Scratch.Add "theTitle" " • "}}
     {{ $.Scratch.Add "theTitle" .Site.Title}}
 {{ end }}
-<title>{{ $.Scratch.Get "theTitle" }}</title>
+<title>{{ $.Scratch.Get "theTitle" | safeHTML }}</title>
 {{ with .Site.Params.meta.description }}<meta name="description" content="{{ . }}">{{ end }}
 {{ with .Site.Params.meta.keywords }}<meta name="keywords" content="{{.}}">{{ end }}
 
