@@ -84,46 +84,32 @@
     }
 
     .admonitionblock {
+      margin-top: 0;
+
       > table {
-        td.icon {
+        display: block;
+
+        tbody, tr {
           display: block;
+        }
+
+        td.icon {
+          display: inline-flex;
           position: sticky;
           top: 0;
-          width: unset !important;
-          border-bottom: 2px solid $admonition-default-border-color;
-
-
-          [class^="fa icon-"] {
-            font-size: 1.5rem;
-          }
+          transform: none;
+          left: auto;
+          z-index: 1;
         }
 
         td.content {
           display: block;
-        }
-      }
-
-      &.important {
-        // hyde-hyde fix : remove border
-        border-right: unset;
-
-        > table td.icon {
-          border-bottom: 2px solid $admonition-icon-important-border-color;
-        }
-      }
-
-      &.warning {
-        // hyde-hyde fix : remove border
-        border-right: unset;
-
-        > table td.icon {
-          border-bottom: 2px solid $admonition-icon-warning-border-color;
-        }
-      }
-
-      &.caution {
-        > table td.icon {
-          border-bottom: 2px solid $admonition-icon-caution-border-color;
+          position: relative;
+          z-index: 0;
+          margin-top: -1rem;            // pull content up so badge overlaps it by ~half badge height
+          padding-top: calc(1rem + 1rem); // restore original padding + overlap offset
+          margin-left: 0.4rem;
+          width: calc(100% - 0.6rem);
         }
       }
     }

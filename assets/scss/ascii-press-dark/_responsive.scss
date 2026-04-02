@@ -4,55 +4,6 @@
 @media (min-width: 320px) and (max-width: 767px) {
   .post.adoc {
     .admonitionblock {
-      > table {
-        td.content {
-          border-left: none;
-          border-right: none;
-        }
-
-        td.icon {
-          border-bottom: 2px solid $dark-default-border-color;
-        }
-      }
-
-      &.important {
-        > table {
-          td.content {
-            border-left: none;
-            border-right: none;
-          }
-
-          td.icon {
-            border-bottom: 2px solid $dark-admonition-icon-important-border-color;
-          }
-        }
-      }
-
-      &.warning {
-        > table {
-          td.content {
-            border-left: none;
-            border-right: none;
-          }
-
-          td.icon {
-            border-bottom: 2px solid $dark-admonition-icon-warning-border-color;
-          }
-        }
-      }
-
-      &.caution {
-        > table {
-          td.content {
-            border-left: none;
-            border-right: none;
-          }
-
-          td.icon {
-            border-bottom: 2px solid $dark-admonition-icon-caution-border-color;
-          }
-        }
-      }
     }
   }
 }

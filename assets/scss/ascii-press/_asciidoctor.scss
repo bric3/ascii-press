@@ -424,17 +424,23 @@ $blockquote-quote-shadow-color: rgba(0, 0, 0, 0.1) !default;
 
 
   .admonitionblock {
+    margin-top: 2rem; // space for the floating badge above
+    // reset %quotebox styles applied by base .important / .warning
+    background: none;
+    border: none;
+    padding: 0;
+
     > table {
+      position: relative;
       border-collapse: separate;
       border: 0;
-      background: $background-color;
       width: 100%;
       table-layout: fixed;
 
       // hyde-hyde fix : remove nth-child(2n+1)
       tbody tr td,
       tbody tr th {
-        background: $background-color;
+        background: transparent;
       }
 
       td {
@@ -442,26 +448,33 @@ $blockquote-quote-shadow-color: rgba(0, 0, 0, 0.1) !default;
         border: initial;
 
         &.icon {
-          text-align: center;
-          width: 80px;
+          // Badge: absolutely positioned above the content block (mirrors Gradle td.icon)
+          // font-size set here so em units in background-size and padding are consistent
+          font-size: 1.1rem;
+          // gradient covers left-padding + FA glyph (~1em) + small separator
+          background: linear-gradient(90deg, rgba(0, 0, 0, .2) 0, rgba(0, 0, 0, .2)) no-repeat 0 / 1.8em 100%;
+          background-color: $admonition-icon-tip-color; // default (note/tip)
+          border-radius: .5em;
+          color: #fff;
+          line-height: 1;
 
-          img {
-            max-width: none;
-          }
+          position: absolute;
+          left: 0;
+          top: 0;
+          padding: .25em .4em; // .4em left gives FA glyph room from the edge
 
-          .title {
-            font-weight: bold;
-            text-transform: uppercase;
-          }
+          transform: translate(-.5rem, -50%);
         }
 
         &.content {
           font-size: 1.0625rem;
           // hyde-hyde fix : fix default padding and margin to 0
           margin: 0;
-          padding: 0 1.25rem 0 1.125rem;
-          border-left: 2px solid $admonition-default-border-color;
+          padding: 1rem;
+          border-radius: 4px;
+          background: $admonition-default-bg-color;
           color: $admonition-cite-default-color;
+          width: 100%;
 
           > :last-child > :last-child {
             margin-bottom: 0;
@@ -472,72 +485,70 @@ $blockquote-quote-shadow-color: rgba(0, 0, 0, 0.1) !default;
 
     //noinspection CssNoGenericFontName
     td.icon {
+      // <i> is the flex container: FA glyph (::before) + label text (::after)
       [class^="fa icon-"] {
-        font-size: 2rem;
+        align-items: center;
+        display: inline-flex;
+        gap: .35em; // space between FA glyph and label text
+        font-size: 1.1rem;
         font-family: 'Font Awesome 5 Free';
         cursor: default;
-        text-shadow: 1px 1px 2px $admonition-icon-shadow-color;
         text-rendering: auto;
         -webkit-font-smoothing: antialiased;
+        width: auto;
+
+        &::before {
+          min-width: 1em;
+          text-align: center;
+        }
+
+        &::after {
+          content: attr(title);
+          font-family: $root-font-family;
+          font-style: normal;
+          font-weight: bold;
+          font-size: .8rem;
+          text-transform: uppercase;
+          padding: 0 0.25em 0 1em;
+        }
       }
 
       .icon-note::before {
         content: "\f05a"; // equivalent to <i class="fas fa-info-circle"></i>
-        color: $admonition-icon-tip-color;
       }
 
       .icon-tip::before {
         font-weight: 400; // regular style/weight
         content: "\f0eb"; // equivalent to <i class="far fa-lightbulb"></i>
-        text-shadow: 1px 1px 2px $admonition-icon-tip-shadow-color;
       }
 
       .icon-warning::before {
         content: "\f071"; // equivalent to <i class="fas fa-exclamation-triangle"></i>
-        color: $admonition-icon-warning-color;
       }
 
       .icon-caution::before {
         font-family: "Font Awesome 5 Brands";
         content: "\f3ac"; // equivalent to <i class="fab fa-gripfire"></i>
-        color: $admonition-icon-caution-color;
       }
 
       .icon-important::before {
         content: "\f06a"; // equivalent to <i class="fas fa-exclamation-circle"></i>
-        color: $admonition-icon-important-color;
       }
     }
 
-    // fix hyde-hyde integration
-    &.important {
-      border-left: none;
-      background-color: $admonition-icon-important-bg-color;
-
-      > table td.content {
-        background-color: $admonition-icon-important-bg-color;
-        border-left: 2px solid $admonition-icon-important-border-color;
-      }
+    &.important > table {
+      td.icon { background-color: $admonition-icon-important-color; }
+      td.content { background-color: $admonition-icon-important-bg-color; }
     }
 
-    &.warning {
-      border-left: none;
-      background-color: $admonition-icon-warning-bg-color;
-
-      > table td.content {
-        background-color: $admonition-icon-warning-bg-color;
-        border-left: 2px solid $admonition-icon-warning-border-color;
-      }
+    &.warning > table {
+      td.icon { background-color: $admonition-icon-warning-color; }
+      td.content { background-color: $admonition-icon-warning-bg-color; }
     }
 
-    &.caution {
-      border-left: none;
-      background-color: $admonition-icon-caution-bg-color;
-
-      > table td.content {
-        background-color: $admonition-icon-caution-bg-color;
-        border-left: 2px solid $admonition-icon-caution-border-color;
-      }
+    &.caution > table {
+      td.icon { background-color: $admonition-icon-caution-color; }
+      td.content { background-color: $admonition-icon-caution-bg-color; }
     }
   }
 
@@ -1036,7 +1047,7 @@ $blockquote-quote-shadow-color: rgba(0, 0, 0, 0.1) !default;
   // AsciiDoctor wraps $ delimiters in spans, but MathJax doesn't remove them
   // Only hide spans without classes (delimiter spans have no class)
   // See mathjax-js.html footer partial for more info
-  span:not([class]):has(+ mjx-container),
+  span:not([class]):has(#{'+ mjx-container'}),
   mjx-container + span:not([class]) {
     display: none;
   }

@@ -22,18 +22,10 @@ $dark-title-link-color: rgb(231, 205, 160) !default;
 $dark-horizontal-bar-color: rgb(77, 68, 54) !default;
 $dark-attribution-color: rgba(255, 255, 216, 0.6) !default;
 $dark-default-border-color: rgb(81, 73, 56) !default;
-$dark-admonition-icon-tip-shadow-color: rgba(179, 160, 119, 0.8) !default;
-$dark-admonition-icon-tip-color: rgb(253, 233, 154) !default;
-$dark-admonition-icon-note-color: rgb(175, 202, 243) !default;
-$dark-admonition-icon-important-color: rgb(213, 41, 41) !default;
-$dark-admonition-icon-warning-color: rgb(191, 105, 0) !default;
-$dark-admonition-icon-caution-color: rgb(191, 52, 0) !default;
-$dark-admonition-icon-important-bg-color: #ffc8c8 !default;
-$dark-admonition-icon-important-border-color: #ff6767 !default;
-$dark-admonition-icon-warning-bg-color: #f9dcc8 !default;
-$dark-admonition-icon-warning-border-color: #f3aa79 !default;
-$dark-admonition-icon-caution-bg-color: #f7e5ce !default;
-$dark-admonition-icon-caution-border-color: #fab55e !default;
+$dark-admonition-default-bg-color: rgb(40, 35, 27) !default;
+$dark-admonition-important-bg-color: rgb(72, 0, 0) !default;
+$dark-admonition-warning-bg-color: rgb(76, 31, 0) !default;
+$dark-admonition-caution-bg-color: rgba(49, 28, 0, 0.95) !default;
 $dark-conum-color: rgb(32, 30, 25) !default;
 $dark-conum-bg-color: rgb(197, 153, 83) !default;
 $dark-exampleblock-bg-color: rgb(60, 53, 39) !default;
@@ -231,68 +223,22 @@ $dark-pre-border-color: rgb(88, 78, 61) !default;
   .admonitionblock {
     > table {
       td.content {
-        border-left-color: $dark-default-border-color;
         color: $dark-body-color;
-      }
-
-      td.icon {
-        .icon-tip::before {
-          text-shadow: $dark-admonition-icon-tip-shadow-color 1px 1px 2px;
-          color: $dark-admonition-icon-tip-color;
-        }
-
-        .icon-note::before {
-          color: $dark-admonition-icon-note-color;
-        }
-
-        .icon-important::before {
-          color: $dark-admonition-icon-important-color;
-        }
-
-        .icon-warning::before {
-          color: $dark-admonition-icon-warning-color;
-        }
-
-        .icon-caution::before {
-          color: $dark-admonition-icon-caution-color;
-        }
+        background: $dark-admonition-default-bg-color;
       }
     }
 
-    // fix hyde-hyde integration
-    &.important {
-      border-left: none;
-      border-right: none;
-      background-color: $dark-admonition-icon-important-bg-color;
-
-      > table td.content {
-        background-color: rgb(72, 0, 0);
-        border-left: 2px solid $dark-admonition-icon-important-border-color;
-      }
+    &.important > table {
+      td.content { background-color: $dark-admonition-important-bg-color; }
     }
 
-    &.warning {
-      border-left: none;
-      background-color: $dark-admonition-icon-warning-bg-color;
-      border-right: none;
-
-      > table td.content {
-        background-color: rgb(76, 31, 0);
-        border-left: 2px solid $dark-admonition-icon-warning-border-color;
-      }
+    &.warning > table {
+      td.content { background-color: $dark-admonition-warning-bg-color; }
     }
 
-    &.caution {
-      border-left: none;
-      border-right: none;
-      background-color: $dark-admonition-icon-caution-bg-color;
-
-      > table td.content {
-        background-color: rgba(49, 28, 0, 0.95);
-        border-left: 2px solid $dark-admonition-icon-caution-border-color;
-      }
+    &.caution > table {
+      td.content { background-color: $dark-admonition-caution-bg-color; }
     }
-
   }
 
   .conum[data-value] {
