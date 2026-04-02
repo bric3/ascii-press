@@ -4,8 +4,8 @@
 
 
 {{ if .Site.Config.Services.GoogleAnalytics.ID }}
-  <!-- Google Analytics -->
-  {{ template "_internal/google_analytics.html" . }}
+<!-- Google Analytics -->
+{{ template "_internal/google_analytics.html" . }}
 {{ end }}
 {{ partial "footer/font-awesome-js.html" . }}
 {{ partial "footer/mathjax-js.html" . }}
@@ -15,372 +15,372 @@
  * Dynamic scroll shadows for horizontally scrollable elements
  * Shows shadows on left/right based on scroll position
  */
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  // Get scroll information from an element
-  function getScrollInfo(element, checkChildren = true) {
-    let scrollLeft = element.scrollLeft;
-    let scrollWidth = element.scrollWidth;
-    const clientWidth = element.clientWidth;
+    // Get scroll information from an element
+    function getScrollInfo(element, checkChildren = true) {
+        let scrollLeft = element.scrollLeft;
+        let scrollWidth = element.scrollWidth;
+        const clientWidth = element.clientWidth;
 
-    if (checkChildren) {
-      // Check if there's a code element inside with wider content
-      const codeElement = element.querySelector('code');
-      if (codeElement && codeElement.scrollWidth > scrollWidth) {
-        scrollWidth = codeElement.scrollWidth;
-        if (codeElement.scrollLeft > 0 || element.scrollLeft === 0) {
-          scrollLeft = Math.max(scrollLeft, codeElement.scrollLeft);
-        }
-      }
-
-      // Check if there's a table element inside with wider content
-      const tableElement = element.querySelector('table');
-      if (tableElement && tableElement.scrollWidth > scrollWidth) {
-        scrollWidth = tableElement.scrollWidth;
-        if (tableElement.scrollLeft > 0 || element.scrollLeft === 0) {
-          scrollLeft = Math.max(scrollLeft, tableElement.scrollLeft);
-        }
-      }
-    }
-
-    const maxScroll = scrollWidth - clientWidth;
-    // Use a 2px threshold to avoid false positives from sub-pixel rendering
-    const hasOverflow = scrollWidth > clientWidth + 2;
-
-    return { scrollLeft, scrollWidth, clientWidth, maxScroll, hasOverflow };
-  }
-
-  // Apply shadow classes based on scroll info
-  function applyScrollClasses(element, scrollInfo) {
-    if (!scrollInfo.hasOverflow) {
-      element.classList.remove('has-scroll-shadow-left', 'has-scroll-shadow-right');
-      return;
-    }
-
-    // Show left shadow if not at the start (with 5px threshold)
-    if (scrollInfo.scrollLeft > 5) {
-      element.classList.add('has-scroll-shadow-left');
-    } else {
-      element.classList.remove('has-scroll-shadow-left');
-    }
-
-    // Show right shadow if not at the end (with 5px threshold)
-    if (scrollInfo.scrollLeft < scrollInfo.maxScroll - 5) {
-      element.classList.add('has-scroll-shadow-right');
-    } else {
-      element.classList.remove('has-scroll-shadow-right');
-    }
-  }
-
-  // Compatibility wrapper for old code
-  function updateScrollShadows(element) {
-    const scrollInfo = getScrollInfo(element);
-    applyScrollClasses(element, scrollInfo);
-  }
-
-  function initScrollShadows() {
-    // Select all scrollable pre elements and table wrappers
-    const selectors = [
-      '.post.adoc .literalblock pre',
-      '.post.adoc .listingblock > .content > pre',
-      '.post.adoc .openblock > .content > pre',  // Block switches
-      '.post.md pre',  // Markdown code blocks
-      '.table-wrapper',  // Detection logic will find admonitionblock inside if needed
-    ];
-
-    const scrollables = document.querySelectorAll(selectors.join(', '));
-    scrollables.forEach(element => {
-      // For table-wrapper, find the actual scrolling element but keep classes on wrapper
-      let scrollingElement = element;
-      let targetElement = element;  // Element that gets the shadow classes
-
-      // Track if we should check for nested code/table children
-      let checkChildren = true;
-
-      if (element.classList.contains('table-wrapper')) {
-        // Check for admonitionblock
-        const admonitionBlock = element.querySelector(':scope > .admonitionblock');
-        if (admonitionBlock) {
-          const computedStyle = window.getComputedStyle(admonitionBlock);
-          if (computedStyle.overflowX === 'auto' || computedStyle.overflowX === 'scroll') {
-            scrollingElement = admonitionBlock;  // Read scroll from this
-            targetElement = element;  // But add classes to wrapper
-            checkChildren = true;  // Admonitionblock can have table children
-          }
-        } else {
-          // Check for direct table child
-          const table = element.querySelector(':scope > table');
-          if (table) {
-            const computedStyle = window.getComputedStyle(table);
-            if (computedStyle.overflowX === 'auto' || computedStyle.overflowX === 'scroll') {
-              scrollingElement = table;  // Read scroll from table
-              targetElement = element;  // But add classes to wrapper
-              checkChildren = false;  // Table is the scrolling element, don't check its children
+        if (checkChildren) {
+            // Check if there's a code element inside with wider content
+            const codeElement = element.querySelector('code');
+            if (codeElement && codeElement.scrollWidth > scrollWidth) {
+                scrollWidth = codeElement.scrollWidth;
+                if (codeElement.scrollLeft > 0 || element.scrollLeft === 0) {
+                    scrollLeft = Math.max(scrollLeft, codeElement.scrollLeft);
+                }
             }
-          }
-        }
-      }
 
-      // Helper to update shadows with correct target
-      const updateShadows = () => {
-        const scrollInfo = getScrollInfo(scrollingElement, checkChildren);
-        applyScrollClasses(targetElement, scrollInfo);
-      };
-
-      // Initial check
-      updateShadows();
-
-      // Update on scroll
-      scrollingElement.addEventListener('scroll', updateShadows, { passive: true });
-
-      // Only listen to nested code/table elements if checkChildren is true
-      if (checkChildren) {
-        // Also listen to scroll on the code element inside
-        const codeElement = scrollingElement.querySelector('code');
-        if (codeElement) {
-          codeElement.addEventListener('scroll', updateShadows, { passive: true });
+            // Check if there's a table element inside with wider content
+            const tableElement = element.querySelector('table');
+            if (tableElement && tableElement.scrollWidth > scrollWidth) {
+                scrollWidth = tableElement.scrollWidth;
+                if (tableElement.scrollLeft > 0 || element.scrollLeft === 0) {
+                    scrollLeft = Math.max(scrollLeft, tableElement.scrollLeft);
+                }
+            }
         }
 
-        // Also listen to scroll on the table element inside
-        const tableElement = scrollingElement.querySelector('table');
-        if (tableElement) {
-          tableElement.addEventListener('scroll', updateShadows, { passive: true });
+        const maxScroll = scrollWidth - clientWidth;
+        // Use a 2px threshold to avoid false positives from sub-pixel rendering
+        const hasOverflow = scrollWidth > clientWidth + 2;
+
+        return {scrollLeft, scrollWidth, clientWidth, maxScroll, hasOverflow};
+    }
+
+    // Apply shadow classes based on scroll info
+    function applyScrollClasses(element, scrollInfo) {
+        if (!scrollInfo.hasOverflow) {
+            element.classList.remove('has-scroll-shadow-left', 'has-scroll-shadow-right');
+            return;
         }
-      }
+
+        // Show left shadow if not at the start (with 5px threshold)
+        if (scrollInfo.scrollLeft > 5) {
+            element.classList.add('has-scroll-shadow-left');
+        } else {
+            element.classList.remove('has-scroll-shadow-left');
+        }
+
+        // Show right shadow if not at the end (with 5px threshold)
+        if (scrollInfo.scrollLeft < scrollInfo.maxScroll - 5) {
+            element.classList.add('has-scroll-shadow-right');
+        } else {
+            element.classList.remove('has-scroll-shadow-right');
+        }
+    }
+
+    // Compatibility wrapper for old code
+    function updateScrollShadows(element) {
+        const scrollInfo = getScrollInfo(element);
+        applyScrollClasses(element, scrollInfo);
+    }
+
+    function initScrollShadows() {
+        // Select all scrollable pre elements and table wrappers
+        const selectors = [
+            '.post.adoc .literalblock pre',
+            '.post.adoc .listingblock > .content > pre',
+            '.post.adoc .openblock > .content > pre',  // Block switches
+            '.post.md pre',  // Markdown code blocks
+            '.table-wrapper',  // Detection logic will find admonitionblock inside if needed
+        ];
+
+        const scrollables = document.querySelectorAll(selectors.join(', '));
+        scrollables.forEach(element => {
+            // For table-wrapper, find the actual scrolling element but keep classes on wrapper
+            let scrollingElement = element;
+            let targetElement = element;  // Element that gets the shadow classes
+
+            // Track if we should check for nested code/table children
+            let checkChildren = true;
+
+            if (element.classList.contains('table-wrapper')) {
+                // Check for admonitionblock
+                const admonitionBlock = element.querySelector(':scope > .admonitionblock');
+                if (admonitionBlock) {
+                    const computedStyle = window.getComputedStyle(admonitionBlock);
+                    if (computedStyle.overflowX === 'auto' || computedStyle.overflowX === 'scroll') {
+                        scrollingElement = admonitionBlock;  // Read scroll from this
+                        targetElement = element;  // But add classes to wrapper
+                        checkChildren = true;  // Admonitionblock can have table children
+                    }
+                } else {
+                    // Check for direct table child
+                    const table = element.querySelector(':scope > table');
+                    if (table) {
+                        const computedStyle = window.getComputedStyle(table);
+                        if (computedStyle.overflowX === 'auto' || computedStyle.overflowX === 'scroll') {
+                            scrollingElement = table;  // Read scroll from table
+                            targetElement = element;  // But add classes to wrapper
+                            checkChildren = false;  // Table is the scrolling element, don't check its children
+                        }
+                    }
+                }
+            }
+
+            // Helper to update shadows with correct target
+            const updateShadows = () => {
+                const scrollInfo = getScrollInfo(scrollingElement, checkChildren);
+                applyScrollClasses(targetElement, scrollInfo);
+            };
+
+            // Initial check
+            updateShadows();
+
+            // Update on scroll
+            scrollingElement.addEventListener('scroll', updateShadows, {passive: true});
+
+            // Only listen to nested code/table elements if checkChildren is true
+            if (checkChildren) {
+                // Also listen to scroll on the code element inside
+                const codeElement = scrollingElement.querySelector('code');
+                if (codeElement) {
+                    codeElement.addEventListener('scroll', updateShadows, {passive: true});
+                }
+
+                // Also listen to scroll on the table element inside
+                const tableElement = scrollingElement.querySelector('table');
+                if (tableElement) {
+                    tableElement.addEventListener('scroll', updateShadows, {passive: true});
+                }
+            }
+        });
+
+        // Update on window resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                scrollables.forEach(element => updateScrollShadows(element));
+            }, 150);
+        }, {passive: true});
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScrollShadows);
+    } else {
+        initScrollShadows();
+    }
+
+    // Recheck after page fully loads (after syntax highlighting, etc.)
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            const selectors = [
+                '.post.adoc .literalblock pre',
+                '.post.adoc .listingblock > .content > pre',
+                '.post.adoc .openblock > .content > pre',  // Block switches
+                '.post.md pre',
+                '.table-wrapper'
+            ];
+            const scrollables = document.querySelectorAll(selectors.join(', '));
+            scrollables.forEach(element => updateScrollShadows(element));
+        }, 500);
     });
 
-    // Update on window resize
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        scrollables.forEach(element => updateScrollShadows(element));
-      }, 150);
-    }, { passive: true });
-  }
+    // Debug helper - expose function globally
+    window.debugScrollShadow = function (element) {
+        if (typeof element === 'string') {
+            element = document.querySelector(element);
+        }
+        if (!element) {
+            console.error('Element not found');
+            return;
+        }
+        updateScrollShadows(element);
+    };
 
-  // Initialize when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initScrollShadows);
-  } else {
-    initScrollShadows();
-  }
-
-  // Recheck after page fully loads (after syntax highlighting, etc.)
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const selectors = [
-        '.post.adoc .literalblock pre',
-        '.post.adoc .listingblock > .content > pre',
-        '.post.adoc .openblock > .content > pre',  // Block switches
-        '.post.md pre',
-        '.table-wrapper'
-      ];
-      const scrollables = document.querySelectorAll(selectors.join(', '));
-      scrollables.forEach(element => updateScrollShadows(element));
-    }, 500);
-  });
-
-  // Debug helper - expose function globally
-  window.debugScrollShadow = function(element) {
-    if (typeof element === 'string') {
-      element = document.querySelector(element);
-    }
-    if (!element) {
-      console.error('Element not found');
-      return;
-    }
-    updateScrollShadows(element);
-  };
-
-  // Expose function to refresh all scroll shadows (useful after dynamic content changes)
-  window.refreshScrollShadows = function() {
-    const selectors = [
-      '.post.adoc .literalblock pre',
-      '.post.adoc .listingblock > .content > pre',
-      '.post.adoc .openblock > .content > pre',
-      '.post.md pre',
-      '.table-wrapper'
-    ];
-    const scrollables = document.querySelectorAll(selectors.join(', '));
-    scrollables.forEach(element => {
-      // Skip hidden elements - they can't be measured accurately
-      if (element.offsetParent === null) return;
-      updateScrollShadows(element);
-    });
-  };
+    // Expose function to refresh all scroll shadows (useful after dynamic content changes)
+    window.refreshScrollShadows = function () {
+        const selectors = [
+            '.post.adoc .literalblock pre',
+            '.post.adoc .listingblock > .content > pre',
+            '.post.adoc .openblock > .content > pre',
+            '.post.md pre',
+            '.table-wrapper'
+        ];
+        const scrollables = document.querySelectorAll(selectors.join(', '));
+        scrollables.forEach(element => {
+            // Skip hidden elements - they can't be measured accurately
+            if (element.offsetParent === null) return;
+            updateScrollShadows(element);
+        });
+    };
 })();
 </script>
 <script type="text/javascript">
-// Vanilla JS helper functions
-function children(element, selector) {
-	if (!selector) return Array.from(element.children);
-	return Array.from(element.children).filter(child => child.matches(selector));
-}
+    // Vanilla JS helper functions
+    function children(element, selector) {
+        if (!selector) return Array.from(element.children);
+        return Array.from(element.children).filter(child => child.matches(selector));
+    }
 
-function siblings(element, selector) {
-	const sibs = Array.from(element.parentElement.children).filter(child => child !== element);
-	return selector ? sibs.filter(sib => sib.matches(selector)) : sibs;
-}
+    function siblings(element, selector) {
+        const sibs = Array.from(element.parentElement.children).filter(child => child !== element);
+        return selector ? sibs.filter(sib => sib.matches(selector)) : sibs;
+    }
 
-function getOffset(element) {
-	const rect = element.getBoundingClientRect();
-	return {
-		top: rect.top + window.scrollY,
-		left: rect.left + window.scrollX
-	};
-}
+    function getOffset(element) {
+        const rect = element.getBoundingClientRect();
+        return {
+            top: rect.top + window.scrollY,
+            left: rect.left + window.scrollX
+        };
+    }
 
-function addBlockSwitches() {
-	document.querySelectorAll('.primary').forEach(primary => {
-		const switchItem = createSwitchItem(primary, createBlockSwitch(primary));
-		switchItem.item.classList.add("selected");
-		const title = children(primary, '.title')[0];
-		if (title) title.remove();
-	});
+    function addBlockSwitches() {
+        document.querySelectorAll('.primary').forEach(primary => {
+            const switchItem = createSwitchItem(primary, createBlockSwitch(primary));
+            switchItem.item.classList.add("selected");
+            const title = children(primary, '.title')[0];
+            if (title) title.remove();
+        });
 
-	document.querySelectorAll('.secondary').forEach(secondary => {
-		const primary = findPrimary(secondary);
-		const switchElement = children(primary, '.switch')[0];
-		const switchItem = createSwitchItem(secondary, switchElement);
-		switchItem.content.classList.add('hidden');
-		findPrimary(secondary).appendChild(switchItem.content);
-		secondary.remove();
-	});
-}
+        document.querySelectorAll('.secondary').forEach(secondary => {
+            const primary = findPrimary(secondary);
+            const switchElement = children(primary, '.switch')[0];
+            const switchItem = createSwitchItem(secondary, switchElement);
+            switchItem.content.classList.add('hidden');
+            findPrimary(secondary).appendChild(switchItem.content);
+            secondary.remove();
+        });
+    }
 
-function createBlockSwitch(primary) {
-	const blockSwitch = document.createElement('div');
-	blockSwitch.className = 'switch';
-	primary.prepend(blockSwitch);
-	return blockSwitch;
-}
+    function createBlockSwitch(primary) {
+        const blockSwitch = document.createElement('div');
+        blockSwitch.className = 'switch';
+        primary.prepend(blockSwitch);
+        return blockSwitch;
+    }
 
-function findPrimary(secondary) {
-	let candidate = secondary.previousElementSibling;
-	while (candidate && !candidate.matches('.primary')) {
-		candidate = candidate.previousElementSibling;
-	}
-	return candidate;
-}
+    function findPrimary(secondary) {
+        let candidate = secondary.previousElementSibling;
+        while (candidate && !candidate.matches('.primary')) {
+            candidate = candidate.previousElementSibling;
+        }
+        return candidate;
+    }
 
-function createSwitchItem(block, blockSwitch) {
-	const titleElement = children(block, '.title')[0];
-	const blockName = titleElement ? titleElement.textContent : '';
-	const contentElement = children(block, '.content')[0];
-	const colist = block.nextElementSibling?.matches('.colist') ? block.nextElementSibling : null;
-	if (contentElement && colist) {
-		contentElement.appendChild(colist);
-	}
-	const item = document.createElement('div');
-	item.className = 'switch--item';
-	item.textContent = blockName;
-	blockSwitch.appendChild(item);
-	return {'item': item, 'content': contentElement};
-}
+    function createSwitchItem(block, blockSwitch) {
+        const titleElement = children(block, '.title')[0];
+        const blockName = titleElement ? titleElement.textContent : '';
+        const contentElement = children(block, '.content')[0];
+        const colist = block.nextElementSibling?.matches('.colist') ? block.nextElementSibling : null;
+        if (contentElement && colist) {
+            contentElement.appendChild(colist);
+        }
+        const item = document.createElement('div');
+        item.className = 'switch--item';
+        item.textContent = blockName;
+        blockSwitch.appendChild(item);
+        return {'item': item, 'content': contentElement};
+    }
 
-function globalSwitch() {
-	document.querySelectorAll('.switch--item').forEach(item => {
-		const blockId = blockIdForSwitchItem(item);
+    function globalSwitch() {
+        document.querySelectorAll('.switch--item').forEach(item => {
+            const blockId = blockIdForSwitchItem(item);
 
-		// Remove existing click handlers by cloning (off equivalent)
-		const newItem = item.cloneNode(true);
-		item.parentNode.replaceChild(newItem, item);
+            // Remove existing click handlers by cloning (off equivalent)
+            const newItem = item.cloneNode(true);
+            item.parentNode.replaceChild(newItem, item);
 
-		newItem.addEventListener('click', function() {
-			const selectedText = this.textContent;
-			window.localStorage.setItem(blockId, selectedText);
+            newItem.addEventListener('click', function () {
+                const selectedText = this.textContent;
+                window.localStorage.setItem(blockId, selectedText);
 
-			// Preserve scroll position relative to the clicked element
-			const clickedSwitch = this.closest('.openblock.primary');
+                // Preserve scroll position relative to the clicked element
+                const clickedSwitch = this.closest('.primary');
 
-			// Measure before DOM changes
-			const scrollTopBefore = window.scrollY;
-			const offsetTopBefore = getOffset(clickedSwitch).top;
+                // Measure before DOM changes
+                const scrollTopBefore = window.scrollY;
+                const offsetTopBefore = getOffset(clickedSwitch).top;
 
-			Array.from(document.querySelectorAll(".switch--item"))
-				.filter(el => blockIdForSwitchItem(el) === blockId)
-				.filter(el => el.textContent === selectedText)
-				.forEach(el => select(el));
+                Array.from(document.querySelectorAll(".switch--item"))
+                    .filter(el => blockIdForSwitchItem(el) === blockId)
+                    .filter(el => el.textContent === selectedText)
+                    .forEach(el => select(el));
 
-			// Restore scroll position after layout stabilizes
-			requestAnimationFrame(function() {
-				requestAnimationFrame(function() {
-					// Measure after DOM changes
-					const offsetTopAfter = getOffset(clickedSwitch).top;
+                // Restore scroll position after layout stabilizes
+                requestAnimationFrame(function () {
+                    requestAnimationFrame(function () {
+                        // Measure after DOM changes
+                        const offsetTopAfter = getOffset(clickedSwitch).top;
 
-					// Calculate new scroll position to keep element in same viewport position
-					const scrollAdjustment = offsetTopAfter - offsetTopBefore;
+                        // Calculate new scroll position to keep element in same viewport position
+                        const scrollAdjustment = offsetTopAfter - offsetTopBefore;
 
-					if (Math.abs(scrollAdjustment) > 1) {
-						window.scrollTo({
-							top: scrollTopBefore + scrollAdjustment,
-							behavior: 'instant'
-						});
-					}
+                        if (Math.abs(scrollAdjustment) > 1) {
+                            window.scrollTo({
+                                top: scrollTopBefore + scrollAdjustment,
+                                behavior: 'instant'
+                            });
+                        }
 
-					// Refresh scroll shadows after scroll adjustment
-					setTimeout(function() {
-						if (typeof window.refreshScrollShadows === 'function') {
-							window.refreshScrollShadows();
-						}
-					}, 0);
-				});
-			});
-		});
+                        // Refresh scroll shadows after scroll adjustment
+                        setTimeout(function () {
+                            if (typeof window.refreshScrollShadows === 'function') {
+                                window.refreshScrollShadows();
+                            }
+                        }, 0);
+                    });
+                });
+            });
 
-		if (newItem.textContent === window.localStorage.getItem(blockId)) {
-			select(newItem);
-		}
-	});
-}
+            if (newItem.textContent === window.localStorage.getItem(blockId)) {
+                select(newItem);
+            }
+        });
+    }
 
-function blockIdForSwitchItem(item) {
-	const idComponents = [];
-	idComponents.push(item.textContent.toLowerCase());
-	siblings(item, ".switch--item").forEach(sibling => {
-		idComponents.push(sibling.textContent.toLowerCase());
-	});
-	return idComponents.sort().join("-");
-}
+    function blockIdForSwitchItem(item) {
+        const idComponents = [];
+        idComponents.push(item.textContent.toLowerCase());
+        siblings(item, ".switch--item").forEach(sibling => {
+            idComponents.push(sibling.textContent.toLowerCase());
+        });
+        return idComponents.sort().join("-");
+    }
 
-function select(selected) {
-	selected.classList.add('selected');
-	siblings(selected).forEach(sib => sib.classList.remove('selected'));
+    function select(selected) {
+        selected.classList.add('selected');
+        siblings(selected).forEach(sib => sib.classList.remove('selected'));
 
-	const parent = selected.parentElement;
-	const selectedIndex = Array.from(parent.children).indexOf(selected);
-	const contentElements = siblings(parent, ".content");
+        const parent = selected.parentElement;
+        const selectedIndex = Array.from(parent.children).indexOf(selected);
+        const contentElements = siblings(parent, ".content");
 
-	if (contentElements[selectedIndex]) {
-		contentElements[selectedIndex].classList.remove('hidden');
-		contentElements.forEach((content, idx) => {
-			if (idx !== selectedIndex) {
-				content.classList.add('hidden');
-			}
-		});
-	}
-}
+        if (contentElements[selectedIndex]) {
+            contentElements[selectedIndex].classList.remove('hidden');
+            contentElements.forEach((content, idx) => {
+                if (idx !== selectedIndex) {
+                    content.classList.add('hidden');
+                }
+            });
+        }
+    }
 
-// Run on DOM ready
-if (document.readyState === 'loading') {
-	document.addEventListener('DOMContentLoaded', function() {
-		addBlockSwitches();
-		globalSwitch();
-	});
-} else {
-	addBlockSwitches();
-	globalSwitch();
-}
+    // Run on DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+            addBlockSwitches();
+            globalSwitch();
+        });
+    } else {
+        addBlockSwitches();
+        globalSwitch();
+    }
 </script>
 
 <script type="text/javascript">
-  // based on https://codepen.io/saas/pen/LYENgqq
-  // Adapted for the non-semantic HTML output of asciidoctor
-  window.addEventListener("load", () => {
+// based on https://codepen.io/saas/pen/LYENgqq
+// Adapted for the non-semantic HTML output of asciidoctor
+window.addEventListener("load", () => {
     if (!'IntersectionObserver' in window) {
-      return;
+        return;
     }
 
     // Retrieve all sections
@@ -390,65 +390,65 @@ if (document.readyState === 'loading') {
     // Once a scrolling event is detected, iterate all elements
     // whose visibility changed and highlight their navigation entry
     const scrollHandler = entries =>
-            entries.forEach(entry => {
-              const section = entry.target;
-              const sectionId = section.id;
-              const sectionLink = document.querySelector(`a[href="#${sectionId}"]`);
+        entries.forEach(entry => {
+            const section = entry.target;
+            const sectionId = section.id;
+            const sectionLink = document.querySelector(`a[href="#${sectionId}"]`);
 
-              console.log(sectionId, sectionLink);
-              console.log(entry)
-              console.log(entry.intersectionRect.height / entry.rootBounds.height)
+            console.log(sectionId, sectionLink);
+            console.log(entry)
+            console.log(entry.intersectionRect.height / entry.rootBounds.height)
 
-              if (entry.intersectionRatio > 0) {
+            if (entry.intersectionRatio > 0) {
                 section.classList.add(visibleSectionClass);
                 sectionLink.classList.add(visibleSectionClass);
-              } else {
+            } else {
                 section.classList.remove(visibleSectionClass);
                 sectionLink.classList.remove(visibleSectionClass);
-              }
-            });
+            }
+        });
 
     // Creates a new scroll observer
     const observer = new IntersectionObserver(scrollHandler);
     sections.map(section => {
-      if (section.tagName === "SECTION") {
-        return section;
-      } else {
-        // in the case of asciidoctor, the section is a title that is contained
-        // in a div with classes like "sect1", "sect2", to represent nested
-        // sections. Using the enclosing element is necessary otherwise the menu
-        // will only highlight the title when it is visible. While we want to
-        // keep the menu highlight for the whole section.
-        //
-        // Also, the scrollHandler need to work with the section id so it's added
-        // to the enclosing element.
-        let actualSectionContainer = section.parentElement;
-        actualSectionContainer.id = section.id;
-        return actualSectionContainer;
-      }
+        if (section.tagName === "SECTION") {
+            return section;
+        } else {
+            // in the case of asciidoctor, the section is a title that is contained
+            // in a div with classes like "sect1", "sect2", to represent nested
+            // sections. Using the enclosing element is necessary otherwise the menu
+            // will only highlight the title when it is visible. While we want to
+            // keep the menu highlight for the whole section.
+            //
+            // Also, the scrollHandler need to work with the section id so it's added
+            // to the enclosing element.
+            let actualSectionContainer = section.parentElement;
+            actualSectionContainer.id = section.id;
+            return actualSectionContainer;
+        }
     }).forEach(section => observer.observe(section));
-  });
-
+});
 </script>
 
 {{ with .Site.Params.toc }}
 {{ if and (eq . "tocbot") (ne $include_toc false) }}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.36.4/tocbot.min.js" integrity="sha512-BZUSsJAPNtkd+kdY/bD7hvQKZ5zlgWt++KGy/Pa/5uEJNgs0jZ6JaX6MuclRUanowuxmhb5S3LRPEa3QmrUVfA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.36.4/tocbot.min.js"
+        integrity="sha512-BZUSsJAPNtkd+kdY/bD7hvQKZ5zlgWt++KGy/Pa/5uEJNgs0jZ6JaX6MuclRUanowuxmhb5S3LRPEa3QmrUVfA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript">
-  if (tocbot) {
+if (tocbot) {
     tocbot.init({
-      // Where to render the table of contents.
-      tocSelector: '.toc',
-      // Where to grab the headings to build the table of contents.
-      contentSelector: '.post',
-      // Which headings to grab inside of the contentSelector element.
-      headingSelector: 'h2, h3, h4',
-      collapseDepth: 4
+        // Where to render the table of contents.
+        tocSelector: '.toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.post',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h2, h3, h4',
+        collapseDepth: 4
     });
-  }
+}
 </script>
 {{ end }}
 {{ end }}
-
 
 </footer>
