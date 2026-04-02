@@ -1,4 +1,12 @@
 
+// CSS custom properties for inline code styled via %code-in-rounded-box.
+// These are runtime CSS variables (not SCSS variables). 
+// These properties override the var() fallbacks at runtime.
+:root {
+  --code-inline-color: #{$dark-pre-color};
+  --code-inline-bg: #{$dark-not-pre-code-bg-color};
+}
+
 html {
   background-color: $dark-bg-color;
 }

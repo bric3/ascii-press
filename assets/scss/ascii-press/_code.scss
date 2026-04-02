@@ -22,8 +22,8 @@ pre {
 %code-in-rounded-box {
   border-radius: 4px;
   padding: 2px 4px;
-  color: #bf616a;
-  background-color: #f9f2f4;
+  color: var(--code-inline-color, #bf616a);
+  background-color: var(--code-inline-bg, #f9f2f4);
 }
 
 %code-style-codersblock {
