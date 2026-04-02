@@ -125,6 +125,7 @@
 .social {
   text-align: center;
   font-size: 0.85em;
+  overflow: hidden; // prevent inline SVG icons from overflowing
 
   a {
     padding: 0 2px;
