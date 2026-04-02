@@ -37,25 +37,25 @@
   }
   .collapsible-menu {
     padding: 0px 0px;
-  }
-  .collapsible-menu ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  .collapsible-menu li {
-    display: block;
-  }
-  .collapsible-menu a {
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .collapsible-menu label {
-    background: url(/img/menu-open.svg) no-repeat left center;
-    background-position: 1.5rem;
-    display: block;
-    cursor: pointer;
-    color: #fff;
-    padding: 10px 0 10px 0px;
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        display: block;
+    }
+    a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+    label {
+        background: url(/img/menu-open.svg) no-repeat left center;
+        background-position: 1.5rem;
+        display: block;
+        cursor: pointer;
+        color: $sidebar-text-color;
+        padding: 10px 0 10px 0px;
+    }
   }
 
   input#menuToggle {
@@ -68,7 +68,7 @@
   input#menuToggle:checked + label {
     background-image: url(/img/menu-close.svg);
     background-position: 1.5rem;
-    color: #fff;
+    color: $sidebar-text-color;
   }
 
   input#menuToggle:checked ~ .menu-content {

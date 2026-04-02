@@ -127,13 +127,29 @@ a {
 }
 
 .sidebar {
-  background-color: #46392e;
+  background-color: $dark-sidebar-color;
+  color: $dark-sidebar-text-color;
 
   a {
-    @include link-no-decoration();
+    color: $dark-sidebar-link-color;
+    code {
+      color: $dark-sidebar-link-color;
+      em {
+        color: $dark-sidebar-link-emphasis-color;
+      }
+    }
+
+    &:hover, &:focus {
+        color: $dark-sidebar-link-hover-color;
+        code, code em {
+            color: $dark-sidebar-link-hover-color;
+        }
+    }
   }
 
+  a,
   .social a {
+    @include link-no-decoration();
     @include link-no-decoration();
   }
 }

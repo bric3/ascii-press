@@ -1,16 +1,20 @@
 .sidebar {
   background-color: $sidebar-color;
-  color: rgb(255, 255, 255);
-  color: rgba(255, 255, 255, 0.5);
-  padding: 2rem 0.5rem;
+  color: $sidebar-text-color;
+  padding: 2rem 0.4rem;
   text-align: center;
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
   li {
     overflow: hidden;
   }
 
   a {
-    color: $gray-1;
+    color: $sidebar-link-color;
     border: none;
 
     // fixes rendering of inline svg used to avoid adblocked icons
@@ -43,32 +47,32 @@
     code {
       float: left;
       max-width: 85%;
-      color: $gray-1;
+      color: $sidebar-link-color;
 
       &:hover {
-        color: $sidebar-link-color;
+        color: $sidebar-link-hover-color;
 
         em {
-          color: $sidebar-link-color;
+          color: $sidebar-link-hover-color;
         }
       }
 
       &:focus {
-        color: $sidebar-link-color;
+        color: $sidebar-link-hover-color;
       }
 
       em {
         font-weight: bold;
-        color: $gray-4;
+        color: $sidebar-link-emphasis-color;
       }
     }
 
-    &:hover {
-      color: $sidebar-link-color;
-    }
+    &:hover, &:focus {
+      color: $sidebar-link-hover-color;
 
-    &:focus {
-      color: $sidebar-link-color;
+      code, code em {
+        color: $sidebar-link-hover-color;
+      }
     }
   }
 
