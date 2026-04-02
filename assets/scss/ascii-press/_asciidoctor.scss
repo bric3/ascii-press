@@ -14,16 +14,19 @@ $table-header-footer-bg-color: #f7f8f7 !default;
 $admonition-default-border-color: #ddddd8 !default;
 $admonition-cite-default-color: rgba(0, 0, 0, 0.6) !default;
 $admonition-icon-shadow-color: rgba(0, 0, 0, 0.5) !default;
-$admonition-icon-tip-color: #4b70b4 !default;
+$admonition-icon-note-color: #357DE8 !default;
+$admonition-icon-note-bg-color: #E9F2FE !default;
+$admonition-icon-tip-color: #6A9A23 !default;
+$admonition-icon-tip-bg-color: #DCFFF1 !default;
 $admonition-icon-tip-shadow-color: rgba(155, 155, 0, 0.8) !default;
-$admonition-icon-warning-color: #bf4c00 !default;
-$admonition-icon-caution-color: #bf7900 !default;
-$admonition-icon-important-color: #bf0000 !default;
-$admonition-icon-important-bg-color: #ffc8c8 !default;
+$admonition-icon-warning-color: #E06C00 !default;
+$admonition-icon-caution-color: #C9372C !default;
+$admonition-icon-important-color: #AF59E1 !default;
+$admonition-icon-important-bg-color: #F8EEFE !default;
 $admonition-icon-important-border-color: #ff6767 !default;
-$admonition-icon-warning-bg-color: #f9dcc8 !default;
+$admonition-icon-warning-bg-color: #FEF7C8 !default;
 $admonition-icon-warning-border-color: #f3aa79 !default;
-$admonition-icon-caution-bg-color: #f7e5ce !default;
+$admonition-icon-caution-bg-color: #FFECEB !default;
 $admonition-icon-caution-border-color: #fab55e !default;
 $conum-color: #fff !default;
 $conum-bg-color: rgba(0, 0, 0, 0.8) !default;
@@ -453,7 +456,7 @@ $blockquote-quote-shadow-color: rgba(0, 0, 0, 0.1) !default;
           font-size: 1.1rem;
           // gradient covers left-padding + FA glyph (~1em) + small separator
           background: linear-gradient(90deg, rgba(0, 0, 0, .2) 0, rgba(0, 0, 0, .2)) no-repeat 0 / 1.8em 100%;
-          background-color: $admonition-icon-tip-color; // default (note/tip)
+          background-color: $admonition-icon-note-color; // default (note)
           border-radius: .5em;
           color: #fff;
           line-height: 1;
@@ -514,12 +517,12 @@ $blockquote-quote-shadow-color: rgba(0, 0, 0, 0.1) !default;
       }
 
       .icon-note::before {
-        content: "\f05a"; // equivalent to <i class="fas fa-info-circle"></i>
+        content: "\f044"; // equivalent to <i class="fa-solid fa-pen-to-square"></i>
       }
 
       .icon-tip::before {
-        font-weight: 400; // regular style/weight
-        content: "\f0eb"; // equivalent to <i class="far fa-lightbulb"></i>
+        // font-weight: 400; // regular style/weight
+        content: "\f0eb"; // equivalent to <i class="fa-solid fa-lightbulb"></i>
       }
 
       .icon-warning::before {
@@ -532,7 +535,7 @@ $blockquote-quote-shadow-color: rgba(0, 0, 0, 0.1) !default;
       }
 
       .icon-important::before {
-        content: "\f06a"; // equivalent to <i class="fas fa-exclamation-circle"></i>
+        content: "\f06a"; // equivalent to <i class="fa-regular fa-circle-exclamation"></i>
       }
     }
 
@@ -549,6 +552,11 @@ $blockquote-quote-shadow-color: rgba(0, 0, 0, 0.1) !default;
     &.caution > table {
       td.icon { background-color: $admonition-icon-caution-color; }
       td.content { background-color: $admonition-icon-caution-bg-color; }
+    }
+
+    &.tip > table {
+      td.icon    { background-color: $admonition-icon-tip-color; }
+      td.content { background-color: $admonition-icon-tip-bg-color; }
     }
   }
 

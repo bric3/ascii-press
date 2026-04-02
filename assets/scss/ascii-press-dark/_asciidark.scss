@@ -22,10 +22,16 @@ $dark-title-link-color: rgb(231, 205, 160) !default;
 $dark-horizontal-bar-color: rgb(77, 68, 54) !default;
 $dark-attribution-color: rgba(255, 255, 216, 0.6) !default;
 $dark-default-border-color: rgb(81, 73, 56) !default;
-$dark-admonition-default-bg-color: rgb(40, 35, 27) !default;
-$dark-admonition-important-bg-color: rgb(72, 0, 0) !default;
-$dark-admonition-warning-bg-color: rgb(76, 31, 0) !default;
-$dark-admonition-caution-bg-color: rgba(49, 28, 0, 0.95) !default;
+$dark-admonition-note-bg-color: #1c2b42 !default;
+$dark-admonition-tip-bg-color: #1c3329 !default;
+$dark-admonition-important-bg-color: #35243f !default;
+$dark-admonition-warning-bg-color: #332e1b !default;
+$dark-admonition-caution-bg-color: #42221f !default;
+$dark-admonition-note-icon-color: #10489d !default;
+$dark-admonition-tip-icon-color: #68912b !default;
+$dark-admonition-important-icon-color: #5e0b8d !default;
+$dark-admonition-warning-icon-color: #866602 !default;
+$dark-admonition-caution-icon-color: #98160c !default;
 $dark-conum-color: rgb(32, 30, 25) !default;
 $dark-conum-bg-color: rgb(197, 153, 83) !default;
 $dark-exampleblock-bg-color: rgb(60, 53, 39) !default;
@@ -222,21 +228,33 @@ $dark-pre-border-color: rgb(88, 78, 61) !default;
 
   .admonitionblock {
     > table {
+      td.icon {
+        color: #d8d4cf;
+        background-color: $dark-admonition-note-icon-color;
+      }
       td.content {
         color: $dark-body-color;
-        background: $dark-admonition-default-bg-color;
+        background: $dark-admonition-note-bg-color;
       }
     }
 
+    &.tip > table {
+      td.icon    { background-color: $dark-admonition-tip-icon-color; }
+      td.content { background-color: $dark-admonition-tip-bg-color; }
+    }
+
     &.important > table {
+      td.icon    { background-color: $dark-admonition-important-icon-color; }
       td.content { background-color: $dark-admonition-important-bg-color; }
     }
 
     &.warning > table {
+      td.icon    { background-color: $dark-admonition-warning-icon-color; }
       td.content { background-color: $dark-admonition-warning-bg-color; }
     }
 
     &.caution > table {
+      td.icon    { background-color: $dark-admonition-caution-icon-color; }
       td.content { background-color: $dark-admonition-caution-bg-color; }
     }
   }
