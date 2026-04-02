@@ -429,6 +429,7 @@ $blockquote-quote-shadow-color: rgba(0, 0, 0, 0.1) !default;
       border: 0;
       background: $background-color;
       width: 100%;
+      table-layout: fixed;
 
       // hyde-hyde fix : remove nth-child(2n+1)
       tbody tr td,
