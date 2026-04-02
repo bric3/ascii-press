@@ -3,6 +3,7 @@
 // These are runtime CSS variables (not SCSS variables). 
 // These properties override the var() fallbacks at runtime.
 :root {
+  color-scheme: dark;
   --code-inline-color: #{$dark-pre-color};
   --code-inline-bg: #{$dark-not-pre-code-bg-color};
 }
