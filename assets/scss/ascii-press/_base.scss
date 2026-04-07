@@ -318,6 +318,12 @@ mark {
   }
 }
 
+.bluesky-shortcode {
+  display: block;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-inline: auto;
+}
 
 // landing _more_ button
 .landing-more {
@@ -442,4 +448,3 @@ ul.posts {
     display: inline-block;
   }
 }
-

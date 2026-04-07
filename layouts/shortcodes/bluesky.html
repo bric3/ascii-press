@@ -1,0 +1,12 @@
+{{- $link := or (.Get "link") (.Get 0) -}}
+{{- $maxwidth := or (.Get "maxwidth") "400" -}}
+{{- $query := querify "url" $link "maxwidth" $maxwidth -}}
+{{- $request := printf "https://embed.bsky.app/oembed?%s" $query -}}
+
+{{- $jsonOembed := resources.GetRemote $request -}}
+{{- $jsonOembed = $jsonOembed | transform.Unmarshal -}}
+{{- $jsonOHTML := $jsonOembed.html -}}
+{{/* Bluesky's embed.js can render wider than the oEmbed maxwidth, so constrain and center the wrapper too. */}}
+<div class="bluesky-shortcode" style="width: 100%; max-width: {{ $maxwidth }}px;">
+  {{- $jsonOHTML | safeHTML -}}
+</div>
