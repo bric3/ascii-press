@@ -325,6 +325,13 @@ mark {
   margin-inline: auto;
 }
 
+.mastodon-shortcode {
+  display: block;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-inline: auto;
+}
+
 // landing _more_ button
 .landing-more {
   margin-left: 85%;

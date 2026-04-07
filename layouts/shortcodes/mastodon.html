@@ -1,0 +1,15 @@
+{{- $link := or (.Get "link") (.Get 0) -}}
+{{- $maxwidth := or (.Get "maxwidth") "400" -}}
+{{/* Elk URLs are client-side aliases; normalize them back to the canonical instance URL for oEmbed. */}}
+{{- $normalizedLink := replaceRE "^https?://(?:main\\.)?elk\\.zone/([^/]+)/(.*)$" "https://$1/$2" $link -}}
+{{- $instance := replaceRE "^https?://([^/]+)/.*$" "$1" $normalizedLink -}}
+{{- $query := querify "url" $normalizedLink "maxwidth" $maxwidth -}}
+{{- $request := printf "https://%s/api/oembed?%s" $instance $query -}}
+
+{{- $jsonOembed := resources.GetRemote $request -}}
+{{- $jsonOembed = $jsonOembed | transform.Unmarshal -}}
+{{- $jsonOHTML := $jsonOembed.html -}}
+{{/* Mastodon instances return iframe+embed.js; constrain the wrapper so the rendered embed stays centered. */}}
+<div class="mastodon-shortcode" style="width: 100%; max-width: {{ $maxwidth }}px;">
+  {{- $jsonOHTML | safeHTML -}}
+</div>
